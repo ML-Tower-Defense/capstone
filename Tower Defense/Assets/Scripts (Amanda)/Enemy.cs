@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 3;             //Movement Speed
-    private Transform waypointTarget;   //Next waypoint target for enemy to move to
-    private int wavepointIndex = 0;     //Which waypoint we last visited
-    private int health = 100;           //health of enemy
-    private int damage = 10;            //Damage dealt by this enemy
-    private int rateFire = 1;           //How fast this enemy attacks
-    public float range = 3f;            //Range enemy can attack
-    public Transform target;            //Target tower to attack (looks for closest one within range)
-    public string towerTag = "Tower";   //tag to add to towers
+    public float speed = 3;             // Movement Speed
+    private Transform waypointTarget;   // Next waypoint target for enemy to move to
+    private int wavepointIndex = 0;     // Which waypoint we last visited
+    private int health = 100;           // health of enemy
+    private int damage = 10;            // Damage dealt by this enemy
+    private int rateFire = 1;           // How fast this enemy attacks
+    public float range = 3f;            // Range enemy can attack
+    public Transform target;            // Target tower to attack (looks for closest one within range)
+    public string towerTag = "Tower";   // tag to add to towers
 
 
     // Start is called before the first frame update
     void Start()
     {
-        waypointTarget = Waypoints.points[0];       //Sets initial wavepoint to the very first one to begin enemy movement
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);  //Repeatedly checking for towers within range every .5 seconds
+        waypointTarget = Waypoints.points[0];       // Sets initial wavepoint to the very first one to begin enemy movement
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);  // Repeatedly checking for towers within range every .5 seconds
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Movement
+        // Movement
         Vector2 dir = waypointTarget.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
@@ -33,14 +33,14 @@ public class Enemy : MonoBehaviour
             GetNextWaypoint();
         }
 
-        //Attacking
+        // Attacking
         if (target == null)
             return;
-       
+
     }
 
-    //Finds all the towers with the tower tag and finds the closest one to the enemy
-    //within the range
+    // Finds all the towers with the tower tag and finds the closest one to the enemy
+    // within the range
     void UpdateTarget()
     {
         GameObject[] towers = GameObject.FindGameObjectsWithTag(towerTag);
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
                     nearestTower = tower;
 
                 }
-            } 
+            }
         }
         if (nearestTower != null && shortestDistance <= range)
         {
@@ -65,8 +65,8 @@ public class Enemy : MonoBehaviour
             target = null;
     }
 
-    //Finds next waypoint to move to
-    //Or, enemy has reached end and is destroyed
+    // Finds next waypoint to move to
+    // Or, enemy has reached end and is destroyed
     void GetNextWaypoint()
     {
         if (wavepointIndex >= Waypoints.points.Length - 1){
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         waypointTarget = Waypoints.points[wavepointIndex];
     }
 
-    //Draws range -> not visible when playing game 
+    // Draws range -> not visible when playing game
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
