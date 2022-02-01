@@ -1370,11 +1370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemyTag: enemy
-    count: 10
+    count: 25
     spawnRate: 5
-  - enemyTag: 
-    count: 0
-    spawnRate: 0
   spawnPoints:
   - {fileID: 1440614951}
   enemiesRemaining: 0
