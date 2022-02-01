@@ -6,19 +6,22 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 3;             // Movement Speed
     private Transform waypointTarget;   // Next waypoint target for enemy to move to
-    private int wavepointIndex = 0;     // Which waypoint we last visited
+    private int waypointIndex = 0;     // Which waypoint we last visited
     private int health = 100;           // health of enemy
     private int damage = 10;            // Damage dealt by this enemy
-    private int rateFire = 1;           // How fast this enemy attacks
+    public float rateFire = 1f;           // How fast this enemy attacks
+    private float fireCountdown = 0f;
     public float range = 3f;            // Range enemy can attack
     public Transform target;            // Target tower to attack (looks for closest one within range)
     public string towerTag = "Tower";   // tag to add to towers
+    public GameObject bulletPrefab;
+    public Transform firePoint;         //where bullet spawns in
 
 
     // Start is called before the first frame update
     void Start()
     {
-        waypointTarget = Waypoints.points[0];       // Sets initial wavepoint to the very first one to begin enemy movement
+        waypointTarget = Waypoints.points[0];       // Sets initial waypoint to the very first one to begin enemy movement
         InvokeRepeating("UpdateTarget", 0f, 0.5f);  // Repeatedly checking for towers within range every .5 seconds
     }
 
@@ -33,10 +36,26 @@ public class Enemy : MonoBehaviour
             GetNextWaypoint();
         }
 
-        // Attacking
         if (target == null)
             return;
+        if (fireCountdown <= 0f)
+        {
+            Attack();
+            fireCountdown = 1f / rateFire;
+        }
+        fireCountdown -= Time.deltaTime;
+    }
 
+    void Attack()
+    {
+        // This is where the attacking occurs
+        Debug.Log("We are attacking");
+        //Bullets won't even show up
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+//        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+      // Bullet bullet = bulletGo.GetComponent<Bullet>();
+    //    if (bullet != null)
+        //    bullet.Seek(target);
     }
 
     // Finds all the towers with the tower tag and finds the closest one to the enemy
@@ -53,7 +72,6 @@ public class Enemy : MonoBehaviour
                 {
                     shortestDistance = distanceToTower;
                     nearestTower = tower;
-
                 }
             }
         }
@@ -69,12 +87,12 @@ public class Enemy : MonoBehaviour
     // Or, enemy has reached end and is destroyed
     void GetNextWaypoint()
     {
-        if (wavepointIndex >= Waypoints.points.Length - 1){
+        if (waypointIndex >= Waypoints.points.Length - 1){
             Destroy(gameObject);
             return;
         }
-        wavepointIndex++;
-        waypointTarget = Waypoints.points[wavepointIndex];
+        waypointIndex++;
+        waypointTarget = Waypoints.points[waypointIndex];
     }
 
     // Draws range -> not visible when playing game
