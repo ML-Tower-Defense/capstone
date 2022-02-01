@@ -5,16 +5,16 @@ using UnityEngine;
 [System.Serializable]
 public class ObjectPool
 {
-    public string tag;
-    public GameObject prefab;
-    public int size;
+    public string objectTag;        // Sets the tag that corresponds with the object (ex: "enemy")
+    public GameObject prefab;       // Sets the game object that the pool will handle
+    public int size;                // Sets the size of the pool
 }
 
 public class ObjectPooler : MonoBehaviour
 {
-    public List<ObjectPool> objectPools;
-    public Dictionary<string, List<GameObject>> objectPoolDictionary;
     public static ObjectPooler SharedInstance;
+    public List<ObjectPool> objectPools;        
+    public Dictionary<string, List<GameObject>> objectPoolDictionary;
 
     void Awake()
     {
@@ -26,6 +26,18 @@ public class ObjectPooler : MonoBehaviour
     {
         objectPoolDictionary = new Dictionary<string, List<GameObject>>();
 
+        InstantiatePooledObjects();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    // Preinstantiates game objects before runtime for every object pool that was set
+    public void InstantiatePooledObjects()
+    {
         foreach (ObjectPool objectPool in objectPools)
         {
             List<GameObject> newObjectPool = new List<GameObject>();
@@ -37,19 +49,15 @@ public class ObjectPooler : MonoBehaviour
                 newObjectPool.Add(obj);
             }
 
-            objectPoolDictionary.Add(objectPool.tag, newObjectPool);
+            objectPoolDictionary.Add(objectPool.objectTag, newObjectPool);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Selects an object pool based on the object tag that was passed in and returns an object from
+    // the pool that is currently not being used
+    public GameObject GetPooledObject(string objectTag)
     {
-        
-    }
-
-    public GameObject GetPooledObject(string tag)
-    {
-        List<GameObject> pooledObjects = objectPoolDictionary[tag];
+        List<GameObject> pooledObjects = objectPoolDictionary[objectTag];
 
         for (int i = 0; i < pooledObjects.Count; i++)
         {
