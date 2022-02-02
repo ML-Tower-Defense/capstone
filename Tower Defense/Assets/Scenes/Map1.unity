@@ -5851,7 +5851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4760526713670315953, guid: fc64555ebb2c2704fb058cc14327a9ee, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4760526713670315953, guid: fc64555ebb2c2704fb058cc14327a9ee, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5939,6 +5939,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6061715003150770136, guid: bad5527022f2def47993abe27e200488, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6061715003150770137, guid: bad5527022f2def47993abe27e200488, type: 3}
       propertyPath: m_RootOrder
       value: 5
