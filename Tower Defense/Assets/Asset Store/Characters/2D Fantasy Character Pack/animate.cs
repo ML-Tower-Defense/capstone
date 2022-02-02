@@ -17,11 +17,11 @@ public class animate : MonoBehaviour {
         moveSpeed = 0.8f;
         animations = new string[] { "attack", "jump","shoot","dying","run","attack2" };
     }
-	
+
 	// Update is called once per frame
 	void Update () {
         time += Time.deltaTime;
-       
+
         if (time < 43)
         {
             walk();
@@ -35,7 +35,7 @@ public class animate : MonoBehaviour {
                 time = 50;
             }
         }
-        
+
 
     }
     public void StartAnimation()
@@ -52,7 +52,7 @@ public class animate : MonoBehaviour {
         else if (direction.x < transform.position.x) // To the left
         {
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-            
+
         }
     }
     void walk()
@@ -60,13 +60,13 @@ public class animate : MonoBehaviour {
         animator.Play("walk");
         Vector3 startPosition = initialPosition;
         Vector3 endPosition = waypoint.transform.GetChild(0).transform.position;
-        // 2 
+        // 2
         float pathLength = Vector3.Distance(startPosition, endPosition);
         float totalTimeForPath = pathLength / moveSpeed;
         //float currentTimeOnPath = Time.time - lastWaypointSwitchTime;
         currentTimeOnPath += 1 * Time.deltaTime;
         gameObject.transform.position = Vector3.Lerp(startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
-        // 3 
+        // 3
         if (gameObject.transform.position.Equals(endPosition))
         {
             initialPosition = transform.position;
