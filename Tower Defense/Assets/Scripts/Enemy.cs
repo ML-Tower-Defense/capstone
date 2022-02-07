@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
     void GetNextWaypoint()
     {
         if (waypointIndex >= Waypoints.points.Length - 1){
-            gameObject.SetActive(false);
+            DeactivateEnemy();
             return;
         }
         waypointIndex++;
@@ -103,5 +103,16 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    // Returns the enemy to the object pool and resets the enemy's properties so that it can be
+    // reused later
+    // Use this function instead of Destroy() to deactivate an enemy object in the scene
+    void DeactivateEnemy()
+    {
+        gameObject.SetActive(false);
+        health = 100;
+        waypointIndex = 0;
+        waypointTarget = Waypoints.points[0];
     }
 }
