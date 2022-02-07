@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawn : MonoBehaviour
+[System.Serializable]
+public class Wave
+{
+    // TODO: Add a data structure so that a wave can include different types of enemies
+    // Maybe a Dictionary with enemyTag and count as key and value
+
+    public string enemyTag;                     // Sets the type of enemy that will spawn
+    public int count;                           // Sets the amount of enemies in a wave
+    public float spawnRate;                     // Sets the wave's spawn rate
+}
+
+public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;                        // Contains all of the waves
-    public GameObject[] spawnPoints;             // Contains all of the spawn point positions
+    public Transform[] spawnPoints;             // Contains all of the spawn point positions
     public int enemiesRemaining = 0;            // Tracks how many enemies are left in the wave
     public float timeBetweenWaves = 5.0f;       // Determines how much time is in between waves
     public float countdown = 2.0f;              // Determines how much time until a wave starts
@@ -14,7 +25,7 @@ public class EnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -63,14 +74,14 @@ public class EnemySpawn : MonoBehaviour
 
     // Retrieves an enemy object from the corresponding object pool, positions it at the spawn
     // points, and sets it as active in the scene hierarchy
-    void SpawnEnemy(string enemyTag, GameObject spawnPoint)
+    void SpawnEnemy(string enemyTag, Transform spawnPoint)
     {
         GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject(enemyTag);
 
         if (enemy != null)
         {
-            enemy.transform.position = spawnPoint.transform.position;
-            enemy.transform.rotation = spawnPoint.transform.rotation;
+            enemy.transform.position = spawnPoint.position;
+            enemy.transform.rotation = spawnPoint.rotation;
             enemy.SetActive(true);
         }
     }

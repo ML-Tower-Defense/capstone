@@ -46,16 +46,19 @@ public class Enemy : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
+    // TODO: Modify Attack so that the enemy will attack the gate instead of firing bullets at towers
     void Attack()
     {
+        /*
         // This is where the attacking occurs
+        // Bullets won't even show up
         Debug.Log("We are attacking");
-        //Bullets won't even show up
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-//        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-      // Bullet bullet = bulletGo.GetComponent<Bullet>();
-    //    if (bullet != null)
-        //    bullet.Seek(target);
+        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGo.GetComponent<Bullet>();
+        if (bullet != null)
+            bullet.Seek(target);
+        */
     }
 
     // Finds all the towers with the tower tag and finds the closest one to the enemy
@@ -88,7 +91,7 @@ public class Enemy : MonoBehaviour
     void GetNextWaypoint()
     {
         if (waypointIndex >= Waypoints.points.Length - 1){
-            Destroy(gameObject);
+            DeactivateEnemy();
             return;
         }
         waypointIndex++;
@@ -100,5 +103,16 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    // Returns the enemy to the object pool and resets the enemy's properties so that it can be
+    // reused later
+    // Use this function instead of Destroy() to deactivate an enemy object in the scene
+    void DeactivateEnemy()
+    {
+        gameObject.SetActive(false);
+        health = 100;
+        waypointIndex = 0;
+        waypointTarget = Waypoints.points[0];
     }
 }
