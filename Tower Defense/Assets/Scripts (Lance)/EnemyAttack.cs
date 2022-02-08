@@ -5,17 +5,30 @@ using UnityEngine.UI;
 
 public class EnemyAttack : EnemyMovement
 {
-    public GameObject gate;
+    public static GameObject gate;
     public HealthBar healthBar;
-    public int gateHP;
+    //public int gateHP;
 
     bool reachedGate = false;
     bool startedAttacking = false;
 
+    private void Awake()
+    {
+        //reachedGate = false;
+        //startedAttacking = false;
+        //nextWaypoint = 0;
+    }
+
+    private void Start()
+    {
+        //reachedGate = false;
+        //startedAttacking = false;
+        //nextWaypoint = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // Input.GetKeyDown(KeyCode.Space)
         print("Waypoint: " + nextWaypoint + "/" + waypointsArray.Length);
         if (nextWaypoint == waypointsArray.Length)
             reachedGate = true;

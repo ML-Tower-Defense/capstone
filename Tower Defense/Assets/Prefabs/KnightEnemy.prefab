@@ -199,17 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fa6a829754b72459ebefe92a44c387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointsArray:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypointsArray: []
   movementSpeed: 5
 --- !u!114 &8006568478708465455
 MonoBehaviour:
@@ -223,17 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec77574d972758d49b96238b6942f40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointsArray:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypointsArray: []
   movementSpeed: 3
   gate: {fileID: 0}
   healthBar: {fileID: 0}

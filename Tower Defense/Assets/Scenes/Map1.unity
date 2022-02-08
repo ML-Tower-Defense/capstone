@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &87809571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   objectPools:
   - objectTag: enemy
     prefab: {fileID: 2072643892}
-    size: 25
+    size: 1
 --- !u!4 &87809573
 Transform:
   m_ObjectHideFlags: 0
@@ -6045,6 +6045,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8006568478708465452, guid: 29570347ea3623c449c926394fb576fa, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006568478708465452, guid: 29570347ea3623c449c926394fb576fa, type: 3}
+      propertyPath: waypointsArray.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006568478708465452, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: waypointsArray.Array.data[0]
       value: 
       objectReference: {fileID: 8589634767308507735}
@@ -6088,6 +6096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnightEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8006568478708465454, guid: 29570347ea3623c449c926394fb576fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8006568478708465455, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: gate
       value: 
@@ -6096,6 +6108,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2090697365}
+    - target: {fileID: 8006568478708465455, guid: 29570347ea3623c449c926394fb576fa, type: 3}
+      propertyPath: waypointsArray.Array.size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8006568478708465455, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: waypointsArray.Array.data[0]
       value: 
@@ -6205,6 +6221,10 @@ PrefabInstance:
     - target: {fileID: 3223418207921029079, guid: 71c586bb8b35eb244b07a00efdae28ed, type: 3}
       propertyPath: m_Name
       value: Waypoint 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223418207921029079, guid: 71c586bb8b35eb244b07a00efdae28ed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4695251912266064923, guid: 71c586bb8b35eb244b07a00efdae28ed, type: 3}
       propertyPath: m_RootOrder

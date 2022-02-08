@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public GameObject[] waypointsArray;    // Array of waypoints along path
-    public static int nextWaypoint;        // Index of next waypoint
+    public int nextWaypoint;               // Index of next waypoint
 
     public float movementSpeed = 3f;       // Enemy's movement speed
 
-    public static Animator animator;       // Enemy's animation controller
+    public Animator animator;       // Enemy's animation controller
                                            // Knight animations:
                                            // "idle", "walk", "run", "battlecry", "jump",
                                            // "attack", "attack2", "attack3", "attack4", "shield",
@@ -20,12 +20,19 @@ public class EnemyMovement : MonoBehaviour
     bool crying = false;    // ;(
     float cryTimer;         // Cry duration
 
+    private void Awake()
+    {
+        //nextWaypoint = 0;
+    }
+
     // Set reference to animation controller
     private void Start()
     {
+        //nextWaypoint = 0;
         animator = GetComponent<Animator>();
         animator.Play("walk");
     }
+
     // Update is called once per frame
     void Update()
     {
