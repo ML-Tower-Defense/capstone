@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moneyManager : MonoBehaviour
+public class MoneyManager : MonoBehaviour
 {
     public int minValue;
     public int value;
