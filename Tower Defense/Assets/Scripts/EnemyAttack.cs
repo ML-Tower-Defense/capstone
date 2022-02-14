@@ -24,7 +24,7 @@ public class EnemyAttack : EnemyMovement
                 nextWaypoint++;
         }
 
-        print("Waypoint: " + nextWaypoint + "/" + waypointsArray.Length);
+        // print("Waypoint: " + nextWaypoint + "/" + waypointsArray.Length);
 
         if (nextWaypoint == waypointsArray.Length)
             reachedGate = true;

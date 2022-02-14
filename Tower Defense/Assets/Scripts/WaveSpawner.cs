@@ -17,7 +17,8 @@ public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;                        // Contains all of the waves
     public Transform[] spawnPoints;             // Contains all of the spawn point positions
-    public int enemiesRemaining = 0;            // Tracks how many enemies are left in the wave
+    public GameManager gameManager;
+    public static int enemiesRemaining = 0;     // Tracks how many enemies are left in the wave
     public float timeBetweenWaves = 5.0f;       // Determines how much time is in between waves
     public float countdown = 2.0f;              // Determines how much time until a wave starts
     private int waveIndex = 0;                  // Tracks the current wave that the player is on
@@ -31,20 +32,25 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO: Check if the waveIndex is the same as the length of the waves array
-        // This indiciates that the player has completed all waves (the player has beat the map?)
-        // Also need to connect the WaveSpawner to a higher level GameManager script
-
+        // Ignore cases if there are still enemies
         if (enemiesRemaining > 0)
         {
             return;
         }
+        // Direct player to Victory if all waves are completed
+        else if (waveIndex == waves.Length)
+        {
+            gameManager.Victory();
+            this.enabled = false;
+        }
+        // Spawn waves if cooldown has hit 0 seconds
         else if (countdown <= 0.0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
             return;
         }
+        // Otherwise, decrement cooldown
         else
         {
             countdown -= Time.deltaTime;
@@ -63,7 +69,10 @@ public class WaveSpawner : MonoBehaviour
         {
             for (int j = 0; j < spawnPoints.Length; j++)
             {
-                SpawnEnemy(wave.enemyTag, spawnPoints[j]);
+                if (GateManager.gateCurrentHP > 0)
+                {
+                    SpawnEnemy(wave.enemyTag, spawnPoints[j]);
+                }
             }
 
             yield return new WaitForSeconds(wave.spawnRate);
@@ -78,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
     {
         GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject(enemyTag);
 
-        if (enemy != null && GateManager.gateCurrentHP > 0)
+        if (enemy != null)
         {
             enemy.transform.position = spawnPoint.position;
             enemy.transform.rotation = spawnPoint.rotation;
