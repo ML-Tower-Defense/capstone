@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class EnemyAttack : EnemyMovement
 {
     public GameObject gate;
-    public HealthBar healthBar;
-    public int gateHP;
 
     bool reachedGate = false;
     bool startedAttacking = false;
@@ -15,14 +13,25 @@ public class EnemyAttack : EnemyMovement
     // Update is called once per frame
     void Update()
     {
-        // Input.GetKeyDown(KeyCode.Space)
+        Vector2 currentLocation = transform.position;
+        Vector2 nextWPLocation;
+
+        if (nextWaypoint != waypointsArray.Length)
+        {
+            nextWPLocation = waypointsArray[nextWaypoint].transform.position;
+
+            if (Vector2.Distance(currentLocation, nextWPLocation) < 0.1f)
+                nextWaypoint++;
+        }
+
         print("Waypoint: " + nextWaypoint + "/" + waypointsArray.Length);
+
         if (nextWaypoint == waypointsArray.Length)
             reachedGate = true;
 
         if (reachedGate && !startedAttacking)
         {
-            StartCoroutine(damageGate(100));
+            StartCoroutine(damageGate(25));
             startedAttacking = true;
         }
 

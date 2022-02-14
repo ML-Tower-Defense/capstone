@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public HealthBar healthBar;
     public GameObject[] waypointsArray;    // Array of waypoints along path
-    public static int nextWaypoint;        // Index of next waypoint
+    public int nextWaypoint;               // Index of next waypoint
 
-    public float movementSpeed = 3f;       // Enemy's movement speed
+    public float movementSpeed = 5f;       // Enemy's movement speed
 
-    public static Animator animator;       // Enemy's animation controller
+    public Animator animator;       // Enemy's animation controller
                                            // Knight animations:
                                            // "idle", "walk", "run", "battlecry", "jump",
                                            // "attack", "attack2", "attack3", "attack4", "shield",
@@ -20,12 +21,14 @@ public class EnemyMovement : MonoBehaviour
     bool crying = false;    // ;(
     float cryTimer;         // Cry duration
 
-    // Set reference to animation controller
+    bool gateDestroyed = false;
+
+    // Let enemy walk at first
     private void Start()
     {
-        animator = GetComponent<Animator>();
         animator.Play("walk");
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,8 +55,14 @@ public class EnemyMovement : MonoBehaviour
             if (Vector2.Distance(currentLocation, nextWPLocation) < 0.1f)
                 nextWaypoint++;
 
+            // If gate is destroyed, enemy doesn't move and repeats battlecry
+            if (healthBar.getHealth() <= 0)
+            {
+                gateDestroyed = true;
+            }
+
             // Once enemy reaches second waypoint, do a battlecry and start running
-            if (nextWaypoint >= 2 && nextWaypoint != waypointsArray.Length)
+            if (nextWaypoint >= 2 && nextWaypoint != waypointsArray.Length && !gateDestroyed)
             {
                 if (cryTimer < 1.5)
                 {
@@ -78,7 +87,7 @@ public class EnemyMovement : MonoBehaviour
                 animator.Play(attackAnims[0]);
 
             // Move enemy towards the next waypoint
-            if (!crying && nextWaypoint != waypointsArray.Length)
+            if (!crying && !gateDestroyed && nextWaypoint != waypointsArray.Length)
                 transform.position = Vector2.MoveTowards(currentLocation, nextWPLocation, movementSpeed * Time.deltaTime);
         }
     }
