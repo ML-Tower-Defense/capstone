@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public HealthBar healthBar;
     public GameObject[] waypointsArray;    // Array of waypoints along path
     public int nextWaypoint;               // Index of next waypoint
 
-    public float movementSpeed = 3f;       // Enemy's movement speed
+    public float movementSpeed = 5f;       // Enemy's movement speed
 
     public Animator animator;       // Enemy's animation controller
                                            // Knight animations:
@@ -20,16 +21,11 @@ public class EnemyMovement : MonoBehaviour
     bool crying = false;    // ;(
     float cryTimer;         // Cry duration
 
-    private void Awake()
-    {
-        //nextWaypoint = 0;
-    }
+    bool gateDestroyed = false;
 
-    // Set reference to animation controller
+    // Let enemy walk at first
     private void Start()
     {
-        //nextWaypoint = 0;
-        animator = GetComponent<Animator>();
         animator.Play("walk");
     }
 
@@ -59,8 +55,14 @@ public class EnemyMovement : MonoBehaviour
             if (Vector2.Distance(currentLocation, nextWPLocation) < 0.1f)
                 nextWaypoint++;
 
+            // If gate is destroyed, enemy doesn't move and repeats battlecry
+            if (healthBar.getHealth() <= 0)
+            {
+                gateDestroyed = true;
+            }
+
             // Once enemy reaches second waypoint, do a battlecry and start running
-            if (nextWaypoint >= 2 && nextWaypoint != waypointsArray.Length)
+            if (nextWaypoint >= 2 && nextWaypoint != waypointsArray.Length && !gateDestroyed)
             {
                 if (cryTimer < 1.5)
                 {
@@ -85,7 +87,7 @@ public class EnemyMovement : MonoBehaviour
                 animator.Play(attackAnims[0]);
 
             // Move enemy towards the next waypoint
-            if (!crying && nextWaypoint != waypointsArray.Length)
+            if (!crying && !gateDestroyed && nextWaypoint != waypointsArray.Length)
                 transform.position = Vector2.MoveTowards(currentLocation, nextWPLocation, movementSpeed * Time.deltaTime);
         }
     }

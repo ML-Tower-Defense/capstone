@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48104a8ef2cc11e47b3e1a084a21ebaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 2090697365}
   waves:
   - enemyTag: enemy
     count: 25
@@ -182,7 +183,7 @@ MonoBehaviour:
   objectPools:
   - objectTag: enemy
     prefab: {fileID: 2072643892}
-    size: 1
+    size: 25
 --- !u!4 &87809573
 Transform:
   m_ObjectHideFlags: 0
@@ -5362,6 +5363,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8006568478708465454, guid: 29570347ea3623c449c926394fb576fa, type: 3}
   m_PrefabInstance: {fileID: 8006568477727651354}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2072643895 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8006568478708465453, guid: 29570347ea3623c449c926394fb576fa, type: 3}
+  m_PrefabInstance: {fileID: 8006568477727651354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2090697365 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4760526713670315959, guid: fc64555ebb2c2704fb058cc14327a9ee, type: 3}
@@ -6047,7 +6053,11 @@ PrefabInstance:
     - target: {fileID: 8006568478708465452, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2072643895}
+    - target: {fileID: 8006568478708465452, guid: 29570347ea3623c449c926394fb576fa, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 2090697365}
     - target: {fileID: 8006568478708465452, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: waypointsArray.Array.size
       value: 10
@@ -6104,6 +6114,10 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 856094574}
+    - target: {fileID: 8006568478708465455, guid: 29570347ea3623c449c926394fb576fa, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2072643895}
     - target: {fileID: 8006568478708465455, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: healthBar
       value: 
