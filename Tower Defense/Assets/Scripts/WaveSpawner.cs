@@ -15,7 +15,6 @@ public class Wave
 
 public class WaveSpawner : MonoBehaviour
 {
-    public HealthBar healthBar;                 // The gate's healthbar
     public Wave[] waves;                        // Contains all of the waves
     public Transform[] spawnPoints;             // Contains all of the spawn point positions
     public int enemiesRemaining = 0;            // Tracks how many enemies are left in the wave
@@ -79,7 +78,7 @@ public class WaveSpawner : MonoBehaviour
     {
         GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject(enemyTag);
 
-        if (enemy != null && healthBar.getHealth() > 0)
+        if (enemy != null && GateManager.gateCurrentHP > 0)
         {
             enemy.transform.position = spawnPoint.position;
             enemy.transform.rotation = spawnPoint.rotation;

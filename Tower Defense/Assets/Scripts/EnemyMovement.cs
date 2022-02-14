@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public HealthBar healthBar;
     public GameObject[] waypointsArray;    // Array of waypoints along path
     public int nextWaypoint;               // Index of next waypoint
 
@@ -56,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
                 nextWaypoint++;
 
             // If gate is destroyed, enemy doesn't move and repeats battlecry
-            if (healthBar.getHealth() <= 0)
+            if (GateManager.gateCurrentHP <= 0)
             {
                 gateDestroyed = true;
             }

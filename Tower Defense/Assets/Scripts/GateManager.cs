@@ -20,7 +20,7 @@ public class GateManager : MonoBehaviour
         healthBar.setHealth(gateCurrentHP);
     }
     
-    public void damageGate(int damage){
+    public static void damageGate(int damage){
         gateCurrentHP -= damage;
     }
 }
