@@ -5,13 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;                   // health of enemy
+    public int health = 100;                    // Health of enemy
+    public int reward = 25;                     // Amount of gold earned on death
     private EnemyMovement enemyMovement;
+    private MoneyManager moneyManager;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
+        moneyManager = GameObject.Find("Gold_Container").GetComponent<MoneyManager>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
         health -= dmgDealt;
         if (health <= 0)
         {
+            moneyManager.AddGold(reward);
             DeactivateEnemy();
         }
     }
