@@ -115,4 +115,13 @@ public class Enemy : MonoBehaviour
         waypointIndex = 0;
         waypointTarget = Waypoints.points[0];
     }
+
+    public void TakeDamage(int dmgDealt)
+    {
+        health -= dmgDealt;
+        if (health <= 0)
+        {
+            DeactivateEnemy();
+        }
+    }
 }
