@@ -6,7 +6,7 @@ public class GateManager : MonoBehaviour
 {
     public HealthBar healthBar;
     public int gateMaxHP = 1000;
-    public int gateCurrentHP;
+    public static int gateCurrentHP;
 
     void Start(){
         gateCurrentHP = gateMaxHP;
@@ -20,7 +20,7 @@ public class GateManager : MonoBehaviour
         healthBar.setHealth(gateCurrentHP);
     }
     
-    public void damageGate(int damage){
+    public static void damageGate(int damage){
         gateCurrentHP -= damage;
     }
 }

@@ -24,7 +24,7 @@ public class EnemyAttack : EnemyMovement
                 nextWaypoint++;
         }
 
-        print("Waypoint: " + nextWaypoint + "/" + waypointsArray.Length);
+        // print("Waypoint: " + nextWaypoint + "/" + waypointsArray.Length);
 
         if (nextWaypoint == waypointsArray.Length)
             reachedGate = true;
@@ -35,7 +35,7 @@ public class EnemyAttack : EnemyMovement
             startedAttacking = true;
         }
 
-        if (healthBar.getHealth() <= 0)
+        if (GateManager.gateCurrentHP <= 0)
         {
             Destroy(gate);
             animator.Play("battlecry");
@@ -46,7 +46,7 @@ public class EnemyAttack : EnemyMovement
     {
         yield return new WaitForSecondsRealtime(0.5f);
 
-        healthBar.decreaseHealth(damage);
+        GateManager.damageGate(damage);
 
         yield return new WaitForSecondsRealtime(0.4f);
 
