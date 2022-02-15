@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    public Color hoverColor;
-
-    private Color startColor;
-    private Renderer rend;
     
-    void Start()
+    /*void Start()
     {
-        rend = GetComponent<Renderer>();
-        startColor = rend.material.color;
-    }
-
-    void OnMouseEnter()
-    {
-        rend.material.color = hoverColor;
-        Debug.Log("we are seeing the mouse");
 
     }
 
-    void OnMouseExit()
+    void Update()
     {
-        rend.material.color = startColor;
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+        }
+    }*/
+
+    void OnMouseDown()
+    {
+        Debug.Log("Clicked on the tile");
     }
 }
