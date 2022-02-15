@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private Transform target;
-    private Enemy targetEnemy;
+    private EnemyHealth targetEnemy;
 
     public float range = 3f;
 
@@ -39,7 +39,7 @@ public class Tower : MonoBehaviour
             if (nearestEnemy != null && shortestDistance <= range)
             {
                 target = nearestEnemy.transform;
-                targetEnemy = nearestEnemy.GetComponent<Enemy>();   //Enemy to attack
+                targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   //Enemy to attack
                 targetEnemy.TakeDamage(dmgDealt);
             }
             else
