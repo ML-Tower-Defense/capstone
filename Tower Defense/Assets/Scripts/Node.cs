@@ -32,6 +32,7 @@ public class Node : MonoBehaviour
     {
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
         tower = (GameObject)Instantiate(towerToBuild, transform.position, transform.rotation);
+        tower.AddComponent<Tower>();
 
     }
 }
