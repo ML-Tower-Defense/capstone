@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259e89280b348e7488e7e77b657506eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerPrefab: {fileID: 6457257801921958720, guid: 8d25398c5b159a34d90333f38b999696, type: 3}
+  TowerPrefab: {fileID: 6328278621224667995, guid: dda0cacba1a6de34baba94560db03a1d, type: 3}
 --- !u!1 &500947715
 GameObject:
   m_ObjectHideFlags: 0
