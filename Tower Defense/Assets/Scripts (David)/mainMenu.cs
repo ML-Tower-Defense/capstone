@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
-    public void PlayGame () {
-        SceneManager.LoadScene("Map1");
+    public void floweryMeadow () {
+        SceneManager.LoadScene("FloweryMeadow");
+    }
+
+    public void toonyPlains()
+    {
+        SceneManager.LoadScene("ToonyPlains");
     }
 
     public void closeGame() {
