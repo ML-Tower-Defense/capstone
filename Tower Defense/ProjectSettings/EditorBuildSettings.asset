@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/_MainMenu.unity
+    guid: 5f5b18ee2c4aa064688f653d0e423549
+  - enabled: 1
+    path: Assets/Scenes/FloweryMeadow.unity
+    guid: 55204d72e1059f54a841a42d0e1389fa
+  - enabled: 1
+    path: Assets/Scenes/ToonyPlains.unity
+    guid: 05512a45a14e2e3468a51d23d13b4210
   m_configObjects: {}
