@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool isGameOver = false;
+    public GameObject victoryMenu;
+    public GameObject gameOverMenu;
+    public bool isGameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +31,8 @@ public class GameManager : MonoBehaviour
     // Indicates that the player has won
     public void Victory()
     {
-        // TODO: Display victory screen and redirect to main menu
-
         isGameOver = true;
-        Debug.Log("Victory");
+        victoryMenu.gameObject.SetActive(true);
     }
 
     // Indicates that the player has lost
@@ -40,6 +41,18 @@ public class GameManager : MonoBehaviour
         // TODO: Display game over screen and redirect to main menu
 
         isGameOver = true;
-        Debug.Log("Game Over");
+        gameOverMenu.gameObject.SetActive(true);
+    }
+
+    // Reloads the current scene if the player wants to restart
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Redirects player back to the main menu
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("_MainMenu");
     }
 }
