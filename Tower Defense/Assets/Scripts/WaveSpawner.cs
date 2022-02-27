@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;                        // Contains all of the waves
     public Transform[] spawnPoints;             // Contains all of the spawn point positions
     public GameManager gameManager;
-    public static int enemiesRemaining = 0;     // Tracks how many enemies are left in the wave
+    public int enemiesRemaining = 0;            // Tracks how many enemies are left in the wave
     public float timeBetweenWaves = 5.0f;       // Determines how much time is in between waves
     public float countdown = 2.0f;              // Determines how much time until a wave starts
     private int waveIndex = 0;                  // Tracks the current wave that the player is on
