@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     private Transform waypointTarget;   // Next waypoint target for enemy to move to
     private int waypointIndex = 0;     // Which waypoint we last visited
     private int health = 100;           // health of enemy
-    private int damage = 10;            // Damage dealt by this enemy
+    //private int damage = 10;            // Damage dealt by this enemy
     public float rateFire = 1f;           // How fast this enemy attacks
     private float fireCountdown = 0f;
     public float range = 3f;            // Range enemy can attack

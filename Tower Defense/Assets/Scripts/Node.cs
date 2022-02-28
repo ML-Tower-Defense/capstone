@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    private GameObject tower;   
+    private GameObject tower;
     /*void Start()
     {
 
@@ -14,7 +14,7 @@ public class Node : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
+
         }
     }*/
 
@@ -22,7 +22,7 @@ public class Node : MonoBehaviour
     {
         if (tower != null) //Tower already on this tile
         {
-            Debug.Log("can't build here");
+            Debug.Log("Tower found. Can't build here.");
             return;
         }
         PlaceTower();

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMovement))]
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : WaveSpawner
 {
     public int health = 100;                    // Health of enemy
     public int reward = 25;                     // Amount of gold earned on death
+
     private EnemyMovement enemyMovement;
     private MoneyManager moneyManager;
 
@@ -20,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TakeDamage(int dmgDealt)
@@ -28,8 +29,9 @@ public class EnemyHealth : MonoBehaviour
         health -= dmgDealt;
         if (health <= 0)
         {
-            moneyManager.AddGold(reward);
             DeactivateEnemy();
+            moneyManager.AddGold(reward);
+            enemiesRemaining--;
         }
     }
 

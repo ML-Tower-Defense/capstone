@@ -10,7 +10,7 @@ public class Wave
 
     public string enemyTag;                     // Sets the type of enemy that will spawn
     public int count;                           // Sets the amount of enemies in a wave
-    public float spawnRate;                     // Sets the wave's spawn rate
+    public float spawnRate;                     // Sets the wave's spawn rate in seconds
 }
 
 public class WaveSpawner : MonoBehaviour
@@ -18,27 +18,31 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;                        // Contains all of the waves
     public Transform[] spawnPoints;             // Contains all of the spawn point positions
     public GameManager gameManager;
-    public static int enemiesRemaining = 0;     // Tracks how many enemies are left in the wave
     public float timeBetweenWaves = 5.0f;       // Determines how much time is in between waves
     public float countdown = 2.0f;              // Determines how much time until a wave starts
-    private int waveIndex = 0;                  // Tracks the current wave that the player is on
+    public static int enemiesRemaining;         // Tracks how many enemies are still alive
+
+    private int unspawnedEnemies;           // Tracks how many enemies are left in the wave
+    private int waveIndex;                  // Tracks the current wave that the player is on
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = gameObject.GetComponent("GameManager") as GameManager;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Ignore cases if there are still enemies
-        if (enemiesRemaining > 0)
+        print("Wave: " + waveIndex + "/" + waves.Length + "    Unspawned: " + unspawnedEnemies + "    Remaining: " + enemiesRemaining);
+
+        // Ignore cases if there are still enemies to spawn
+        if (unspawnedEnemies > 0)
         {
             return;
         }
         // Direct player to Victory if all waves are completed
-        else if (waveIndex == waves.Length)
+        else if (waveIndex == waves.Length && enemiesRemaining == 0)
         {
             gameManager.Victory();
             this.enabled = false;
@@ -48,6 +52,7 @@ public class WaveSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+
             return;
         }
         // Otherwise, decrement cooldown
@@ -62,20 +67,27 @@ public class WaveSpawner : MonoBehaviour
     // at a rate determined by the wave's spawn rate
     IEnumerator SpawnWave()
     {
-        Wave wave = waves[waveIndex];
-        enemiesRemaining = wave.count;
+        Wave currentWave = waves[waveIndex];
 
-        for (int i = 0; i < wave.count; i++)
+        if (unspawnedEnemies == 0) {
+            unspawnedEnemies = currentWave.count;
+            enemiesRemaining += currentWave.count;
+        }
+
+        for (int i = 0; i < currentWave.count; i++)
         {
             for (int j = 0; j < spawnPoints.Length; j++)
             {
                 if (GateManager.gateCurrentHP > 0)
                 {
-                    SpawnEnemy(wave.enemyTag, spawnPoints[j]);
+                    SpawnEnemy(currentWave.enemyTag, spawnPoints[j]);
+
+                    if (unspawnedEnemies > 0)
+                        unspawnedEnemies--;
                 }
             }
 
-            yield return new WaitForSeconds(wave.spawnRate);
+            yield return new WaitForSeconds(currentWave.spawnRate);
         }
 
         waveIndex++;
