@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemyTag: knightEnemy
-    count: 25
+    count: 3
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
