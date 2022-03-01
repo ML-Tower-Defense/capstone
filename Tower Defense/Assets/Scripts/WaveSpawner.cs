@@ -106,4 +106,12 @@ public class WaveSpawner : MonoBehaviour
             enemy.SetActive(true);
         }
     }
+
+    public int getWave () {
+        return waveIndex;
+    }
+
+    public int getUnspawned() {
+        return unspawnedEnemies;
+    }
 }
