@@ -24,7 +24,7 @@ public class waveCounter : MonoBehaviour
         waveCount.text = waveText;
         unspawnCount = waveSpawner.getUnspawned();
         unspawned.text = unspawnCount.ToString();
-        enemiesLeftString.text = WaveSpawner.enemiesRemaining.ToString();     
+        enemiesLeftString.text = WaveSpawner.enemiesRemaining.ToString();
     }
 
     // Update is called once per frame
@@ -35,6 +35,6 @@ public class waveCounter : MonoBehaviour
         waveCount.text = waveText;
         unspawnCount = waveSpawner.getUnspawned();
         unspawned.text = unspawnCount.ToString();
-        enemiesLeftString.text = WaveSpawner.enemiesRemaining.ToString();  
+        enemiesLeftString.text = WaveSpawner.enemiesRemaining.ToString();
     }
 }
