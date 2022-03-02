@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5763638231394675959}
   - component: {fileID: -9111252509377575036}
   m_Layer: 0
-  m_Name: DarkMage
+  m_Name: DarkMageTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

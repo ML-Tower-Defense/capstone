@@ -34,7 +34,7 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Wave: " + waveIndex + "/" + waves.Length + "    Unspawned: " + unspawnedEnemies + "    Remaining: " + enemiesRemaining);
+        //print("Wave: " + waveIndex + "/" + waves.Length + "    Unspawned: " + unspawnedEnemies + "    Remaining: " + enemiesRemaining);
 
         // Ignore cases if there are still enemies to spawn
         if (unspawnedEnemies > 0)
@@ -48,7 +48,7 @@ public class WaveSpawner : MonoBehaviour
             this.enabled = false;
         }
         // Spawn waves if cooldown has hit 0 seconds
-        else if (countdown <= 0.0f)
+        else if (countdown <= 0.0f && waveIndex != waves.Length)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
