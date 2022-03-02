@@ -6,6 +6,7 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     private GameObject tower;
+    
 
     /*void Start()
     {
@@ -32,16 +33,19 @@ public class Node : MonoBehaviour
 
     void PlaceTower()
     {
-        GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-        string towerName = towerToBuild.transform.name;
-
-        tower = Instantiate(towerToBuild, transform.position, transform.rotation);
-
-        if (towerName != "Tower")
+        if (buildMenu.GameInBuild)
         {
-            tower.AddComponent<Tower>();
-        }
+            GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
+            string towerName = towerToBuild.transform.name;
 
-        tower.AddComponent(Type.GetType(towerName));
+            tower = Instantiate(towerToBuild, transform.position, transform.rotation);
+
+            if (towerName != "Tower")
+            {
+                tower.AddComponent<Tower>();
+            }
+
+            tower.AddComponent(Type.GetType(towerName));
+        }
     }
 }
