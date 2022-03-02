@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     private GameObject tower;
+
     /*void Start()
     {
 
@@ -31,8 +33,15 @@ public class Node : MonoBehaviour
     void PlaceTower()
     {
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-        tower = (GameObject)Instantiate(towerToBuild, transform.position, transform.rotation);
-        tower.AddComponent<Tower>();
+        string towerName = towerToBuild.transform.name;
 
+        tower = Instantiate(towerToBuild, transform.position, transform.rotation);
+
+        if (towerName != "Tower")
+        {
+            tower.AddComponent<Tower>();
+        }
+
+        tower.AddComponent(Type.GetType(towerName));
     }
 }

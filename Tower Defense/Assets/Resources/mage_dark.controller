@@ -263,7 +263,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: area_casting2
+  m_Name: area_cating2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -432,7 +432,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3af416a0aa9e7bc46804e1011e3435b9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 42f507e7c1a706b49abf6c3015ecc862, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

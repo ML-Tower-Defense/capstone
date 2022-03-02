@@ -6,12 +6,12 @@ public class BuildManager : MonoBehaviour
 {
     private GameObject towerToBuild;
     public static BuildManager instance; //reference to this script, can only have one build manager
-    public GameObject TowerPrefab; 
+    public GameObject TowerPrefab;
     void Awake()
     {
         if (instance != null)
         {
-            Debug.Log("more than one build manager in scene");
+            Debug.Log("There can only be one build manager in scene!");
             return;
         }
         instance = this;
@@ -25,7 +25,7 @@ public class BuildManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public GameObject GetTowerToBuild()
