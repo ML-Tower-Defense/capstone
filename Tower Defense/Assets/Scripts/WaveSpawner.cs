@@ -5,12 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class Wave
 {
-    // TODO: Add a data structure so that a wave can include different types of enemies
-    // Maybe a Dictionary with enemyTag and count as key and value
-
-    public string enemyTag;                     // Sets the type of enemy that will spawn
-    public int count;                           // Sets the amount of enemies in a wave
+    public WaveGroup[] waveGroups;              // Contains all of the consecutive enemy groups
     public float spawnRate;                     // Sets the wave's spawn rate in seconds
+}
+
+[System.Serializable]
+public class WaveGroup
+{
+    public string enemyTag;                     // Sets the type of enemy for a group
+    public int count;                           // Sets the amount of enemies in a group
 }
 
 public class WaveSpawner : MonoBehaviour
@@ -22,12 +25,16 @@ public class WaveSpawner : MonoBehaviour
     public float countdown = 2.0f;              // Determines how much time until a wave starts
     public static int enemiesRemaining;         // Tracks how many enemies are still alive
 
-    private int unspawnedEnemies;           // Tracks how many enemies are left in the wave
-    private int waveIndex;                  // Tracks the current wave that the player is on
+    private int unspawnedEnemies;               // Tracks how many enemies are left in the wave
+    private int waveIndex;                      // Tracks the current wave that the player is on
 
     // Start is called before the first frame update
     void Start()
     {
+        // Reset enemy counts when a player reloads a map
+        enemiesRemaining = 0;
+        unspawnedEnemies = 0;
+
         gameManager = gameObject.GetComponent("GameManager") as GameManager;
     }
 
@@ -69,25 +76,34 @@ public class WaveSpawner : MonoBehaviour
     {
         Wave currentWave = waves[waveIndex];
 
-        if (unspawnedEnemies == 0) {
-            unspawnedEnemies = currentWave.count;
-            enemiesRemaining += currentWave.count;
+        int totalEnemyCount = 0;
+        for (int i = 0; i < currentWave.waveGroups.Length; i++)
+        {
+            totalEnemyCount += currentWave.waveGroups[i].count;
         }
 
-        for (int i = 0; i < currentWave.count; i++)
+        if (unspawnedEnemies == 0) {
+            unspawnedEnemies = totalEnemyCount;
+            enemiesRemaining += totalEnemyCount;
+        }
+
+        for (int i = 0; i < currentWave.waveGroups.Length; i++)
         {
-            for (int j = 0; j < spawnPoints.Length; j++)
+            for (int j = 0; j < currentWave.waveGroups[i].count; j++)
             {
-                if (GateManager.gateCurrentHP > 0)
+                for (int k = 0; k < spawnPoints.Length; k++)
                 {
-                    SpawnEnemy(currentWave.enemyTag, spawnPoints[j]);
+                    if (GateManager.gateCurrentHP > 0)
+                    {
+                        SpawnEnemy(currentWave.waveGroups[i].enemyTag, spawnPoints[k]);
 
-                    if (unspawnedEnemies > 0)
-                        unspawnedEnemies--;
+                        if (unspawnedEnemies > 0)
+                            unspawnedEnemies--;
+                    }
                 }
-            }
 
-            yield return new WaitForSeconds(currentWave.spawnRate);
+                yield return new WaitForSeconds(currentWave.spawnRate);
+            }
         }
 
         waveIndex++;

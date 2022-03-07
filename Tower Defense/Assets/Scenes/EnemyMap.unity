@@ -3374,8 +3374,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemyTag: zombieEnemy
-    count: 3
+  - waveGroups:
+    - enemyTag: zombieEnemy
+      count: 3
+    - enemyTag: knightEnemy
+      count: 3
+    - enemyTag: zombieEnemy
+      count: 3
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
