@@ -38,8 +38,6 @@ public class GameManager : MonoBehaviour
     // Indicates that the player has lost
     public void GameOver()
     {
-        // TODO: Display game over screen and redirect to main menu
-
         isGameOver = true;
         gameOverMenu.gameObject.SetActive(true);
     }

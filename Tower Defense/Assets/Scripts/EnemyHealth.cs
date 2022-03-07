@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMovement))]
-public class EnemyHealth : WaveSpawner
+public class EnemyHealth : MonoBehaviour
 {
     public int health = 100;                    // Health of enemy
     public int reward = 25;                     // Amount of gold earned on death
@@ -31,7 +31,7 @@ public class EnemyHealth : WaveSpawner
         {
             DeactivateEnemy();
             moneyManager.AddGold(reward);
-            enemiesRemaining--;
+            WaveSpawner.enemiesRemaining--;
         }
     }
 

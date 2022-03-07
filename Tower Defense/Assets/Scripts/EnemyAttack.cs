@@ -3,30 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyAttack : EnemyMovement
+[RequireComponent(typeof(EnemyMovement))]
+public class EnemyAttack : MonoBehaviour
 {
     public GameObject gate;
 
     bool reachedGate = false;
     bool startedAttacking = false;
 
+    private EnemyMovement enemyMovement;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        enemyMovement = GetComponent<EnemyMovement>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Vector2 currentLocation = transform.position;
-        Vector2 nextWPLocation;
-
-        if (nextWaypoint != waypointsArray.Length)
-        {
-            nextWPLocation = waypointsArray[nextWaypoint].transform.position;
-
-            if (Vector2.Distance(currentLocation, nextWPLocation) < 0.1f)
-                nextWaypoint++;
-        }
-
-        // print("Waypoint: " + nextWaypoint + "/" + waypointsArray.Length);
-
-        if (nextWaypoint == waypointsArray.Length)
+        if (enemyMovement.nextWaypoint == enemyMovement.waypointsArray.Length)
             reachedGate = true;
 
         if (reachedGate && !startedAttacking)
@@ -38,7 +34,7 @@ public class EnemyAttack : EnemyMovement
         if (GateManager.gateCurrentHP <= 0)
         {
             Destroy(gate);
-            animator.Play("battlecry");
+            enemyMovement.animator.Play("battlecry");
         }
     }
 
