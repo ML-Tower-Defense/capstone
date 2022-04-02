@@ -6,8 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     public GameObject[] waypointsArray;    // Array of waypoints along path
     public int nextWaypoint;               // Index of next waypoint
-
     public float movementSpeed = 5f;       // Enemy's movement speed
+    public string enemyName;
 
     public Animator animator;       // Enemy's animation controller
                                            // Knight animations:
@@ -25,7 +25,16 @@ public class EnemyMovement : MonoBehaviour
     // Let enemy walk at first
     private void Start()
     {
-        animator.Play("walk");
+        enemyName = gameObject.name;
+
+        if (enemyName == "ZombieEnemy(Clone)" || enemyName == "KnightEnemy(Clone)")
+        {
+            animator.Play("walk");
+        }
+        else
+        {
+            animator.Play("run");
+        }
     }
 
     // Update is called once per frame
@@ -60,19 +69,26 @@ public class EnemyMovement : MonoBehaviour
                 gateDestroyed = true;
             }
 
-            // Once enemy reaches second waypoint, do a battlecry and start running
+            // Once enemy reaches second waypoint, start running (battlecry if knight)
             if (nextWaypoint >= 2 && nextWaypoint != waypointsArray.Length && !gateDestroyed)
             {
-                if (cryTimer < 1.5)
+                if (enemyName == "KnightEnemy(Clone)")
                 {
-                    cryTimer += Time.deltaTime;
-                    StartCoroutine(battleCry());
-                }
+                    if (cryTimer < 1.5)
+                    {
+                        cryTimer += Time.deltaTime;
+                        StartCoroutine(battleCry());
+                    }
 
+                    else
+                    {
+                        StopCoroutine(battleCry());
+                        crying = false;
+                        animator.Play("run");
+                    }
+                }
                 else
                 {
-                    StopCoroutine(battleCry());
-                    crying = false;
                     animator.Play("run");
                 }
 
@@ -91,7 +107,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    // Do the roar
+    // Do the roar (knight only)
     IEnumerator battleCry()
     {
         crying = true;

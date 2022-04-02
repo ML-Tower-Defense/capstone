@@ -34,8 +34,6 @@ public class WaveSpawner : MonoBehaviour
         // Reset enemy counts when a player reloads a map
         enemiesRemaining = 0;
         unspawnedEnemies = 0;
-
-        gameManager = gameObject.GetComponent("GameManager") as GameManager;
     }
 
     // Update is called once per frame

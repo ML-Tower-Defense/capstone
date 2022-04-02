@@ -34,7 +34,11 @@ public class EnemyAttack : MonoBehaviour
         if (GateManager.gateCurrentHP <= 0)
         {
             Destroy(gate);
-            enemyMovement.animator.Play("battlecry");
+
+            if (gameObject.name == "KnightEnemy(Clone)")
+            {
+                enemyMovement.animator.Play("battlecry");
+            }
         }
     }
 

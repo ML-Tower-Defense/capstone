@@ -875,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8006568478708465443, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8006568478708465443, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3377,9 +3377,9 @@ MonoBehaviour:
   - waveGroups:
     - enemyTag: zombieEnemy
       count: 3
-    - enemyTag: knightEnemy
+    - enemyTag: goblinEnemy
       count: 3
-    - enemyTag: zombieEnemy
+    - enemyTag: knightEnemy
       count: 3
     spawnRate: 5
   spawnPoints:
@@ -3402,6 +3402,9 @@ MonoBehaviour:
   objectPools:
   - objectTag: zombieEnemy
     prefab: {fileID: 1044938871286019}
+    size: 25
+  - objectTag: goblinEnemy
+    prefab: {fileID: 990198948}
     size: 25
   - objectTag: knightEnemy
     prefab: {fileID: 217019763}
@@ -4577,6 +4580,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &990198948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1040187417182612277, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
+  m_PrefabInstance: {fileID: 1040187417333929873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &997563484
 GameObject:
   m_ObjectHideFlags: 0
@@ -13509,6 +13517,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1040187417182612277, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1040187417182612279, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
+      propertyPath: movementSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1040187417182612279, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
       propertyPath: waypointsArray.Array.size
       value: 10
@@ -13555,19 +13571,19 @@ PrefabInstance:
       objectReference: {fileID: 1885228079}
     - target: {fileID: 1040187417182612283, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1040187417182612283, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.23
+      value: -9.55
       objectReference: {fileID: 0}
     - target: {fileID: 1040187417182612283, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.49
+      value: -6.36
       objectReference: {fileID: 0}
     - target: {fileID: 1040187417182612283, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.560202
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1040187417182612283, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13608,7 +13624,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2544156311921373412, guid: cdb48d750a470a040ab113675232846a, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2544156311921373412, guid: cdb48d750a470a040ab113675232846a, type: 3}
       propertyPath: m_LocalPosition.x

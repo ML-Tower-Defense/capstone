@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  reward: 25
 --- !u!114 &8006568478708465452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypointsArray: []
   nextWaypoint: 0
-  movementSpeed: 5
+  movementSpeed: 1.5
   animator: {fileID: 0}
 --- !u!114 &8006568478708465455
 MonoBehaviour:
@@ -229,8 +230,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec77574d972758d49b96238b6942f40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointsArray: []
-  nextWaypoint: 0
-  movementSpeed: 3
-  animator: {fileID: 0}
   gate: {fileID: 0}
