@@ -133,7 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypointsArray: []
   nextWaypoint: 0
-  movementSpeed: 4
+  movementSpeed: 3.5
+  enemyName: 
   animator: {fileID: 1040187417182612281}
 --- !u!114 &1040187417182612276
 MonoBehaviour:

@@ -7,13 +7,14 @@ public class EnemyMovement : MonoBehaviour
     public GameObject[] waypointsArray;    // Array of waypoints along path
     public int nextWaypoint;               // Index of next waypoint
     public float movementSpeed = 5f;       // Enemy's movement speed
-    public string enemyName;
 
     public Animator animator;       // Enemy's animation controller
-                                           // Knight animations:
-                                           // "idle", "walk", "run", "battlecry", "jump",
-                                           // "attack", "attack2", "attack3", "attack4", "shield",
-                                           // "take_hit", "take_hit2", "dying"
+                                    // Knight animations:
+                                    // "idle", "walk", "run", "battlecry", "jump",
+                                    // "attack", "attack2", "attack3", "attack4", "shield",
+                                    // "take_hit", "take_hit2", "dying"
+
+    private string enemyName;
 
     string[] attackAnims = { "attack", "attack2", "attack3", "attack4" };
 
