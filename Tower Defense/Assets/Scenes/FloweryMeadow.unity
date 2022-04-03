@@ -3476,6 +3476,7 @@ GameObject:
   - component: {fileID: 477610768}
   - component: {fileID: 477610767}
   - component: {fileID: 477610771}
+  - component: {fileID: 477610772}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3498,11 +3499,11 @@ MonoBehaviour:
   waves:
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 1
+      count: 3
     - enemyTag: goblinEnemy
-      count: 1
+      count: 3
     - enemyTag: knightEnemy
-      count: 1
+      count: 3
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
@@ -3559,6 +3560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryMenu: {fileID: 1548177648}
   gameOverMenu: {fileID: 1368039812}
+  buildMenu: {fileID: 0}
   isGameOver: 0
 --- !u!114 &477610771
 MonoBehaviour:
@@ -3573,6 +3575,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerPrefab: {fileID: 6328278621224667995, guid: dda0cacba1a6de34baba94560db03a1d, type: 3}
+--- !u!114 &477610772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477610766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b0ace41428e414e8949009d695ec71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildMenuUI: {fileID: 1381638778}
+  buildText: {fileID: 1390710256}
 --- !u!1 &497356029
 GameObject:
   m_ObjectHideFlags: 0

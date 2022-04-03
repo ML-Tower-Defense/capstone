@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class buildMenu : MonoBehaviour
+public class BuildMenu : MonoBehaviour
 {
     public static bool GameInBuild = false;
     public GameObject buildMenuUI;
@@ -28,6 +28,4 @@ public class buildMenu : MonoBehaviour
         buildMenuUI.SetActive(false);
         buildText.SetActive(true);
     }
-
-    
 }

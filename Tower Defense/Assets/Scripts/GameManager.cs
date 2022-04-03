@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject victoryMenu;
     public GameObject gameOverMenu;
+    public BuildMenu buildMenu;
+
     public bool isGameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        buildMenu = GetComponent<BuildMenu>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     // Indicates that the player has won
     public void Victory()
     {
+        buildMenu.CloseBuildMenu();
         isGameOver = true;
         victoryMenu.gameObject.SetActive(true);
     }
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     // Indicates that the player has lost
     public void GameOver()
     {
+        buildMenu.CloseBuildMenu();
         isGameOver = true;
         gameOverMenu.gameObject.SetActive(true);
     }
