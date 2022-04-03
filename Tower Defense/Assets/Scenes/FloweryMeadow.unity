@@ -2286,6 +2286,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1040187417182612277, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1040187417182612279, guid: 0bce43f9f6d57df42b7f9d6300f9fa6b, type: 3}
       propertyPath: movementSpeed
       value: 4
@@ -3494,11 +3498,11 @@ MonoBehaviour:
   waves:
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 3
+      count: 1
     - enemyTag: goblinEnemy
-      count: 3
+      count: 1
     - enemyTag: knightEnemy
-      count: 3
+      count: 1
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
@@ -6924,6 +6928,10 @@ PrefabInstance:
     - target: {fileID: 2548022002505259292, guid: cdb48d750a470a040ab113675232846a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548022002505259292, guid: cdb48d750a470a040ab113675232846a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2548987771165328374, guid: cdb48d750a470a040ab113675232846a, type: 3}
       propertyPath: animator
