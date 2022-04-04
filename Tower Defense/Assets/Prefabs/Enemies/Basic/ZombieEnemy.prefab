@@ -134,7 +134,6 @@ MonoBehaviour:
   waypointsArray: []
   nextWaypoint: 0
   movementSpeed: 2.5
-  enemyName: 
   animator: {fileID: 0}
 --- !u!114 &2548987771165328376
 MonoBehaviour:

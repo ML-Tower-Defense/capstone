@@ -26,8 +26,6 @@ public class Tower : MonoBehaviour
     public static string idleAnim;    // Idle animation of tower
     public static string attackAnim;  // Attack animation of tower
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -58,10 +56,11 @@ public class Tower : MonoBehaviour
 
                 StartCoroutine(attackEnemy()); // Play attack animation
 
+                StopCoroutine(attackEnemy());
+                StopCoroutine(attackEnemy());
+
                 targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
                 targetEnemy.TakeDamage(dmgDealt);
-
-                StopCoroutine(attackEnemy());
             }
             else
             {
@@ -83,9 +82,11 @@ public class Tower : MonoBehaviour
     {
         animator.Play(attackAnim);
 
+        yield return new WaitForSecondsRealtime(0.7f);
+
         Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
 
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.2f);
     }
 
     public Transform getTarget()

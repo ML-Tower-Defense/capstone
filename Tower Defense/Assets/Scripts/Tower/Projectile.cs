@@ -4,39 +4,54 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private Transform target;
-    private int speed = 2;
+    public GameObject originalTower;    // Tower that fired this projectile
+
+    private Transform target;           // Target to hit
+    private int speed = 7;              // Speed of projectile
+
+    void Start()
+    {
+        getTargetFromTower();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // TODO: Make projectile go towards target
+        Vector3 dir = target.position - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
 
-        transform.Translate(Vector3.right * Time.deltaTime * speed);
+        if (dir.magnitude <= 0.2)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        //target = tower.getTarget();
-
-        //if (target == null)
-        //{
-        //    Destroy(gameObject);
-        //    return;
-        //}
-
-        //Vector3 dir = target.position - transform.position;
-        //float distanceThisFrame = speed * Time.deltaTime;
-
-        //if (dir.magnitude <= distanceThisFrame)
-        //{
-        //    HitTarget();
-        //    return;
-        //}
-
-        //transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.Translate(dir.normalized * distanceThisFrame);
     }
 
-    void HitTarget()
+    private void getTargetFromTower()
     {
-        Destroy(gameObject);
-        Debug.Log("Target hit!");
+        GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
+        GameObject nearestTower = null;
+
+        float shortestDistance = Mathf.Infinity;
+
+        foreach (GameObject tower in towers)
+        {
+            float distanceToTower = Vector2.Distance(transform.position, tower.transform.position);
+
+            if (distanceToTower < shortestDistance)
+            {
+                shortestDistance = distanceToTower;
+                nearestTower = tower;
+            }
+
+            if (nearestTower != null && shortestDistance <= 0.5)
+            {
+                originalTower = nearestTower;
+            }
+        }
+
+        target = originalTower.GetComponent<Tower>().getTarget();
     }
 }

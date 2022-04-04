@@ -3499,11 +3499,11 @@ MonoBehaviour:
   waves:
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 3
+      count: 2
     - enemyTag: goblinEnemy
-      count: 3
+      count: 2
     - enemyTag: knightEnemy
-      count: 3
+      count: 2
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
@@ -3525,13 +3525,13 @@ MonoBehaviour:
   objectPools:
   - objectTag: zombieEnemy
     prefab: {fileID: 1420103743}
-    size: 25
+    size: 5
   - objectTag: goblinEnemy
     prefab: {fileID: 277212261}
-    size: 25
+    size: 5
   - objectTag: knightEnemy
     prefab: {fileID: 217019763}
-    size: 25
+    size: 5
 --- !u!4 &477610769
 Transform:
   m_ObjectHideFlags: 0
@@ -6948,6 +6948,10 @@ PrefabInstance:
     - target: {fileID: 2548022002505259292, guid: cdb48d750a470a040ab113675232846a, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548022002505259292, guid: cdb48d750a470a040ab113675232846a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2548987771165328374, guid: cdb48d750a470a040ab113675232846a, type: 3}
       propertyPath: animator
