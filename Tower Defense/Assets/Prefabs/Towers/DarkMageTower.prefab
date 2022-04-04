@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5661073261610780908}
   - component: {fileID: 5763638231394675959}
   - component: {fileID: -9111252509377575036}
+  - component: {fileID: 4585389850559532788}
+  - component: {fileID: 9140403539102923044}
   m_Layer: 0
   m_Name: DarkMageTower
   m_TagString: Tower
@@ -102,3 +104,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4585389850559532788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6328278621224667995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7ccdc88d4e0ce4ea595ff2762c9fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 9203235895282931251, guid: 81fce276923159c49a0527389d655f20, type: 3}
+  range: 3
+  fireRate: 1
+  dmgDealt: 10
+  enemyTag: Enemy
+  animator: {fileID: 0}
+--- !u!114 &9140403539102923044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6328278621224667995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3ed2ddd51872746a7901a58d9b1628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 0}
+  range: 3
+  fireRate: 1
+  dmgDealt: 10
+  enemyTag: Enemy
+  animator: {fileID: 0}

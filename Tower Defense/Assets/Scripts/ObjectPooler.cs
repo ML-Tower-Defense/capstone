@@ -13,7 +13,7 @@ public class ObjectPool
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler SharedInstance;
-    public List<ObjectPool> objectPools;        
+    public List<ObjectPool> objectPools;
     public Dictionary<string, List<GameObject>> objectPoolDictionary;
 
     void Awake()
@@ -32,7 +32,7 @@ public class ObjectPooler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Preinstantiates game objects before runtime for every object pool that was set

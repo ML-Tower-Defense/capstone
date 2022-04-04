@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DarkMageTower : Tower
 {
-
     // Dark Mage animations:
     // "2h2", "2h3", "2hand", "area_casting", "area_casting2",
     // "casting", "casting2", "continuous_shooting", "continuous_shooting2",
