@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2548987771165328376}
   m_Layer: 0
   m_Name: ZombieEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3900c312da425b46aba0aebf1924909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
+  maxHealth: 150
+  currentHealth: 0
   reward: 20
 --- !u!114 &2548987771165328374
 MonoBehaviour:

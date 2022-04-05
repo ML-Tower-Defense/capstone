@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject victoryMenu;
     public GameObject gameOverMenu;
-    public BuildMenu buildMenu;
+    private BuildMenu buildMenu;
 
     public bool isGameOver = false;
 

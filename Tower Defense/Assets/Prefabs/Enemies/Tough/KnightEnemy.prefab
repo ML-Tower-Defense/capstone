@@ -200,7 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3900c312da425b46aba0aebf1924909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
+  maxHealth: 250
+  currentHealth: 0
   reward: 50
 --- !u!114 &8006568478708465452
 MonoBehaviour:
@@ -217,7 +218,6 @@ MonoBehaviour:
   waypointsArray: []
   nextWaypoint: 0
   movementSpeed: 2
-  enemyName: 
   animator: {fileID: 0}
 --- !u!114 &8006568478708465455
 MonoBehaviour:

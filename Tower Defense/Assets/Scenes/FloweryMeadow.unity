@@ -3560,7 +3560,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryMenu: {fileID: 1548177648}
   gameOverMenu: {fileID: 1368039812}
-  buildMenu: {fileID: 0}
   isGameOver: 0
 --- !u!114 &477610771
 MonoBehaviour:

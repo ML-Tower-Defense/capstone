@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1040187417182612276}
   m_Layer: 0
   m_Name: GoblinEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3900c312da425b46aba0aebf1924909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
+  currentHealth: 0
   reward: 25
 --- !u!114 &1040187417182612279
 MonoBehaviour:
@@ -134,7 +135,6 @@ MonoBehaviour:
   waypointsArray: []
   nextWaypoint: 0
   movementSpeed: 3.5
-  enemyName: 
   animator: {fileID: 1040187417182612281}
 --- !u!114 &1040187417182612276
 MonoBehaviour:
