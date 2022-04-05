@@ -5,8 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;                    // Health of enemy
-    public int reward = 25;                     // Amount of gold earned on death
+    public int maxHealth = 100;                     // Max health of enemy
+    public int currentHealth;                       // Current health of enemy
+    public int reward = 25;                         // Amount of gold earned on death
 
     private EnemyMovement enemyMovement;
     private MoneyManager moneyManager;
@@ -16,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyMovement = GetComponent<EnemyMovement>();
         moneyManager = GameObject.Find("Gold_Container").GetComponent<MoneyManager>();
+
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -26,8 +29,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int dmgDealt)
     {
-        health -= dmgDealt;
-        if (health <= 0)
+        currentHealth -= dmgDealt;
+        if (currentHealth <= 0)
         {
             DeactivateEnemy();
             moneyManager.AddGold(reward);
@@ -41,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
     void DeactivateEnemy()
     {
         gameObject.SetActive(false);
-        health = 100;
+        currentHealth = maxHealth;
         enemyMovement.nextWaypoint = 0;
     }
 }

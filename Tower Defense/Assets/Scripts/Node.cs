@@ -36,16 +36,16 @@ public class Node : MonoBehaviour
         if (BuildMenu.GameInBuild)
         {
             GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-            string towerName = towerToBuild.transform.name;
+            //string towerName = towerToBuild.transform.name;
 
             tower = Instantiate(towerToBuild, transform.position, transform.rotation);
 
-            if (towerName != "Tower")
-            {
-                tower.AddComponent<Tower>();
-            }
+            //if (towerName != "Tower")
+            //{
+            //    tower.AddComponent<Tower>();
+            //}
 
-            tower.AddComponent(Type.GetType(towerName));
+            //tower.AddComponent(Type.GetType(towerName));
         }
     }
 }

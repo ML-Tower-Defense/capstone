@@ -1954,7 +1954,7 @@ GameObject:
   - component: {fileID: 220820952}
   - component: {fileID: 220820951}
   m_Layer: 5
-  m_Name: Tower1
+  m_Name: Tower3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1973,7 +1973,7 @@ RectTransform:
   m_Children:
   - {fileID: 794224506}
   m_Father: {fileID: 1381638779}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3499,11 +3499,11 @@ MonoBehaviour:
   waves:
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 3
+      count: 2
     - enemyTag: goblinEnemy
-      count: 3
+      count: 2
     - enemyTag: knightEnemy
-      count: 3
+      count: 2
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
@@ -3525,13 +3525,13 @@ MonoBehaviour:
   objectPools:
   - objectTag: zombieEnemy
     prefab: {fileID: 1420103743}
-    size: 25
+    size: 5
   - objectTag: goblinEnemy
     prefab: {fileID: 277212261}
-    size: 25
+    size: 5
   - objectTag: knightEnemy
     prefab: {fileID: 217019763}
-    size: 25
+    size: 5
 --- !u!4 &477610769
 Transform:
   m_ObjectHideFlags: 0
@@ -3560,7 +3560,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryMenu: {fileID: 1548177648}
   gameOverMenu: {fileID: 1368039812}
-  buildMenu: {fileID: 0}
   isGameOver: 0
 --- !u!114 &477610771
 MonoBehaviour:
@@ -5580,7 +5579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 374, y: 186.5}
+  m_AnchoredPosition: {x: 374, y: 187.1}
   m_SizeDelta: {x: 45.81, y: 45.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172269674
@@ -6105,8 +6104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b0ace41428e414e8949009d695ec71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildMenuUI: {fileID: 1227698967}
-  buildText: {fileID: 1390710256}
+  buildMenuUI: {fileID: 0}
+  buildText: {fileID: 0}
 --- !u!114 &1227698970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6642,9 +6641,9 @@ RectTransform:
   - {fileID: 1504120232}
   - {fileID: 119915591}
   - {fileID: 2049309903}
-  - {fileID: 220820948}
   - {fileID: 1479307262}
   - {fileID: 1930813177}
+  - {fileID: 220820948}
   m_Father: {fileID: 1682072730}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6665,8 +6664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b0ace41428e414e8949009d695ec71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildMenuUI: {fileID: 1381638778}
-  buildText: {fileID: 1390710256}
+  buildMenuUI: {fileID: 0}
+  buildText: {fileID: 0}
 --- !u!114 &1381638781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6949,6 +6948,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2548022002505259292, guid: cdb48d750a470a040ab113675232846a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2548987771165328374, guid: cdb48d750a470a040ab113675232846a, type: 3}
       propertyPath: animator
       value: 
@@ -7026,7 +7029,7 @@ GameObject:
   - component: {fileID: 1479307265}
   - component: {fileID: 1479307263}
   m_Layer: 5
-  m_Name: Tower2
+  m_Name: Tower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7045,7 +7048,7 @@ RectTransform:
   m_Children:
   - {fileID: 1150674873}
   m_Father: {fileID: 1381638779}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12960,7 +12963,7 @@ GameObject:
   - component: {fileID: 1930813180}
   - component: {fileID: 1930813178}
   m_Layer: 5
-  m_Name: Tower3
+  m_Name: Tower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12979,7 +12982,7 @@ RectTransform:
   m_Children:
   - {fileID: 64206367}
   m_Father: {fileID: 1381638779}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

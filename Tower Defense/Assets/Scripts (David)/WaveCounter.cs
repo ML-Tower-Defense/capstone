@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waveCounter : MonoBehaviour
+public class WaveCounter : MonoBehaviour
 {
     public int maxWave;
     public int currentWave;
