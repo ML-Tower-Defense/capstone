@@ -309,7 +309,7 @@ MonoBehaviour:
   sounds:
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: c30fb566db8d61c47b24b39f932ba848, type: 3}
-    volume: 0.187
+    volume: 1
     pitch: 1
     source: {fileID: 0}
     loop: 1
