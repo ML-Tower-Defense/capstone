@@ -7,16 +7,16 @@ public class BuildMenu : MonoBehaviour
     public static bool GameInBuild = false;
     public GameObject buildMenuUI;
     public GameObject buildText;
+    //public MoneyManager money;
 
     public void OpenBuildMenu()
     {
-        Debug.Log("OpenBuildMenu");
         buildMenuUI.SetActive(true);
+        //money = FindObjectOfType(typeof(MoneyManager)) as MoneyManager;
     }
 
     public void CloseBuildMenu()
     {
-        Debug.Log("CloseBuildMenu");
         GameInBuild = false;
         buildMenuUI.SetActive(false);
         buildText.SetActive(false);

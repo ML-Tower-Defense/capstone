@@ -6,13 +6,14 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
     private GameObject tower;
+    public MoneyManager money;
+    public GameObject tooPoorMessage;
 
-
-    /*void Start()
+    void Start()
     {
-
+        money = FindObjectOfType(typeof(MoneyManager)) as MoneyManager;
     }
-
+    /*
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -35,17 +36,18 @@ public class Node : MonoBehaviour
     {
         if (BuildMenu.GameInBuild)
         {
-            GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-            //string towerName = towerToBuild.transform.name;
+            int towerCost = 150; //eventually dynamically grab price of tower
+            if (money.buy(towerCost))
+            {
+                GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
 
-            tower = Instantiate(towerToBuild, transform.position, transform.rotation);
-
-            //if (towerName != "Tower")
-            //{
-            //    tower.AddComponent<Tower>();
-            //}
-
-            //tower.AddComponent(Type.GetType(towerName));
+                tower = Instantiate(towerToBuild, transform.position, transform.rotation);
+            }
+            else
+            {
+                //Let player know they cannot place tower
+                tooPoorMessage.SetActive(true);
+            }
         }
     }
 }
