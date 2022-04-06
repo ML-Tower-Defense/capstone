@@ -6,7 +6,9 @@ public class BuildManager : MonoBehaviour
 {
     private GameObject towerToBuild;
     public static BuildManager instance; //reference to this script, can only have one build manager
-    public GameObject TowerPrefab;
+    public GameObject TowerPrefab1;
+    public GameObject TowerPrefab2;
+
     void Awake()
     {
         if (instance != null)
@@ -19,7 +21,7 @@ public class BuildManager : MonoBehaviour
 
     void Start()
     {
-        towerToBuild = TowerPrefab;
+        //towerToBuild = TowerPrefab;
     }
 
     // Update is called once per frame
@@ -28,8 +30,13 @@ public class BuildManager : MonoBehaviour
 
     }
 
-    public GameObject GetTowerToBuild()
+    public GameObject GetTowerToBuild(int towerNum)
     {
+        if (towerNum == 1)
+            towerToBuild = TowerPrefab1;
+        else
+            towerToBuild = TowerPrefab2;
+
         return towerToBuild;
     }
 }

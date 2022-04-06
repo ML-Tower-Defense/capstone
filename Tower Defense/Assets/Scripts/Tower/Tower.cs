@@ -16,23 +16,47 @@ public class Tower : MonoBehaviour
     public float projectileSpeed = 2f;
     public int dmgDealt = 10;
 
-    public string enemyTag = "Enemy";
+    private string enemyTag = "Enemy";
 
-    public Animator animator; // Tower's animation controller
-                                  // Dark Mage animations:
-                                  // "2h2", "2h3", "2hand", "area_casting", "area_casting2",
-                                  // "casting", "casting2", "continuous_shooting", "continuous_shooting2",
-                                  // "dying", "idle", "jump", "run", "shooting", "walk", "walk2"
+    public Animator animator;  // Tower's animation controller
 
-    public static string idleAnim;    // Idle animation of tower
-    public static string attackAnim;  // Attack animation of tower
+    public string towerType;   // Specifies a certain tower type
+    public string idleAnim;    // Idle animation of tower
+    public string attackAnim;  // Attack animation of tower
 
     // Start is called before the first frame update
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        getTowerDetails();
         animator = GetComponent<Animator>();
         InvokeRepeating("UpdateTarget", 0f, fireRate);
+    }
+
+    // Get the unique characteristics of a certain tower
+    void getTowerDetails()
+    {
+        switch (towerType)
+        {
+            case "Mage":
+                DarkMageTower darkMageTower = GetComponent<DarkMageTower>();
+                idleAnim = darkMageTower.idleAnim;
+                attackAnim = darkMageTower.attackAnim;
+                break;
+
+            case "Archer":
+                ArcherTower archerTower = GetComponent<ArcherTower>();
+                idleAnim = archerTower.idleAnim;
+                attackAnim = archerTower.attackAnim;
+                break;
+
+            //case 3:
+            //    break;
+
+            default:
+                Debug.LogError("Invalid tower type found: " + towerType);
+                break;
+        }
     }
 
     void UpdateTarget()

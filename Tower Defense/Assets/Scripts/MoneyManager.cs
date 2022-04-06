@@ -56,15 +56,20 @@ public class MoneyManager : MonoBehaviour
         }
     }
  
-    /*
-       Function to be implemented on buying tower
-       public void buy()
-       {
-           if (TextObject != null)
-           {
-               --Value;
-               TextObject.text = Value.ToString();
-           }
-       }
-   */
+    
+    //Function to be implemented on buying tower
+    public bool buy(int TowerCost)
+    {
+        if (TextObject != null)
+        {
+            if (value >= TowerCost)
+            {
+                value -= TowerCost;
+                TextObject.text = value.ToString();
+                return true;
+            }
+        }
+        return false;
+    }
+   
 }
