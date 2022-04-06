@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4463561712627088}
   - component: {fileID: 212885186560116578}
   - component: {fileID: 95814188212738746}
+  - component: {fileID: 6778387303888434990}
   m_Layer: 0
   m_Name: archer2
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,3 +103,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6778387303888434990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601947692949862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7ccdc88d4e0ce4ea595ff2762c9fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1601947692949862}
+  target: {fileID: 0}
+  range: 3
+  fireRate: 1
+  projectileSpeed: 2
+  dmgDealt: 10
+  enemyTag: Enemy
+  animator: {fileID: 0}

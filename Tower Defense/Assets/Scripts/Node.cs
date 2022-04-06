@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
-    private GameObject tower;
     public MoneyManager money;
     public GameObject tooPoorMessage;
+    private int towerCost;
+    GameObject towerBuilt;
 
     void Start()
     {
@@ -24,7 +26,7 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (tower != null) //Tower already on this tile
+        if (towerBuilt != null) //Tower already on this tile
         {
             Debug.Log("Tower found. Can't build here.");
             return;
@@ -36,12 +38,17 @@ public class Node : MonoBehaviour
     {
         if (BuildMenu.GameInBuild)
         {
-            int towerCost = 150; //eventually dynamically grab price of tower
+            int towerCost = 150;
+            string towerName = BuildMenu.towerName;
+            int towerNum = (towerName[towerName.Length - 1]) - '0';
+            Debug.Log(towerNum);
+            GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
             if (money.buy(towerCost))
             {
-                GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
+                //GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(1);
 
-                tower = Instantiate(towerToBuild, transform.position, transform.rotation);
+                towerBuilt = Instantiate(towerToBuild, transform.position, transform.rotation);
+
             }
             else
             {
@@ -49,5 +56,10 @@ public class Node : MonoBehaviour
                 tooPoorMessage.SetActive(true);
             }
         }
+    }
+    
+    public void closePoorMessage()
+    {
+        tooPoorMessage.SetActive(false);
     }
 }
