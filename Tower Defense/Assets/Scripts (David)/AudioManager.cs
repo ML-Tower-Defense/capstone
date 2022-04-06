@@ -32,11 +32,25 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void changeVolume (string name, float i){
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null){
-            return;
+    public void changeVolume (float i){
+       foreach (Sound s in sounds) {
+            if (s.name == "BackgroundMusic" || s.name == "WinGame" || s.name == "LoseGame") {
+                s.source.volume = i;
+            }
         }
-        s.source.volume = i;
+    }
+
+    public void StopAllAudio () {
+        foreach (Sound s in sounds){
+            s.source.Stop();
+        }
+    }
+
+    public void changeSFX (float i) {
+        foreach (Sound s in sounds) {
+            if (s.name != "BackgroundMusic" && s.name != "WinGame" && s.name != "LoseGame") {
+                s.source.volume = i;
+            }
+        }
     }
 }

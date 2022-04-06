@@ -18,6 +18,6 @@ public class OptionsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        audioManager.changeVolume("BackgroundMusic", sliderMusic.value);
+        audioManager.changeVolume(sliderMusic.value);
     }
 }
