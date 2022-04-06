@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject victoryMenu;
     public GameObject gameOverMenu;
     private BuildMenu buildMenu;
+    AudioManager audioManager;
 
     public bool isGameOver = false;
 
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         buildMenu = GetComponent<BuildMenu>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
         buildMenu.CloseBuildMenu();
         isGameOver = true;
         victoryMenu.gameObject.SetActive(true);
+        audioManager.StopAllAudio();
+        audioManager.Play("WinGame");
     }
 
     // Indicates that the player has lost
@@ -44,6 +48,8 @@ public class GameManager : MonoBehaviour
         buildMenu.CloseBuildMenu();
         isGameOver = true;
         gameOverMenu.gameObject.SetActive(true);
+        audioManager.StopAllAudio();
+        audioManager.Play("LoseGame");
     }
 
     // Reloads the current scene if the player wants to restart

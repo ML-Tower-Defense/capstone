@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
 {
     public GameObject projectilePrefab;     // The projectile the tower shoots
     public Transform target;
+    AudioManager audioManager;
 
     private EnemyHealth targetEnemy;
 
@@ -26,8 +27,8 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         getTowerDetails();
-
         animator = GetComponent<Animator>();
         InvokeRepeating("UpdateTarget", 0f, fireRate);
     }
@@ -110,7 +111,10 @@ public class Tower : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.7f);
 
         Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-
+        if (GateManager.gateCurrentHP > 0)
+        {
+            audioManager.Play("TowerAttack");
+        }
         yield return new WaitForSecondsRealtime(0.2f);
     }
 

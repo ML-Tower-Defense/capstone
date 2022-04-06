@@ -8,6 +8,8 @@ public class EnemyAttack : MonoBehaviour
 {
     public GameObject gate;
 
+    AudioManager audioManager;
+
     bool reachedGate = false;
     bool startedAttacking = false;
 
@@ -17,6 +19,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,9 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
 
         GateManager.damageGate(damage);
+        if (GateManager.gateCurrentHP > 0){
+            audioManager.Play("EnemyAttack");
+        }
 
         yield return new WaitForSecondsRealtime(0.4f);
 
