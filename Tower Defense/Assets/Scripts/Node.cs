@@ -2,17 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
-    private GameObject tower;
+    public MoneyManager money;
+    public GameObject tooPoorMessage;
+    private int towerCost;
+    private GameObject towerBuilt;
 
-
-    /*void Start()
+    void Start()
     {
-
+        money = FindObjectOfType(typeof(MoneyManager)) as MoneyManager;
     }
 
+    /*
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -23,7 +27,7 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (tower != null) //Tower already on this tile
+        if (towerBuilt != null) // Tower already on this tile
         {
             Debug.Log("Tower found. Can't build here.");
             return;
@@ -35,17 +39,30 @@ public class Node : MonoBehaviour
     {
         if (BuildMenu.GameInBuild)
         {
-            GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-            //string towerName = towerToBuild.transform.name;
+            towerCost = 150;
 
-            tower = Instantiate(towerToBuild, transform.position, transform.rotation);
+            string towerName = BuildMenu.towerName;
+            int towerNum = (towerName[towerName.Length - 1]) - '0';
 
-            //if (towerName != "Tower")
-            //{
-            //    tower.AddComponent<Tower>();
-            //}
+            GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
 
-            //tower.AddComponent(Type.GetType(towerName));
+            if (money.buy(towerCost))
+            {
+                // GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(1);
+
+                towerBuilt = Instantiate(towerToBuild, transform.position, transform.rotation);
+
+            }
+            else
+            {
+                // Let player know they cannot place tower
+                tooPoorMessage.SetActive(true);
+            }
         }
+    }
+
+    public void closePoorMessage()
+    {
+        tooPoorMessage.SetActive(false);
     }
 }

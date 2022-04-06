@@ -117,11 +117,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9203235895282931251, guid: 81fce276923159c49a0527389d655f20, type: 3}
+  target: {fileID: 0}
   range: 3
   fireRate: 1
+  projectileSpeed: 2
   dmgDealt: 10
-  enemyTag: Enemy
   animator: {fileID: 0}
+  towerType: Mage
+  idleAnim: 
+  attackAnim: 
 --- !u!114 &9140403539102923044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +139,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
+  target: {fileID: 0}
   range: 3
   fireRate: 1
+  projectileSpeed: 2
   dmgDealt: 10
-  enemyTag: Enemy
   animator: {fileID: 0}
+  towerType: 
+  idleAnim: 
+  attackAnim: 
