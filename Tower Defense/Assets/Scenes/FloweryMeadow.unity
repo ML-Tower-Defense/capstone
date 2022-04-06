@@ -3826,7 +3826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerPrefab1: {fileID: 6328278621224667995, guid: dda0cacba1a6de34baba94560db03a1d, type: 3}
-  TowerPrefab2: {fileID: 1601947692949862, guid: 7aed946b5664405459098c6b3528627a, type: 3}
+  TowerPrefab2: {fileID: 6328278621224667995, guid: 65465e269ff43414c8aed930f6537e94, type: 3}
 --- !u!114 &477610772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7350,7 +7350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1381638779
 RectTransform:
   m_ObjectHideFlags: 0

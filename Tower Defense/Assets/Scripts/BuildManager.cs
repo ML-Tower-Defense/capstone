@@ -36,6 +36,7 @@ public class BuildManager : MonoBehaviour
             towerToBuild = TowerPrefab1;
         else
             towerToBuild = TowerPrefab2;
+
         return towerToBuild;
     }
 }

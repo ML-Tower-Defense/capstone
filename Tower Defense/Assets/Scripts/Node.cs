@@ -9,12 +9,13 @@ public class Node : MonoBehaviour
     public MoneyManager money;
     public GameObject tooPoorMessage;
     private int towerCost;
-    GameObject towerBuilt;
+    private GameObject towerBuilt;
 
     void Start()
     {
         money = FindObjectOfType(typeof(MoneyManager)) as MoneyManager;
     }
+
     /*
     void Update()
     {
@@ -26,7 +27,7 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (towerBuilt != null) //Tower already on this tile
+        if (towerBuilt != null) // Tower already on this tile
         {
             Debug.Log("Tower found. Can't build here.");
             return;
@@ -38,26 +39,28 @@ public class Node : MonoBehaviour
     {
         if (BuildMenu.GameInBuild)
         {
-            int towerCost = 150;
+            towerCost = 150;
+
             string towerName = BuildMenu.towerName;
             int towerNum = (towerName[towerName.Length - 1]) - '0';
-            Debug.Log(towerNum);
+
             GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
+
             if (money.buy(towerCost))
             {
-                //GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(1);
+                // GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(1);
 
                 towerBuilt = Instantiate(towerToBuild, transform.position, transform.rotation);
 
             }
             else
             {
-                //Let player know they cannot place tower
+                // Let player know they cannot place tower
                 tooPoorMessage.SetActive(true);
             }
         }
     }
-    
+
     public void closePoorMessage()
     {
         tooPoorMessage.SetActive(false);
