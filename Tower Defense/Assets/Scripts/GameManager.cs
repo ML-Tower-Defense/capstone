@@ -55,12 +55,15 @@ public class GameManager : MonoBehaviour
     // Reloads the current scene if the player wants to restart
     public void RestartGame()
     {
+        audioManager.Play("ClickUI");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Redirects player back to the main menu
     public void QuitGame()
     {
+        audioManager.Play("ClickUI");
         SceneManager.LoadScene("_MainMenu");
     }
+    
 }

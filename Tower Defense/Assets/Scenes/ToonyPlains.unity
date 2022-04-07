@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6061715003150770137, guid: bad5527022f2def47993abe27e200488, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6061715003150770137, guid: bad5527022f2def47993abe27e200488, type: 3}
       propertyPath: m_LocalPosition.x
@@ -888,6 +888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &102715408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -979,7 +981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8006568478708465443, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8006568478708465443, guid: 29570347ea3623c449c926394fb576fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1242,6 +1244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &208857119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1364,7 +1368,7 @@ Transform:
   - {fileID: 1977134456}
   - {fileID: 803756983}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &329694755
 PrefabInstance:
@@ -1595,7 +1599,7 @@ Transform:
   - {fileID: 179845290}
   - {fileID: 978757835}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477610766
 GameObject:
@@ -1630,8 +1634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemyTag: knightEnemy
-    count: 25
+  - waveGroups: []
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
@@ -1666,7 +1669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &477610770
 MonoBehaviour:
@@ -1680,6 +1683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d94ee98c720894293b27b064382963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  victoryMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  isGameOver: 0
 --- !u!114 &477610771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1692,7 +1698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259e89280b348e7488e7e77b657506eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerPrefab: {fileID: 6457257801921958720, guid: 8d25398c5b159a34d90333f38b999696, type: 3}
+  TowerPrefab1: {fileID: 0}
+  TowerPrefab2: {fileID: 0}
 --- !u!1 &586508113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,7 +1764,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &639192516 stripped
 GameObject:
@@ -6859,6 +6866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &730104537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6968,6 +6977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &803756981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7297,7 +7308,7 @@ Transform:
   - {fileID: 34418485}
   - {fileID: 99774294}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107401377 stripped
 GameObject:
@@ -7399,7 +7410,7 @@ RectTransform:
   - {fileID: 876328712}
   - {fileID: 1937918390}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7442,6 +7453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &1326509230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7551,6 +7564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &1522763921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7722,6 +7737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &1654193046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7893,6 +7910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &1700222958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8002,6 +8021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &1801490543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8111,6 +8132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &1843903687
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8225,6 +8248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9abe2476355f84bbf28654becaf58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 0}
+  tooPoorMessage: {fileID: 0}
 --- !u!65 &1977134454
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8453,6 +8478,74 @@ Transform:
   m_GameObject: {fileID: 2044476882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.98, y: -0.51, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2122767720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2122767722}
+  - component: {fileID: 2122767721}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2122767721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122767720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3568cba7b249b4e9ce803c9ec7d283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: e75df5cd9c1f944ce99e585d983fa119, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: ClickUI
+    clip: {fileID: 8300000, guid: 7e58c1718e011c847949792efd486a17, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: WinGame
+    clip: {fileID: 8300000, guid: 5959324c664444cb7939c31ae9828bee, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: LoseGame
+    clip: {fileID: 8300000, guid: a5b6a5b5e9e584c588d3a2f00de0baaf, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+--- !u!4 &2122767722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122767720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

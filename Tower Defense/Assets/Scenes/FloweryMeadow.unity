@@ -7476,6 +7476,24 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: BuySound
+    clip: {fileID: 8300000, guid: 673c02d2180274f03b7d61e5780ad2d6, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: NoMoney
+    clip: {fileID: 8300000, guid: 680ed4e46f90a85469d64308da50c44b, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 2b6e306f144fd2047ad36490140f8b85, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &1330241743
 Transform:
   m_ObjectHideFlags: 0
