@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class Node : MonoBehaviour
     public GameObject tooPoorMessage;
     private int towerCost;
     private GameObject towerBuilt;
-    public GameObject menu;
+    public GameObject singleMenu;
+    private bool justOpened = false;
+    private static GameObject whichNode;
 
     void Start()
     {
@@ -30,32 +33,38 @@ public class Node : MonoBehaviour
     {
         if (towerBuilt != null) // Tower already on this tile
         {
-            Debug.Log("Tower found. Can't build here.");
             return;
         }
-        if (!BuildMenu.GameInBuild)
+        if (BuildMenu.GameInBuild)
+            PlaceTower(0, this.gameObject);
+        else if(BuildMenu.GameBuildSingle)
         {
-            //menu.SetActive(true);
-            Debug.Log("This is when build menu opens again");
-            //PlaceTower();
+            singleMenu.SetActive(true);
+
+            BuildMenu.GameBuildSingle = false;
+            whichNode = this.gameObject;
+        }
+    }
+
+    void PlaceTower(int whichTower, GameObject node)
+    {
+        int towerCost = 150;
+        string towerName;
+        int towerNum;
+        if (whichTower == 0)
+        {
+            towerName = BuildMenu.towerName;
+            towerNum = (towerName[towerName.Length - 1]) - '0';
         }
         else
         {
-            PlaceTower();
+            towerNum = whichTower;
         }
         
-    }
-
-    void PlaceTower()
-    {
-        int towerCost = 150;
-        string towerName = BuildMenu.towerName;
-        int towerNum = (towerName[towerName.Length - 1]) - '0';
-        Debug.Log(towerNum);
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
         if (money.buy(towerCost))
         {
-            towerBuilt = Instantiate(towerToBuild, transform.position, transform.rotation);
+            towerBuilt = Instantiate(towerToBuild, node.transform.position, transform.rotation);
         }
         else
         {
@@ -67,5 +76,15 @@ public class Node : MonoBehaviour
     public void closePoorMessage()
     {
         tooPoorMessage.SetActive(false);
+        BuildMenu.GameBuildSingle = true;
+    }
+
+    public void selectTower()
+    {
+        string towerName = EventSystem.current.currentSelectedGameObject.name;
+        int towerNum = (towerName[towerName.Length - 1]) - '0';
+        singleMenu.SetActive(false);
+        BuildMenu.GameBuildSingle = true;
+        PlaceTower(towerNum, whichNode);
     }
 }
