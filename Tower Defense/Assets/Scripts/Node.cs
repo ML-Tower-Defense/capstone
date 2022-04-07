@@ -10,6 +10,7 @@ public class Node : MonoBehaviour
     public GameObject tooPoorMessage;
     private int towerCost;
     private GameObject towerBuilt;
+    public GameObject menu;
 
     void Start()
     {
@@ -32,32 +33,34 @@ public class Node : MonoBehaviour
             Debug.Log("Tower found. Can't build here.");
             return;
         }
-        PlaceTower();
+        if (!BuildMenu.GameInBuild)
+        {
+            //menu.SetActive(true);
+            Debug.Log("This is when build menu opens again");
+            //PlaceTower();
+        }
+        else
+        {
+            PlaceTower();
+        }
+        
     }
 
     void PlaceTower()
     {
-        if (BuildMenu.GameInBuild)
+        int towerCost = 150;
+        string towerName = BuildMenu.towerName;
+        int towerNum = (towerName[towerName.Length - 1]) - '0';
+        Debug.Log(towerNum);
+        GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
+        if (money.buy(towerCost))
         {
-            towerCost = 150;
-
-            string towerName = BuildMenu.towerName;
-            int towerNum = (towerName[towerName.Length - 1]) - '0';
-
-            GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
-
-            if (money.buy(towerCost))
-            {
-                // GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(1);
-
-                towerBuilt = Instantiate(towerToBuild, transform.position, transform.rotation);
-
-            }
-            else
-            {
-                // Let player know they cannot place tower
-                tooPoorMessage.SetActive(true);
-            }
+            towerBuilt = Instantiate(towerToBuild, transform.position, transform.rotation);
+        }
+        else
+        {
+            //Let player know they cannot place tower
+            tooPoorMessage.SetActive(true);
         }
     }
 

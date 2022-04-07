@@ -401,6 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &59237851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1321,8 +1322,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 35}
+  m_AnchoredPosition: {x: 2.3, y: -5.1}
+  m_SizeDelta: {x: 80, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173010487
 MonoBehaviour:
@@ -1333,7 +1334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 173010485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1344,16 +1345,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b74361a4268eaf74db7d8091ff82e723, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Quick Build
 --- !u!222 &173010488
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2643,6 +2648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &284952642
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3828,6 +3834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 0}
 --- !u!1 &477610766
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,6 +4097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &500947719
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4696,6 +4704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &656440699
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5431,6 +5440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!1 &997563484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6443,8 +6453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 374, y: 187.1}
-  m_SizeDelta: {x: 45.81, y: 45.81}
+  m_AnchoredPosition: {x: 365.6, y: 186.7}
+  m_SizeDelta: {x: 80, y: 45.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1172269674
 MonoBehaviour:
@@ -6600,6 +6610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &1173590618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7284,6 +7295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &1276988321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7654,7 +7666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1381638779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7693,7 +7705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildMenuUI: {fileID: 0}
-  buildText: {fileID: 0}
+  buildText: {fileID: 1390710256}
   towerNum: 0
 --- !u!114 &1381638781
 MonoBehaviour:
@@ -8560,6 +8572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &1542239174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8914,6 +8927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &1644753417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13007,6 +13021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &1752307166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13847,6 +13862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &1887136402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14091,6 +14107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
+  menu: {fileID: 1381638778}
 --- !u!212 &1930359474
 SpriteRenderer:
   m_ObjectHideFlags: 0

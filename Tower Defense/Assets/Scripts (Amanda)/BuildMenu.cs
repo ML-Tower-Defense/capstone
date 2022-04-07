@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class BuildMenu : MonoBehaviour
 {
     public static bool GameInBuild = false;
-    public GameObject buildMenuUI;
+    public GameObject buildMenuUI; //Singletons for multiple build menus?
     public GameObject buildText;
     public int towerNum;
     public static string towerName;
@@ -15,7 +15,10 @@ public class BuildMenu : MonoBehaviour
 
     public void OpenBuildMenu()
     {
+        GameInBuild = false;
         buildMenuUI.SetActive(true);
+        buildText.SetActive(false);
+        
     }
 
     public void CloseBuildMenu()
@@ -33,4 +36,10 @@ public class BuildMenu : MonoBehaviour
         buildText.SetActive(true);
     }
 
+    public void BuildOneTower()
+    {
+        towerName = EventSystem.current.currentSelectedGameObject.name;
+        GameInBuild = true;
+        buildMenuUI.SetActive(false);
+    }
 }
