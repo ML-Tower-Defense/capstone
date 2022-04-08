@@ -14,10 +14,12 @@ public class Node : MonoBehaviour
     public GameObject singleMenu;
     private bool justOpened = false;
     private static GameObject whichNode;
+    AudioManager audioManager;
 
     void Start()
     {
         money = FindObjectOfType(typeof(MoneyManager)) as MoneyManager;
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     /*
@@ -40,7 +42,6 @@ public class Node : MonoBehaviour
         else if(BuildMenu.GameBuildSingle)
         {
             singleMenu.SetActive(true);
-
             BuildMenu.GameBuildSingle = false;
             whichNode = this.gameObject;
         }
@@ -64,17 +65,20 @@ public class Node : MonoBehaviour
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
         if (money.buy(towerCost))
         {
+            audioManager.Play("BuySound");
             towerBuilt = Instantiate(towerToBuild, node.transform.position, transform.rotation);
         }
         else
         {
             //Let player know they cannot place tower
+            audioManager.Play("NoMoney");
             tooPoorMessage.SetActive(true);
         }
     }
 
     public void closePoorMessage()
     {
+        audioManager.Play("ClickUI");
         tooPoorMessage.SetActive(false);
         BuildMenu.GameBuildSingle = true;
     }
