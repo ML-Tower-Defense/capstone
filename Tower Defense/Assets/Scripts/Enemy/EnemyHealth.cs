@@ -11,13 +11,14 @@ public class EnemyHealth : MonoBehaviour
 
     private EnemyMovement enemyMovement;
     private MoneyManager moneyManager;
+    AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyMovement = GetComponent<EnemyMovement>();
         moneyManager = GameObject.Find("Gold_Container").GetComponent<MoneyManager>();
-
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         currentHealth = maxHealth;
     }
 
@@ -32,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= dmgDealt;
         if (currentHealth <= 0)
         {
+            audioManager.Play("EnemyDeath");
             DeactivateEnemy();
             moneyManager.AddGold(reward);
             WaveSpawner.enemiesRemaining--;
