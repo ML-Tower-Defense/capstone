@@ -9,8 +9,7 @@ public class DarkMageTower : Tower
     // "casting", "casting2", "continuous_shooting", "continuous_shooting2",
     // "dying", "idle", "jump", "run", "shooting", "walk", "walk2"
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         idleAnim = "idle";

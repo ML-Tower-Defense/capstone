@@ -138,13 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5577473a42dbfa94494f9ff94f684826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 9203235895282931251, guid: 81fce276923159c49a0527389d655f20, type: 3}
   target: {fileID: 0}
   range: 3
   fireRate: 1
   projectileSpeed: 2
   dmgDealt: 10
   animator: {fileID: 0}
-  towerType: 
+  towerType: Archer
   idleAnim: 
   attackAnim: 

@@ -8,6 +8,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance; //reference to this script, can only have one build manager
     public GameObject TowerPrefab1;
     public GameObject TowerPrefab2;
+    public GameObject TowerPrefab3;
 
     void Awake()
     {
@@ -34,8 +35,10 @@ public class BuildManager : MonoBehaviour
     {
         if (towerNum == 1)
             towerToBuild = TowerPrefab1;
-        else
+        else if (towerNum == 2)
             towerToBuild = TowerPrefab2;
+        else
+            towerToBuild = TowerPrefab3;
 
         return towerToBuild;
     }

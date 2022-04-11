@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Node : MonoBehaviour
     public GameObject tooPoorMessage;
     private int towerCost;
     private GameObject towerBuilt;
+    public GameObject singleMenu;
+    private bool justOpened = false;
+    private static GameObject whichNode;
     AudioManager audioManager;
 
     void Start()
@@ -27,40 +31,52 @@ public class Node : MonoBehaviour
         }
     }*/
 
-    void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
         if (towerBuilt != null) // Tower already on this tile
         {
-            Debug.Log("Tower found. Can't build here.");
             return;
         }
-        PlaceTower();
+
+        // Quick build mode
+        if (BuildMenu.GameInBuild)
+            PlaceTower(0, this.gameObject);
+
+        // Single build mode
+        else if (BuildMenu.GameBuildSingle)
+        {
+            singleMenu.SetActive(true);
+            BuildMenu.GameBuildSingle = false;
+            whichNode = this.gameObject;
+        }
     }
 
-    void PlaceTower()
+    void PlaceTower(int whichTower, GameObject node)
     {
-        if (BuildMenu.GameInBuild)
+        int towerCost = 150;
+        string towerName;
+        int towerNum;
+        if (whichTower == 0)
         {
-            towerCost = 150;
+            towerName = BuildMenu.towerName;
+            towerNum = (towerName[towerName.Length - 1]) - '0';
+        }
+        else
+        {
+            towerNum = whichTower;
+        }
 
-            string towerName = BuildMenu.towerName;
-            int towerNum = (towerName[towerName.Length - 1]) - '0';
-
-            GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
-
-            if (money.buy(towerCost))
-            {
-                // GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(1);
-                audioManager.Play("BuySound");
-                towerBuilt = Instantiate(towerToBuild, transform.position, transform.rotation);
-
-            }
-            else
-            {
-                // Let player know they cannot place tower
-                audioManager.Play("NoMoney");
-                tooPoorMessage.SetActive(true);
-            }
+        GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
+        if (money.buy(towerCost))
+        {
+            audioManager.Play("BuySound");
+            towerBuilt = Instantiate(towerToBuild, node.transform.position, transform.rotation);
+        }
+        else
+        {
+            //Let player know they cannot place tower
+            audioManager.Play("NoMoney");
+            tooPoorMessage.SetActive(true);
         }
     }
 
@@ -68,5 +84,15 @@ public class Node : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         tooPoorMessage.SetActive(false);
+        BuildMenu.GameBuildSingle = true;
+    }
+
+    public void selectTower()
+    {
+        string towerName = EventSystem.current.currentSelectedGameObject.name;
+        int towerNum = (towerName[towerName.Length - 1]) - '0';
+        singleMenu.SetActive(false);
+        BuildMenu.GameBuildSingle = true;
+        PlaceTower(towerNum, whichNode);
     }
 }
