@@ -31,15 +31,19 @@ public class Node : MonoBehaviour
         }
     }*/
 
-    void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
         if (towerBuilt != null) // Tower already on this tile
         {
             return;
         }
+
+        // Quick build mode
         if (BuildMenu.GameInBuild)
             PlaceTower(0, this.gameObject);
-        else if(BuildMenu.GameBuildSingle)
+
+        // Single build mode
+        else if (BuildMenu.GameBuildSingle)
         {
             singleMenu.SetActive(true);
             BuildMenu.GameBuildSingle = false;
@@ -61,7 +65,7 @@ public class Node : MonoBehaviour
         {
             towerNum = whichTower;
         }
-        
+
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
         if (money.buy(towerCost))
         {

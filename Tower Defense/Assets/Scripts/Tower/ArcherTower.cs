@@ -8,8 +8,7 @@ public class ArcherTower : Tower
     // "charging", "dying", "high_shoot", "idle", "jump",
     // "run", "shoot", "shoot2", "walking", "walking_charging"
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         idleAnim = "idle";
