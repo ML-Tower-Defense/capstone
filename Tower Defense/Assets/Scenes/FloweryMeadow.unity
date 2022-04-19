@@ -12096,7 +12096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1478164656142564933, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_text
-      value: TEST
+      value: BUILD
       objectReference: {fileID: 0}
     - target: {fileID: 1478164656292502637, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_Layer
