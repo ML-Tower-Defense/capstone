@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     // Indicates that the player has won
     public void Victory()
     {
+        BuildMenu.GameBuildSingle = false;
         buildMenu.CloseBuildMenu();
         isGameOver = true;
         victoryMenu.gameObject.SetActive(true);
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     // Indicates that the player has lost
     public void GameOver()
     {
+        BuildMenu.GameBuildSingle = false;
         buildMenu.CloseBuildMenu();
         isGameOver = true;
         gameOverMenu.gameObject.SetActive(true);
@@ -65,5 +67,5 @@ public class GameManager : MonoBehaviour
         audioManager.Play("ClickUI");
         SceneManager.LoadScene("_MainMenu");
     }
-    
+
 }

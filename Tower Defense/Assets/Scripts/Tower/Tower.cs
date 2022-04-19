@@ -48,6 +48,7 @@ public class Tower : MonoBehaviour
                 ArcherTower archerTower = GetComponent<ArcherTower>();
                 idleAnim = archerTower.idleAnim;
                 attackAnim = archerTower.attackAnim;
+                range = archerTower.range;
                 break;
 
             //case 3:
