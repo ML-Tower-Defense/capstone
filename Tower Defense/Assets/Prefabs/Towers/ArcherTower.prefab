@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 3cc1930c995877a4da56b6f17c2e2d53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 39a81c05f6b0ee948a39c7d7424b3ba5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7ccdc88d4e0ce4ea595ff2762c9fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 9203235895282931251, guid: 81fce276923159c49a0527389d655f20, type: 3}
+  projectilePrefab: {fileID: 9203235895282931251, guid: 86c23209940a3114c892bb8b15df21ae, type: 3}
   target: {fileID: 0}
   range: 3
   fireRate: 1
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5577473a42dbfa94494f9ff94f684826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 9203235895282931251, guid: 81fce276923159c49a0527389d655f20, type: 3}
+  projectilePrefab: {fileID: 9203235895282931251, guid: 86c23209940a3114c892bb8b15df21ae, type: 3}
   target: {fileID: 0}
   range: 3
   fireRate: 1

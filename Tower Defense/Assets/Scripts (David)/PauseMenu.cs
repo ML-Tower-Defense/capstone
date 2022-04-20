@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start() {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        sliderM.value = 1f;
+        sliderM.value = .3f;
         sliderS.value = .5f;
     }
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Resume() {
+        BuildMenu.GameBuildSingle = true;
         audioManager.Play("ClickUI");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -39,6 +40,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Pause() {
+        BuildMenu.GameBuildSingle = false;
         audioManager.Play("ClickUI");
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

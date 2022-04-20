@@ -9,11 +9,11 @@ public class Node : MonoBehaviour
 {
     public MoneyManager money;
     public GameObject tooPoorMessage;
-    private int towerCost;
-    private GameObject towerBuilt;
     public GameObject singleMenu;
-    private bool justOpened = false;
+
+    private bool occupied;
     private static GameObject whichNode;
+
     AudioManager audioManager;
 
     void Start()
@@ -22,32 +22,24 @@ public class Node : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
-    /*
-    void Update()
+    void OnMouseUpAsButton()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (occupied) // Tower already on this tile
         {
-
-        }
-    }*/
-
-    private void OnMouseUpAsButton()
-    {
-        if (towerBuilt != null) // Tower already on this tile
-        {
+            print("Occupied!");
             return;
         }
 
         // Quick build mode
         if (BuildMenu.GameInBuild)
-            PlaceTower(0, this.gameObject);
+            PlaceTower(0, gameObject);
 
         // Single build mode
-        else if (BuildMenu.GameBuildSingle)
+        if (BuildMenu.GameBuildSingle)
         {
             singleMenu.SetActive(true);
             BuildMenu.GameBuildSingle = false;
-            whichNode = this.gameObject;
+            whichNode = gameObject;
         }
     }
 
@@ -67,10 +59,14 @@ public class Node : MonoBehaviour
         }
 
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
+
         if (money.buy(towerCost))
         {
             audioManager.Play("BuySound");
-            towerBuilt = Instantiate(towerToBuild, node.transform.position, transform.rotation);
+
+            Instantiate(towerToBuild, node.transform.position, transform.rotation);
+
+            occupied = true;
         }
         else
         {
