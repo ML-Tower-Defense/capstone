@@ -11,7 +11,6 @@ public class Node : MonoBehaviour
     public GameObject tooPoorMessage;
     public GameObject singleMenu;
 
-    private bool occupied;
     private static GameObject whichNode;
 
     AudioManager audioManager;
@@ -26,7 +25,7 @@ public class Node : MonoBehaviour
     {
         if (transform.childCount > 0) // Tower already on this tile
         {
-            print("Occupied!");
+            print("Occupied! Can't build here.");
             return;
         }
 
@@ -66,8 +65,8 @@ public class Node : MonoBehaviour
 
             GameObject childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation) as GameObject;
             childTower.transform.parent = node.transform;
-            occupied = true;
-            print("Built tower!, now occupied");
+
+            print("Built tower! Now occupied.");
         }
         else
         {
