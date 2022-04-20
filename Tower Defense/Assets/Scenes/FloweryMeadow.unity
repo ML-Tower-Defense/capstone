@@ -2680,7 +2680,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 997563484}
   sliderM: {fileID: 1018517917}
   sliderS: {fileID: 1965393593}
-  buildMenu: {fileID: 0}
+  buildMenu: {fileID: 1682072734}
 --- !u!114 &375599201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7811,7 +7811,7 @@ MonoBehaviour:
   buildText: {fileID: 1390710256}
   towerNum: 0
   singleBuildMenu: {fileID: 1980900807}
-  buildButton: {fileID: 0}
+  buildButton: {fileID: 1172269672}
 --- !u!1 &1700475584
 GameObject:
   m_ObjectHideFlags: 0
