@@ -11,7 +11,6 @@ public class Node : MonoBehaviour
     public GameObject tooPoorMessage;
     public GameObject singleMenu;
 
-    private bool occupied;
     private static GameObject whichNode;
 
     AudioManager audioManager;
@@ -22,11 +21,11 @@ public class Node : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
-    void OnMouseUpAsButton()
+    public void OnMouseUpAsButton()
     {
-        if (occupied) // Tower already on this tile
+        if (transform.childCount > 0) // Tower already on this tile
         {
-            print("Occupied!");
+            print("Occupied! Can't build here.");
             return;
         }
 
@@ -64,9 +63,10 @@ public class Node : MonoBehaviour
         {
             audioManager.Play("BuySound");
 
-            Instantiate(towerToBuild, node.transform.position, transform.rotation);
+            GameObject childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation) as GameObject;
+            childTower.transform.parent = node.transform;
 
-            occupied = true;
+            print("Built tower! Now occupied.");
         }
         else
         {

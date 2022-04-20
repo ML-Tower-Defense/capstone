@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public Slider sliderM;
     public Slider sliderS;
+    public BuildMenu buildMenu;
     AudioManager audioManager;
 
     void Start() {
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume() {
         BuildMenu.GameBuildSingle = true;
+        buildMenu.ActivateBuild();
         audioManager.Play("ClickUI");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -40,6 +42,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Pause() {
+        buildMenu.DeactivateBuild();
         BuildMenu.GameBuildSingle = false;
         audioManager.Play("ClickUI");
         pauseMenuUI.SetActive(true);

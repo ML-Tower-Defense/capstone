@@ -2680,6 +2680,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 997563484}
   sliderM: {fileID: 1018517917}
   sliderS: {fileID: 1965393593}
+  buildMenu: {fileID: 1682072734}
 --- !u!114 &375599201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3404,6 +3405,7 @@ MonoBehaviour:
   buildText: {fileID: 1390710256}
   towerNum: 0
   singleBuildMenu: {fileID: 1980900807}
+  buildButton: {fileID: 0}
 --- !u!1 &497356029
 GameObject:
   m_ObjectHideFlags: 0
@@ -6052,6 +6054,7 @@ MonoBehaviour:
   buildText: {fileID: 0}
   towerNum: 0
   singleBuildMenu: {fileID: 0}
+  buildButton: {fileID: 0}
 --- !u!114 &1227698970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6444,7 +6447,7 @@ MonoBehaviour:
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 00379ff33019bab4c9495c70aa3c3ff7, type: 3}
     volume: 0.3
-    pitch: 0.6
+    pitch: 1
     source: {fileID: 0}
     loop: 1
   - name: TowerAttack
@@ -7808,6 +7811,7 @@ MonoBehaviour:
   buildText: {fileID: 1390710256}
   towerNum: 0
   singleBuildMenu: {fileID: 1980900807}
+  buildButton: {fileID: 1172269672}
 --- !u!1 &1700475584
 GameObject:
   m_ObjectHideFlags: 0
