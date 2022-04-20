@@ -7,12 +7,13 @@ public class BuildMenu : MonoBehaviour
 {
     public static bool GameInBuild = false;
     public static bool GameBuildSingle = true;
-    public GameObject buildMenuUI; //Singletons for multiple build menus?
+    public GameObject buildMenuUI; 
     public GameObject buildText;
     public int towerNum;
     public static string towerName;
     public GameObject singleBuildMenu;
     AudioManager audioManager;
+    public GameObject buildButton;
 
     void Start() {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -52,5 +53,16 @@ public class BuildMenu : MonoBehaviour
     {
         towerName = EventSystem.current.currentSelectedGameObject.name;
         CloseBuildMenu();
+    }
+
+    public void DeactivateBuild()
+    {
+        buildButton.SetActive(false);
+        this.CloseBuildMenu();
+    }
+
+    public void ActivateBuild()
+    {
+        buildButton.SetActive(true);
     }
 }

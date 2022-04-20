@@ -37,7 +37,7 @@ public class Arrow : MonoBehaviour
 
         height = 2 * (nextX - towerX) * (nextX - targetX) / (-0.25f * dist * dist);
 
-        print("base: " + baseY + "   height: " + height);
+       // print("base: " + baseY + "   height: " + height);
 
         movePosition = new Vector2(nextX, baseY + height);
 
