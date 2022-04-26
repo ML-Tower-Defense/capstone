@@ -10,8 +10,10 @@ public class Node : MonoBehaviour
     public MoneyManager money;
     public GameObject tooPoorMessage;
     public GameObject singleMenu;
+    public GameObject deleteTowerPrompt;
 
     private static GameObject whichNode;
+    private GameObject childTower;
 
     AudioManager audioManager;
 
@@ -23,23 +25,33 @@ public class Node : MonoBehaviour
 
     public void OnMouseUpAsButton()
     {
-        if (transform.childCount > 0) // Tower already on this tile
+        
+        if (transform.childCount > 0 ) // Tower already on this tile
         {
-            print("Occupied! Can't build here.");
+            print("Occupied!");
+            whichNode = transform.gameObject;
+            if (BuildMenu.GameBuildSingle)
+            {
+                openDeleteTowerMenu();
+            }
             return;
         }
 
         // Quick build mode
         if (BuildMenu.GameInBuild)
-            PlaceTower(0, gameObject);
+        {
+            whichNode = transform.gameObject;
+            PlaceTower(0, whichNode);
+        }
 
         // Single build mode
         if (BuildMenu.GameBuildSingle)
         {
+            whichNode = transform.gameObject;
             singleMenu.SetActive(true);
             BuildMenu.GameBuildSingle = false;
-            whichNode = gameObject;
         }
+        return;
     }
 
     void PlaceTower(int whichTower, GameObject node)
@@ -62,11 +74,10 @@ public class Node : MonoBehaviour
         if (money.buy(towerCost))
         {
             audioManager.Play("BuySound");
-
-            GameObject childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation) as GameObject;
+            print("new child tower object created");
+            childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation) as GameObject;
             childTower.transform.parent = node.transform;
 
-            print("Built tower! Now occupied.");
         }
         else
         {
@@ -90,5 +101,27 @@ public class Node : MonoBehaviour
         singleMenu.SetActive(false);
         BuildMenu.GameBuildSingle = true;
         PlaceTower(towerNum, whichNode);
+    }
+
+    public void deleteTower()
+    {
+        money.AddGold(100);
+
+        print(whichNode.transform.GetChild(0).gameObject);
+        Destroy(whichNode.transform.GetChild(0).gameObject);
+        closeDeleteTowerMenu();
+    }
+
+    public void openDeleteTowerMenu()
+    {
+        print("Open delete tower menu");
+        BuildMenu.GameBuildSingle = false;
+        deleteTowerPrompt.SetActive(true);
+    }
+
+    public void closeDeleteTowerMenu()
+    {
+        BuildMenu.GameBuildSingle = true;
+        deleteTowerPrompt.SetActive(false);
     }
 }
