@@ -25,7 +25,6 @@ public class Node : MonoBehaviour
     {
         if (transform.childCount > 0) // Tower already on this tile
         {
-            print("Occupied! Can't build here.");
             return;
         }
 
@@ -65,8 +64,6 @@ public class Node : MonoBehaviour
 
             GameObject childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation) as GameObject;
             childTower.transform.parent = node.transform;
-
-            print("Built tower! Now occupied.");
         }
         else
         {
