@@ -3311,13 +3311,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveGroups:
-    - enemyTag: zombieEnemy
-      count: 2
-    - enemyTag: goblinEnemy
-      count: 2
-    - enemyTag: knightEnemy
-      count: 2
     - enemyTag: golemEnemy
+      count: 1
+    - enemyTag: zombieEnemy
+      count: 1
+    - enemyTag: goblinEnemy
+      count: 1
+    - enemyTag: knightEnemy
       count: 1
     spawnRate: 5
   spawnPoints:
