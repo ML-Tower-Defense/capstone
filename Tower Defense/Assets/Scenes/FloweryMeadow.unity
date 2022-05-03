@@ -3388,7 +3388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TowerPrefab1: {fileID: 6328278621224667995, guid: dda0cacba1a6de34baba94560db03a1d, type: 3}
   TowerPrefab2: {fileID: 6328278621224667995, guid: 65465e269ff43414c8aed930f6537e94, type: 3}
-  TowerPrefab3: {fileID: 6328278621224667995, guid: dda0cacba1a6de34baba94560db03a1d, type: 3}
+  TowerPrefab3: {fileID: 6328278621224667995, guid: 5ca4dfd4d6c498c4695d972a15f0a5c6, type: 3}
 --- !u!114 &477610772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12042,6 +12042,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1478164654878959087, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00000029802322
+      objectReference: {fileID: 0}
     - target: {fileID: 1478164655166203657, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -12058,9 +12062,45 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467905, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467905, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467905, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bcf39da0225304f44b9b626129c0d8da, type: 3}
+    - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_RaycastTarget
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1478164655454467907, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -12205,6 +12245,10 @@ PrefabInstance:
     - target: {fileID: 1478164656712561301, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478164656808124648, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1478164656808124654, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_Pivot.x
@@ -13893,6 +13937,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1682072730}
     m_Modifications:
+    - target: {fileID: 1478164655454467906, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bcf39da0225304f44b9b626129c0d8da, type: 3}
     - target: {fileID: 1478164655454467907, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

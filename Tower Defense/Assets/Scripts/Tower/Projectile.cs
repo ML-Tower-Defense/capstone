@@ -5,12 +5,19 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject originalTower;    // Tower that fired this projectile
+    public Animator animator;           // Projectile's animation controller
 
     private Transform target;           // Target to hit
     private int speed = 7;              // Speed of projectile
+    public bool isDragon;               // Check if dragon's projectile
 
     void Start()
     {
+        if (isDragon)
+        {
+            animator = GetComponent<Animator>();
+        }
+
         getTargetFromTower();
     }
 
@@ -22,6 +29,11 @@ public class Projectile : MonoBehaviour
 
         if (dir.magnitude <= 0.2)
         {
+            if (isDragon)
+            {
+                StartCoroutine(explode());
+            }
+
             Destroy(gameObject);
             return;
         }
@@ -53,5 +65,12 @@ public class Projectile : MonoBehaviour
         }
 
         target = originalTower.GetComponent<Tower>().getTarget();
+    }
+
+    IEnumerator explode()
+    {
+        animator.Play("Explosion");
+
+        yield return new WaitForSecondsRealtime(2);
     }
 }
