@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject[] waypointsArray;    // Array of waypoints along path
-    public int nextWaypoint;               // Index of next waypoint
-    public float movementSpeed = 5f;       // Enemy's movement speed
+    public GameObject[] waypointsArray;         // Array of waypoints along path
+    public int nextWaypoint;                    // Index of next waypoint
+    public float movementSpeed = 5f;            // Enemy's movement speed
+    public bool isFacingRight = true;           // Sprite faces in right direction by default
 
-    public Animator animator;       // Enemy's animation controller
-                                    // Knight animations:
-                                    // "idle", "walk", "run", "battlecry", "jump",
-                                    // "attack", "attack2", "attack3", "attack4", "shield",
-                                    // "take_hit", "take_hit2", "dying"
+    public Animator animator;                   // Enemy's animation controller
+                                                // Knight animations:
+                                                // "idle", "walk", "run", "battlecry", "jump",
+                                                // "attack", "attack2", "attack3", "attack4", "shield",
+                                                // "take_hit", "take_hit2", "dying"
 
     private string enemyName;
 
@@ -53,12 +54,12 @@ public class EnemyMovement : MonoBehaviour
 
             // Let enemy face the appropriate x-direction at all times
             // Face right
-            if (nextWPLocation.x > transform.position.x)
-                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            if (nextWPLocation.x > transform.position.x && !isFacingRight)
+                FlipSpriteDirection();
 
             // Face left
-            else if (nextWPLocation.x < transform.position.x)
-                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            else if (nextWPLocation.x < transform.position.x && isFacingRight)
+                FlipSpriteDirection();
 
             // If the enemy is very close to the next waypoint, then update the next waypoint to the one after
             if (Vector2.Distance(currentLocation, nextWPLocation) < 0.1f)
@@ -94,8 +95,8 @@ public class EnemyMovement : MonoBehaviour
                 }
 
                 // Look left after passing 3rd waypoint
-                if (nextWaypoint == 3)
-                    transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                if (nextWaypoint == 3 && isFacingRight)
+                    FlipSpriteDirection();
             }
 
             // If enemy reaches the last waypoint (the gate), play attack animations
@@ -116,5 +117,13 @@ public class EnemyMovement : MonoBehaviour
         animator.Play("battlecry");
 
         yield return new WaitForSecondsRealtime(2);
+    }
+
+    private void FlipSpriteDirection()
+    {
+        Vector3 tempScale = transform.localScale;
+        tempScale.x *= -1;
+        transform.localScale = tempScale;
+        isFacingRight = !isFacingRight;
     }
 }
