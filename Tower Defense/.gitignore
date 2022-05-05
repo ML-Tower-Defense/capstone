@@ -11,9 +11,9 @@
 /[Mm]emoryCaptures/
 /[Uu]serSettings/
 
-/Assets/ML-Agents
+/Assets/ML-Agents/
+/venv/
 /ProjectSettings/TimelineSettings.asset
-/venv
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
