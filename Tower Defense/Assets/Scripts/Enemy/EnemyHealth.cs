@@ -48,5 +48,6 @@ public class EnemyHealth : MonoBehaviour
         gameObject.SetActive(false);
         currentHealth = maxHealth;
         enemyMovement.nextWaypoint = 0;
+        enemyMovement.isFacingRight = true;
     }
 }
