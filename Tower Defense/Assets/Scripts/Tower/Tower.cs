@@ -51,8 +51,12 @@ public class Tower : MonoBehaviour
                 range = archerTower.range;
                 break;
 
-            //case 3:
-            //    break;
+            case "Dragon":
+                DragonTower dragonTower = GetComponent<DragonTower>();
+                idleAnim = dragonTower.idleAnim;
+                attackAnim = dragonTower.attackAnim;
+                range = dragonTower.range;
+                break;
 
             default:
                 Debug.LogError("Invalid tower type found: " + towerType);

@@ -74,10 +74,23 @@ public class Node : MonoBehaviour
         if (money.buy(towerCost))
         {
             audioManager.Play("BuySound");
-            print("new child tower object created");
             childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation) as GameObject;
             childTower.transform.parent = node.transform;
 
+
+            GameObject childTower;
+
+            if (towerNum == 3)
+            {
+                childTower = Instantiate(towerToBuild, node.transform.position + new Vector3(0,0.5f,0), transform.rotation);
+            }
+
+            else
+            {
+                childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation);
+            }
+
+            childTower.transform.parent = node.transform;
         }
         else
         {

@@ -11,8 +11,6 @@ public class ArcherTower : Tower
     void Awake()
     {
         animator = GetComponent<Animator>();
-
-        range = 5f;
         idleAnim = "idle";
         attackAnim = "shoot";
         animator.Play("idle");
