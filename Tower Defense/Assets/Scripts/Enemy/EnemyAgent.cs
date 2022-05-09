@@ -20,6 +20,33 @@ public class EnemyAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        Debug.Log(actions.ContinuousActions[0]);
+        int dec = actions.DiscreteActions[0];
+        //if 0, move
+        if (dec == 0) {
+            if (this.gameObject.GetComponent<EnemyMovement>().enabled) {
+
+            }
+            else {
+                this.gameObject.GetComponent<EnemyMovement>().enabled = true;
+            }
+        }
+        //if 1, stop
+        else {
+            if (this.gameObject.GetComponent<EnemyMovement>().enabled) {
+                this.gameObject.GetComponent<EnemyMovement>().enabled = false;
+                transform.position = Vector2.MoveTowards(transform.position, transform.position, 1 * Time.deltaTime);
+            }
+            else {
+
+            }
+        }
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut) {
+        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
+        discreteActions[0] = 0;
+        if (Input.GetKey("right")) {
+            discreteActions[0] = 1;
+        }
     }
 }
