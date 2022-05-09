@@ -18,11 +18,14 @@ public class Tower : MonoBehaviour
 
     private string enemyTag = "Enemy";
 
-    public Animator animator;  // Tower's animation controller
+    public Animator animator;               // Tower's animation controller
 
-    public string towerType;   // Specifies a certain tower type
-    public string idleAnim;    // Idle animation of tower
-    public string attackAnim;  // Attack animation of tower
+    public string towerType;                // Specifies a certain tower type
+    public string idleAnim;                 // Idle animation of tower
+    public string attackAnim;               // Attack animation of tower
+
+    public int killCount = 0;               // Keep track of enemies killed
+    public int projectileCount = 0;         // Keep track of projectiles fired
 
     // Start is called before the first frame update
     void Start()
@@ -86,12 +89,16 @@ public class Tower : MonoBehaviour
                 target = nearestEnemy.transform;
 
                 StartCoroutine(attackEnemy()); // Play attack animation
-
+                projectileCount += 1;
                 StopCoroutine(attackEnemy());
                 StopCoroutine(attackEnemy());
 
                 targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
-                targetEnemy.TakeDamage(dmgDealt);
+                
+                if (!(targetEnemy.TakeDamage(dmgDealt)))
+                {
+                    killCount += 1;
+                }
             }
             else
             {
