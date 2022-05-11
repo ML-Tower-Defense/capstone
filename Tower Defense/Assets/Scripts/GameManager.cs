@@ -35,8 +35,8 @@ public class GameManager : MonoBehaviour
     // Indicates that the player has won
     public void Victory()
     {
-        buildMenu.DeactivateBuild();
         BuildMenu.GameBuildSingle = false;
+        buildMenu.DeactivateBuild();
         isGameOver = true;
         victoryMenu.gameObject.SetActive(true);
         audioManager.StopAllAudio();
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     // Reloads the current scene if the player wants to restart
     public void RestartGame()
     {
+        BuildMenu.GameBuildSingle = true;
         buildMenu.ActivateBuild();
         audioManager.Play("ClickUI");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
