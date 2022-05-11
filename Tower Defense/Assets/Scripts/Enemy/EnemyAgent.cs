@@ -9,6 +9,9 @@ public class EnemyAgent : Agent
 {
     // Reinforcement learning cycle
     // Observation -> Decision -> Action -> Reward
+    public Transform attackPoint;
+    public GameObject projectilePrefab;
+    public LineRenderer laser;
 
     private float rotationSpeed = 3f;
     private bool isAttackReady = true;
@@ -27,34 +30,67 @@ public class EnemyAgent : Agent
                 isAttackReady = true;
             }
         }
+
+        // Hit spacebar to test shooting
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(Shoot());
+        }
     }
 
-    private void AttackTower()
+    IEnumerator Shoot()
     {
         // Return and do nothing if attack is still on cooldown
         if (!isAttackReady)
         {
-            return;
+            yield return null;
         }
 
         // Shoot a projectile in the forward direction
-        // If projectile hits the most valuable tower, add a high positive reward
-        // Else if projectile hits any other tower, add a low positive reward
+        RaycastHit2D hitInfo = Physics2D.Raycast(attackPoint.position, attackPoint.right);
+
+        // If projectile hits any other tower, add a positive reward
+        if (hitInfo)
+        {
+            Tower tower = hitInfo.transform.GetComponent<Tower>();
+
+            if (tower)
+            {
+                // TODO: Add functionality for keeping track of health and taking damage to tower
+                // tower.TakeDamage(damage);
+                AddReward(2);
+            }
+
+            // TODO: Create an impact effect on hitting a tower
+
+            laser.SetPosition(0, attackPoint.position);
+            laser.SetPosition(1, hitInfo.point);
+        }
         // Else (projectile misses), add a negative reward
+        else
+        {
+            AddReward(-1);
+
+            laser.SetPosition(0, attackPoint.position);
+            laser.SetPosition(1, attackPoint.position + attackPoint.right * 100);
+        }
+
+        laser.enabled = true;
+        yield return new WaitForSeconds(0.02f);
+        laser.enabled = false;
 
         // Set attack to not ready and reset the cooldown
         isAttackReady = false;
-        attackCooldown = 10;
+        attackCooldown = 5;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Agent takes in positions, kill counts, and projectile counts of towers
+        // Agent takes in kill counts and projectile counts of towers
         GameObject[] towers = GameObject.FindGameObjectsWithTag(towerTag);
         foreach (GameObject tower in towers)
         {
             Tower towerScript = tower.GetComponent<Tower>();
-            sensor.AddObservation(tower.transform.position);
             sensor.AddObservation(towerScript.killCount);
             sensor.AddObservation(towerScript.projectileCount);
         }
@@ -62,36 +98,12 @@ public class EnemyAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        /*
-        int dec = actions.DiscreteActions[0];
-
-        //if 0, move
-        if (dec == 0) {
-            if (this.gameObject.GetComponent<EnemyMovement>().enabled) {
-
-            }
-            else {
-                this.gameObject.GetComponent<EnemyMovement>().enabled = true;
-            }
-        }
-        //if 1, stop
-        else {
-            if (this.gameObject.GetComponent<EnemyMovement>().enabled) {
-                this.gameObject.GetComponent<EnemyMovement>().enabled = false;
-                transform.position = Vector2.MoveTowards(transform.position, transform.position, 1 * Time.deltaTime);
-            }
-            else {
-
-            }
-        }
-        */
-
         float readyToShoot = actions.ContinuousActions[0]; 
         float rotationDegree = actions.ContinuousActions[1];
 
         if (readyToShoot >= 1)
         {
-            AttackTower();
+            StartCoroutine(Shoot());
         }
 
         transform.Rotate(Vector3.forward, rotationDegree * rotationSpeed);

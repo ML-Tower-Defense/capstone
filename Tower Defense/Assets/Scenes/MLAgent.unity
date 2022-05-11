@@ -402,6 +402,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &59237851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2164,6 +2165,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &284952642
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3276,6 +3278,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 0}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!1 &477610766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,12 +3316,6 @@ MonoBehaviour:
   - waveGroups:
     - enemyTag: golemEnemy
       count: 1
-    - enemyTag: zombieEnemy
-      count: 1
-    - enemyTag: goblinEnemy
-      count: 1
-    - enemyTag: knightEnemy
-      count: 1
     spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
@@ -3340,16 +3337,16 @@ MonoBehaviour:
   objectPools:
   - objectTag: zombieEnemy
     prefab: {fileID: 1420103743}
-    size: 5
+    size: 0
   - objectTag: goblinEnemy
     prefab: {fileID: 277212261}
-    size: 5
+    size: 0
   - objectTag: knightEnemy
     prefab: {fileID: 217019763}
-    size: 5
+    size: 0
   - objectTag: golemEnemy
     prefab: {fileID: 1673363948}
-    size: 2
+    size: 1
 --- !u!4 &477610769
 Transform:
   m_ObjectHideFlags: 0
@@ -3547,6 +3544,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &500947719
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4154,6 +4152,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &656440699
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4598,6 +4597,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!1 &997563484
 GameObject:
   m_ObjectHideFlags: 0
@@ -5606,6 +5606,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &1173590618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6293,6 +6294,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &1276988321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7324,6 +7326,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &1542239174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7618,6 +7621,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6597600313720005849, guid: c7f341e0e611077448f29ccdc520e838, type: 3}
   m_PrefabInstance: {fileID: 1589902305}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1590336239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1590336240}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1590336240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590336239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.025, y: 0.164, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4857339871772300923}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1644753413
 GameObject:
   m_ObjectHideFlags: 0
@@ -7679,6 +7712,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &1644753417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11781,6 +11815,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &1752307166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12816,6 +12851,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &1887136402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13061,6 +13097,7 @@ MonoBehaviour:
   money: {fileID: 0}
   tooPoorMessage: {fileID: 475709199}
   singleMenu: {fileID: 1980900807}
+  deleteTowerPrompt: {fileID: 0}
 --- !u!212 &1930359474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14029,6 +14066,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+--- !u!1001 &2298893813331851310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4857339871772300923}
+    m_Modifications:
+    - target: {fileID: 2067322290574277884, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751621717578295720, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751621717578295720, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.543
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 594.9505
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9107923486790002244, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+--- !u!120 &2298893813331851311 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 2067322290574277884, guid: ebaa3a6add6bfa1428103f90a6106930, type: 3}
+  m_PrefabInstance: {fileID: 2298893813331851310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4857339871772300922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14090,7 +14197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4857339871228450708, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.36
+      value: -6.85
       objectReference: {fileID: 0}
     - target: {fileID: 4857339871228450708, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14124,6 +14231,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4857339871228450709, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 2298893813331851311}
+    - target: {fileID: 4857339871228450709, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1590336240}
     - target: {fileID: 4857339871228450710, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
       propertyPath: m_Name
       value: GolemEnemy
@@ -14134,6 +14249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+--- !u!4 &4857339871772300923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4857339871228450708, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+  m_PrefabInstance: {fileID: 4857339871772300922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5733790699933990408
 PrefabInstance:
   m_ObjectHideFlags: 0
