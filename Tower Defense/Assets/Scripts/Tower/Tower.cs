@@ -11,6 +11,8 @@ public class Tower : MonoBehaviour
 
     private EnemyHealth targetEnemy;
 
+    public int maxHealth = 100;
+    public int currentHealth;
     public float range = 3f;
     public float fireRate = 1f;
     public float projectileSpeed = 2f;
@@ -33,6 +35,7 @@ public class Tower : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         getTowerDetails();
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
         InvokeRepeating("UpdateTarget", 0f, fireRate);
     }
 
@@ -109,12 +112,6 @@ public class Tower : MonoBehaviour
         }
     }
 
-    /*// Update is called once per frame
-    void Update()
-    {
-
-    }*/
-
     // Play attack animation
     IEnumerator attackEnemy()
     {
@@ -133,5 +130,20 @@ public class Tower : MonoBehaviour
     public Transform getTarget()
     {
         return target;
+    }
+
+    public bool TakeDamage(int damage)
+    {
+        currentHealth -= dmgDealt;
+
+        // Return false if health goes below 0 and tower is destroyed
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            return false;
+        }
+
+        // Return true if tower still has health
+        return true;
     }
 }

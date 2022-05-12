@@ -13,6 +13,7 @@ public class EnemyAgent : Agent
     public GameObject projectilePrefab;
     public LineRenderer laser;
 
+    private int damage = 50;
     private float rotationSpeed = 3f;
     private bool isAttackReady = true;
     private int attackCooldown = 0;
@@ -56,8 +57,7 @@ public class EnemyAgent : Agent
 
             if (tower)
             {
-                // TODO: Add functionality for keeping track of health and taking damage to tower
-                // tower.TakeDamage(damage);
+                tower.TakeDamage(damage);
                 AddReward(2);
             }
 
