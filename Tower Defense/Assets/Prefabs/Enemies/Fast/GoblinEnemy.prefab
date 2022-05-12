@@ -120,6 +120,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   reward: 25
+  healthBar: {fileID: 0}
+  healthPrefab: {fileID: 0}
 --- !u!114 &1040187417182612279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +137,7 @@ MonoBehaviour:
   waypointsArray: []
   nextWaypoint: 0
   movementSpeed: 3.5
+  isFacingRight: 1
   animator: {fileID: 1040187417182612281}
 --- !u!114 &1040187417182612276
 MonoBehaviour:

@@ -12,6 +12,9 @@ public class EnemyHealth : MonoBehaviour
     private EnemyMovement enemyMovement;
     private MoneyManager moneyManager;
     AudioManager audioManager;
+    private HealthBar healthBar;
+    public GameObject healthPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +22,12 @@ public class EnemyHealth : MonoBehaviour
         enemyMovement = GetComponent<EnemyMovement>();
         moneyManager = GameObject.Find("Gold_Container").GetComponent<MoneyManager>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        healthPrefab = Instantiate(healthPrefab);
+        healthPrefab.transform.SetParent(gameObject.transform);
+        healthPrefab.transform.localPosition = new Vector3(0, .5f, 0);
+        healthBar = this.GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -31,6 +39,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int dmgDealt)
     {
         currentHealth -= dmgDealt;
+        healthBar.setHealth(currentHealth);
         if (currentHealth <= 0)
         {
             audioManager.Play("EnemyDeath");
