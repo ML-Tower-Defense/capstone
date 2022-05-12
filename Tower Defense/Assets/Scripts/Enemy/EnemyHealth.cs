@@ -36,17 +36,23 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
-    public void TakeDamage(int dmgDealt)
+    public bool TakeDamage(int dmgDealt)
     {
         currentHealth -= dmgDealt;
         healthBar.setHealth(currentHealth);
+
+        // Return false if health goes below 0 and enemy dies
         if (currentHealth <= 0)
         {
             audioManager.Play("EnemyDeath");
             DeactivateEnemy();
             moneyManager.AddGold(reward);
             WaveSpawner.enemiesRemaining--;
+            return false;
         }
+
+        // Return true if enemy is still alive
+        return true;
     }
 
     // Returns the enemy to the object pool and resets the enemy's properties so that it can be

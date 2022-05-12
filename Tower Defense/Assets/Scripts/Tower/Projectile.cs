@@ -9,14 +9,11 @@ public class Projectile : MonoBehaviour
 
     private Transform target;           // Target to hit
     private int speed = 7;              // Speed of projectile
-    public bool isDragon;               // Check if dragon's projectile
+    private bool reachedTarget;         // Check if projectile reached target
 
     void Start()
     {
-        if (isDragon)
-        {
-            animator = GetComponent<Animator>();
-        }
+        animator = GetComponent<Animator>();
 
         getTargetFromTower();
     }
@@ -29,16 +26,15 @@ public class Projectile : MonoBehaviour
 
         if (dir.magnitude <= 0.2)
         {
-            if (isDragon)
-            {
-                StartCoroutine(explode());
-            }
+            reachedTarget = true;
 
-            Destroy(gameObject);
-            return;
+            StartCoroutine(explode());
         }
 
-        transform.Translate(dir.normalized * distanceThisFrame);
+        if (!reachedTarget)
+        {
+            transform.Translate(dir.normalized * distanceThisFrame);
+        }
     }
 
     private void getTargetFromTower()
@@ -71,6 +67,8 @@ public class Projectile : MonoBehaviour
     {
         animator.Play("Explosion");
 
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        Destroy(gameObject);
     }
 }
