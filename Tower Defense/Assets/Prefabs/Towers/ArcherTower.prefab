@@ -118,6 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9203235895282931251, guid: 86c23209940a3114c892bb8b15df21ae, type: 3}
   target: {fileID: 0}
+  healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+  maxHealth: 100
+  currentHealth: 0
   range: 3
   fireRate: 1
   projectileSpeed: 2
@@ -126,6 +129,8 @@ MonoBehaviour:
   towerType: Archer
   idleAnim: 
   attackAnim: 
+  killCount: 0
+  projectileCount: 0
 --- !u!114 &-7611433155990395211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9203235895282931251, guid: 86c23209940a3114c892bb8b15df21ae, type: 3}
   target: {fileID: 0}
+  healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+  maxHealth: 100
+  currentHealth: 0
   range: 3
   fireRate: 1
   projectileSpeed: 2
@@ -148,3 +156,5 @@ MonoBehaviour:
   towerType: Archer
   idleAnim: 
   attackAnim: 
+  killCount: 0
+  projectileCount: 0

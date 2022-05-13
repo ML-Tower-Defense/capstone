@@ -118,6 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9203235895282931251, guid: f3c63ccd0ef0ac24cad5a4cdad798036, type: 3}
   target: {fileID: 0}
+  healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+  maxHealth: 100
+  currentHealth: 0
   range: 3
   fireRate: 1
   projectileSpeed: 2
@@ -126,6 +129,8 @@ MonoBehaviour:
   towerType: Dragon
   idleAnim: 
   attackAnim: 
+  killCount: 0
+  projectileCount: 0
 --- !u!114 &8191015163951100849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9203235895282931251, guid: f3c63ccd0ef0ac24cad5a4cdad798036, type: 3}
   target: {fileID: 0}
+  healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+  maxHealth: 100
+  currentHealth: 0
   range: 3
   fireRate: 1
   projectileSpeed: 2
@@ -148,3 +156,5 @@ MonoBehaviour:
   towerType: Dragon
   idleAnim: 
   attackAnim: 
+  killCount: 0
+  projectileCount: 0

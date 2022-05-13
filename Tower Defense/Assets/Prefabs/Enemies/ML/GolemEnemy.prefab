@@ -173,8 +173,8 @@ GameObject:
   - component: {fileID: 7962118616897436028}
   - component: {fileID: 7962118616897436003}
   - component: {fileID: 7962118616897436031}
-  - component: {fileID: 7962118616897436030}
-  - component: {fileID: 7962118616897436029}
+  - component: {fileID: 4857339871228450696}
+  - component: {fileID: 4857339871228450699}
   m_Layer: 0
   m_Name: GolemEnemy
   m_TagString: Enemy
@@ -332,7 +332,6 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 0
   reward: 150
-  healthBar: {fileID: 0}
   healthPrefab: {fileID: 0}
 --- !u!114 &4857339871228450696
 MonoBehaviour:
@@ -360,7 +359,7 @@ MonoBehaviour:
   nextWaypoint: 0
   movementSpeed: 1
   isFacingRight: 1
-  animator: {fileID: 4857339871228450702}
+  animator: {fileID: 0}
 --- !u!114 &4857339871228450699
 MonoBehaviour:
   m_ObjectHideFlags: 0

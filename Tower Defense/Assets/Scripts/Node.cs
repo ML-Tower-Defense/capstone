@@ -15,9 +15,6 @@ public class Node : MonoBehaviour
     private static GameObject whichNode;
     private GameObject childTower;
 
-    private HealthBar healthBar;
-    public GameObject healthPrefab;
-
     AudioManager audioManager;
 
     void Start()
@@ -87,11 +84,8 @@ public class Node : MonoBehaviour
             {
                 childTower = Instantiate(towerToBuild, node.transform.position, transform.rotation);
             }
+
             childTower.transform.parent = node.transform;
-            healthPrefab = Instantiate(healthPrefab);
-            healthPrefab.transform.SetParent(childTower.transform);
-            healthPrefab.transform.localPosition = new Vector3(0, -1, 0);
-            healthBar = childTower.GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         }
         else
         {

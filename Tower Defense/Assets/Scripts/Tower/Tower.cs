@@ -11,6 +11,9 @@ public class Tower : MonoBehaviour
 
     private EnemyHealth targetEnemy;
 
+    private HealthBar healthBar;
+    public GameObject healthPrefab;
+
     public int maxHealth = 100;
     public int currentHealth;
     public float range = 3f;
@@ -35,7 +38,12 @@ public class Tower : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         getTowerDetails();
         animator = GetComponent<Animator>();
+        healthPrefab = Instantiate(healthPrefab);
+        healthPrefab.transform.SetParent(gameObject.transform);
+        healthPrefab.transform.localPosition = new Vector3(0, -1, 0);
+        healthBar = this.GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
         InvokeRepeating("UpdateTarget", 0f, fireRate);
     }
 
