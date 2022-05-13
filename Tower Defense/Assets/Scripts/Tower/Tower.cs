@@ -40,7 +40,7 @@ public class Tower : MonoBehaviour
         animator = GetComponent<Animator>();
         healthPrefab = Instantiate(healthPrefab);
         healthPrefab.transform.SetParent(gameObject.transform);
-        healthPrefab.transform.localPosition = new Vector3(0, -1, 0);
+        healthPrefab.transform.localPosition = new Vector3(0, 0.5f, 0);
         healthBar = this.GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
