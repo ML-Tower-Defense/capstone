@@ -10,7 +10,6 @@ public class EnemyAgent : Agent
     // Reinforcement learning cycle
     // Observation -> Decision -> Action -> Reward
     public Transform attackPoint;
-    public GameObject projectilePrefab;
     public LineRenderer laser;
 
     private int damage = 50;
@@ -19,9 +18,22 @@ public class EnemyAgent : Agent
     private int attackCooldown = 0;
     private string towerTag = "Tower";
 
+    private EnemyHealth enemyHealth;
+
+    void Start()
+    {
+        enemyHealth = GetComponent<EnemyHealth>();
+    }
+
     // Updates the attack cooldown to determine if attack is ready
     void Update()
     {
+        if (enemyHealth.currentHealth < 0)
+        {
+            AddReward(-1f);
+            EndEpisode();
+        }
+
         if (!isAttackReady)
         {
             attackCooldown -= 1;
@@ -30,12 +42,6 @@ public class EnemyAgent : Agent
             {
                 isAttackReady = true;
             }
-        }
-
-        // Hit spacebar to test shooting
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(Shoot());
         }
     }
 
@@ -58,7 +64,7 @@ public class EnemyAgent : Agent
             if (tower)
             {
                 tower.TakeDamage(damage);
-                AddReward(2);
+                AddReward(2f);
             }
 
             // TODO: Create an impact effect on hitting a tower
@@ -69,7 +75,7 @@ public class EnemyAgent : Agent
         // Else (projectile misses), add a negative reward
         else
         {
-            AddReward(-1);
+            AddReward(-1f);
 
             laser.SetPosition(0, attackPoint.position);
             laser.SetPosition(1, attackPoint.position + attackPoint.right * 100);
@@ -101,7 +107,7 @@ public class EnemyAgent : Agent
         float readyToShoot = actions.ContinuousActions[0]; 
         float rotationDegree = actions.ContinuousActions[1];
 
-        if (readyToShoot >= 1)
+        if (Mathf.RoundToInt(readyToShoot) >= 1)
         {
             StartCoroutine(Shoot());
         }
@@ -110,10 +116,9 @@ public class EnemyAgent : Agent
     }
 
     public override void Heuristic(in ActionBuffers actionsOut) {
-        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
-        discreteActions[0] = 0;
-        if (Input.GetKey("right")) {
-            discreteActions[0] = 1;
+        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            continuousActions[0] = 1;
         }
     }
 }

@@ -8,19 +8,20 @@ public class GateManager : MonoBehaviour
     public int gateMaxHP = 1000;
     public static int gateCurrentHP;
 
-    void Start(){
+    void Start()
+    {
         gateCurrentHP = gateMaxHP;
         healthBar.setMaxHealth(gateMaxHP);
     }
+
     // Update is called once per frame
-    void Update(){
-        if (Input.GetKeyDown("space")) {
-            damageGate(100);
-        }
+    void Update()
+    {
         healthBar.setHealth(gateCurrentHP);
     }
     
-    public static void damageGate(int damage){
+    public static void damageGate(int damage)
+    {
         gateCurrentHP -= damage;
     }
 }
