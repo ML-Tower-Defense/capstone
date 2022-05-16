@@ -21,6 +21,7 @@ public class Node : MonoBehaviour
     {
         money = FindObjectOfType(typeof(MoneyManager)) as MoneyManager;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        
     }
 
     public void OnMouseUpAsButton()

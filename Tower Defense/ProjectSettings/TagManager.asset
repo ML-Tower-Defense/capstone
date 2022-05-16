@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tower
   - Enemy
+  - PoorMessage
   layers:
   - Default
   - TransparentFX
