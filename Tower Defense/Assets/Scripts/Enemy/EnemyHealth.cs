@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int dmgDealt)
     {
         currentHealth -= dmgDealt;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && gameObject.activeInHierarchy)
         {
             audioManager.Play("EnemyDeath");
             DeactivateEnemy();

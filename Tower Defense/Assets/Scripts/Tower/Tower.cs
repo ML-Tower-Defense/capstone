@@ -85,13 +85,15 @@ public class Tower : MonoBehaviour
             {
                 target = nearestEnemy.transform;
 
+                targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
+
                 StartCoroutine(attackEnemy()); // Play attack animation
 
                 StopCoroutine(attackEnemy());
                 StopCoroutine(attackEnemy());
 
-                targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
-                targetEnemy.TakeDamage(dmgDealt);
+                //targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
+                //targetEnemy.TakeDamage(dmgDealt);
             }
             else
             {
@@ -126,5 +128,10 @@ public class Tower : MonoBehaviour
     public Transform getTarget()
     {
         return target;
+    }
+
+    public EnemyHealth getTargetEnemy()
+    {
+        return targetEnemy;
     }
 }
