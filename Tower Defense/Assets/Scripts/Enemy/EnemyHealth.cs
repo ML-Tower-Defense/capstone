@@ -42,7 +42,7 @@ public class EnemyHealth : MonoBehaviour
         healthBar.setHealth(currentHealth);
 
         // Return false if health goes below 0 and enemy dies
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && gameObject.activeInHierarchy)
         {
             audioManager.Play("EnemyDeath");
             DeactivateEnemy();

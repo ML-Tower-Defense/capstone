@@ -6,6 +6,8 @@ public class Arrow : MonoBehaviour
 {
     public GameObject originalTower;
     public Transform target;
+    private EnemyHealth targetHealth;   // Health of target
+    private int damage = 10;            // Damage arrow inflicts upon hit
 
     public float speed = 10f;
 
@@ -46,6 +48,11 @@ public class Arrow : MonoBehaviour
 
         if ((movePosition - (Vector2)target.position).magnitude <= 0.2)
         {
+            if (targetHealth.currentHealth > 0)
+            {
+                targetHealth.TakeDamage(damage);
+            }
+
             Destroy(gameObject);
         }
     }
@@ -79,5 +86,6 @@ public class Arrow : MonoBehaviour
         }
 
         target = originalTower.GetComponent<Tower>().getTarget();
+        targetHealth = originalTower.GetComponent<Tower>().getTargetEnemy();
     }
 }

@@ -99,17 +99,20 @@ public class Tower : MonoBehaviour
             {
                 target = nearestEnemy.transform;
 
+                targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
+
                 StartCoroutine(attackEnemy()); // Play attack animation
                 projectileCount += 1;
                 StopCoroutine(attackEnemy());
                 StopCoroutine(attackEnemy());
-
-                targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
                 
                 if (!(targetEnemy.TakeDamage(dmgDealt)))
                 {
                     killCount += 1;
                 }
+
+                //targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
+                //targetEnemy.TakeDamage(dmgDealt);
             }
             else
             {
@@ -153,5 +156,10 @@ public class Tower : MonoBehaviour
 
         // Return true if tower still has health
         return true;
+    }
+
+    public EnemyHealth getTargetEnemy()
+    {
+        return targetEnemy;
     }
 }
