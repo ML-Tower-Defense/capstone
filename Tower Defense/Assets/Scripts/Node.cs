@@ -30,9 +30,10 @@ public class Node : MonoBehaviour
         if (transform.childCount > 0 ) // Tower already on this tile
         {
             print("Occupied!");
-            whichNode = transform.gameObject;
+            
             if (BuildMenu.GameBuildSingle)
             {
+                whichNode = transform.gameObject;
                 openDeleteTowerMenu();
             }
             return;
