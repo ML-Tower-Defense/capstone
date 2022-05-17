@@ -21,16 +21,16 @@ public class Node : MonoBehaviour
     {
         money = FindObjectOfType(typeof(MoneyManager)) as MoneyManager;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        
+
     }
 
     public void OnMouseUpAsButton()
     {
-        
+
         if (transform.childCount > 0 ) // Tower already on this tile
         {
-            print("Occupied!");
-            
+            //print("Occupied!");
+
             if (BuildMenu.GameBuildSingle)
             {
                 whichNode = transform.gameObject;
@@ -117,14 +117,14 @@ public class Node : MonoBehaviour
     {
         money.AddGold(100);
 
-        print(whichNode.transform.GetChild(0).gameObject);
+        //print(whichNode.transform.GetChild(0).gameObject);
         Destroy(whichNode.transform.GetChild(0).gameObject);
         closeDeleteTowerMenu();
     }
 
     public void openDeleteTowerMenu()
     {
-        print("Open delete tower menu");
+        //print("Open delete tower menu");
         BuildMenu.GameBuildSingle = false;
         deleteTowerPrompt.SetActive(true);
     }
