@@ -13364,6 +13364,38 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436003, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: MaxStep
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436028, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: m_BehaviorName
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436028, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436028, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436028, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436028, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436028, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.BranchSizes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436028, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7962118616897436031, guid: 7134a070a9c381b4e85c36c15142b6b0, type: 3}
       propertyPath: healthPrefab
       value: 

@@ -8,9 +8,10 @@ public class EnvironmentManager : MonoBehaviour
     public GameObject[] towerPrefabs;
     public GameObject[] towerSpots;
 
-    private EnemyAgent agent;
     private int maxTowerCount = 5;
     private int currentTowerCount = 0;
+    private string towerTag = "Tower";
+    private EnemyAgent agent;
     private Dictionary<int, int> occupiedNodes;
 
     // Start is called before the first frame update
@@ -24,7 +25,12 @@ public class EnvironmentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject[] towers = GameObject.FindGameObjectsWithTag(towerTag);
+
+        if (currentTowerCount == 5 && towers.Length == 0)
+        {
+            EndEnvironment();
+        }
     }
 
     private void InitializeEnvironment()
@@ -56,6 +62,8 @@ public class EnvironmentManager : MonoBehaviour
 
     private void EndEnvironment()
     {
+        currentTowerCount = 0;
+        occupiedNodes.Clear();
         agent.EndEpisode();
     }
 }
