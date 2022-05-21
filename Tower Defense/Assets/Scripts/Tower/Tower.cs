@@ -56,6 +56,7 @@ public class Tower : MonoBehaviour
                 DarkMageTower darkMageTower = GetComponent<DarkMageTower>();
                 idleAnim = darkMageTower.idleAnim;
                 attackAnim = darkMageTower.attackAnim;
+                range = darkMageTower.range;
                 break;
 
             case "Archer":
