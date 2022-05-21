@@ -159,7 +159,8 @@ public class Tower : MonoBehaviour
 
         // Return true if tower still has health
         return true;
-
+    }
+    
     public EnemyHealth getTargetEnemy()
     {
         return targetEnemy;
