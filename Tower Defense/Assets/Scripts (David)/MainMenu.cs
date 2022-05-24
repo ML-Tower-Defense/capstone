@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    AudioManager audioManager;
+
+    void Start () {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
+
     public void floweryMeadow () {
         SceneManager.LoadScene("FloweryMeadow");
     }
@@ -17,5 +24,9 @@ public class MainMenu : MonoBehaviour
     public void closeGame() {
         Debug.Log("Exited Game");
         Application.Quit();
+    }
+
+    public void playClick() {
+        audioManager.Play("Click");
     }
 }

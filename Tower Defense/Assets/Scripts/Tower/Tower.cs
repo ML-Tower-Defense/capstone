@@ -11,6 +11,11 @@ public class Tower : MonoBehaviour
 
     private EnemyHealth targetEnemy;
 
+    private HealthBar healthBar;
+    public GameObject healthPrefab;
+
+    public int maxHealth = 100;
+    public int currentHealth;
     public float range = 3f;
     public float fireRate = 1f;
     public float projectileSpeed = 2f;
@@ -18,11 +23,14 @@ public class Tower : MonoBehaviour
 
     private string enemyTag = "Enemy";
 
-    public Animator animator;  // Tower's animation controller
+    public Animator animator;               // Tower's animation controller
 
-    public string towerType;   // Specifies a certain tower type
-    public string idleAnim;    // Idle animation of tower
-    public string attackAnim;  // Attack animation of tower
+    public string towerType;                // Specifies a certain tower type
+    public string idleAnim;                 // Idle animation of tower
+    public string attackAnim;               // Attack animation of tower
+
+    public int killCount = 0;               // Keep track of enemies killed
+    public int projectileCount = 0;         // Keep track of projectiles fired
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +38,12 @@ public class Tower : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         getTowerDetails();
         animator = GetComponent<Animator>();
+        healthPrefab = Instantiate(healthPrefab);
+        healthPrefab.transform.SetParent(gameObject.transform);
+        healthPrefab.transform.localPosition = new Vector3(0, 0.5f, 0);
+        healthBar = this.GetComponentInChildren(typeof(HealthBar)) as HealthBar;
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
         InvokeRepeating("UpdateTarget", 0f, fireRate);
     }
 
@@ -42,6 +56,7 @@ public class Tower : MonoBehaviour
                 DarkMageTower darkMageTower = GetComponent<DarkMageTower>();
                 idleAnim = darkMageTower.idleAnim;
                 attackAnim = darkMageTower.attackAnim;
+                range = darkMageTower.range;
                 break;
 
             case "Archer":
@@ -88,12 +103,18 @@ public class Tower : MonoBehaviour
                 targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
 
                 StartCoroutine(attackEnemy()); // Play attack animation
+                projectileCount += 1;
+                StopCoroutine(attackEnemy());
+                StopCoroutine(attackEnemy());
 
-                StopCoroutine(attackEnemy());
-                StopCoroutine(attackEnemy());
+                if (targetEnemy.currentHealth <= 0)
+                {
+                    killCount += 1;
+                }
 
                 //targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
                 //targetEnemy.TakeDamage(dmgDealt);
+
             }
             else
             {
@@ -103,12 +124,6 @@ public class Tower : MonoBehaviour
             }
         }
     }
-
-    /*// Update is called once per frame
-    void Update()
-    {
-
-    }*/
 
     // Play attack animation
     IEnumerator attackEnemy()
@@ -130,8 +145,25 @@ public class Tower : MonoBehaviour
         return target;
     }
 
+
+    public bool TakeDamage(int damage)
+    {
+        currentHealth -= dmgDealt;
+
+        // Return false if health goes below 0 and tower is destroyed
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            return false;
+        }
+
+        // Return true if tower still has health
+        return true;
+    }
+
     public EnemyHealth getTargetEnemy()
     {
         return targetEnemy;
+
     }
 }

@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
     {
         // Current location of enemy
         Vector2 currentLocation = transform.position;
-
+        
         // Location of next waypoint
         Vector2 nextWPLocation;
 
@@ -104,8 +104,9 @@ public class EnemyMovement : MonoBehaviour
                 animator.Play(attackAnims[0]);
 
             // Move enemy towards the next waypoint
-            if (!crying && !gateDestroyed && nextWaypoint != waypointsArray.Length)
+            if (!crying && !gateDestroyed && nextWaypoint != waypointsArray.Length) {
                 transform.position = Vector2.MoveTowards(currentLocation, nextWPLocation, movementSpeed * Time.deltaTime);
+            }    
         }
     }
 
