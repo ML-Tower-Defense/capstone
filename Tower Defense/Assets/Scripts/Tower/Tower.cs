@@ -106,8 +106,8 @@ public class Tower : MonoBehaviour
                 projectileCount += 1;
                 StopCoroutine(attackEnemy());
                 StopCoroutine(attackEnemy());
-                
-                if (!(targetEnemy.TakeDamage(dmgDealt)))
+
+                if (targetEnemy.currentHealth <= 0)
                 {
                     killCount += 1;
                 }
@@ -160,7 +160,7 @@ public class Tower : MonoBehaviour
         // Return true if tower still has health
         return true;
     }
-    
+
     public EnemyHealth getTargetEnemy()
     {
         return targetEnemy;
