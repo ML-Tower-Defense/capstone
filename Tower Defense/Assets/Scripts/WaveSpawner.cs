@@ -124,7 +124,7 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public int getWave () {
-        return waveIndex;
+        return waveIndex + 1;
     }
 
     public int getUnspawned() {

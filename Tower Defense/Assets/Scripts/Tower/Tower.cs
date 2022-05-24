@@ -56,6 +56,7 @@ public class Tower : MonoBehaviour
                 DarkMageTower darkMageTower = GetComponent<DarkMageTower>();
                 idleAnim = darkMageTower.idleAnim;
                 attackAnim = darkMageTower.attackAnim;
+                range = darkMageTower.range;
                 break;
 
             case "Archer":
@@ -105,8 +106,8 @@ public class Tower : MonoBehaviour
                 projectileCount += 1;
                 StopCoroutine(attackEnemy());
                 StopCoroutine(attackEnemy());
-                
-                if (!(targetEnemy.TakeDamage(dmgDealt)))
+
+                if (targetEnemy.currentHealth <= 0)
                 {
                     killCount += 1;
                 }
@@ -142,6 +143,7 @@ public class Tower : MonoBehaviour
     {
         return target;
     }
+
 
     public bool TakeDamage(int damage)
     {

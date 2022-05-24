@@ -121,7 +121,7 @@ MonoBehaviour:
   healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
   maxHealth: 100
   currentHealth: 0
-  range: 3
+  range: 4
   fireRate: 1
   projectileSpeed: 2
   dmgDealt: 10
@@ -148,7 +148,7 @@ MonoBehaviour:
   healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
   maxHealth: 100
   currentHealth: 0
-  range: 3
+  range: 4
   fireRate: 1
   projectileSpeed: 2
   dmgDealt: 10
