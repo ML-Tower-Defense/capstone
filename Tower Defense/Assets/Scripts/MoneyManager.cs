@@ -16,31 +16,6 @@ public class MoneyManager : MonoBehaviour
         maxValue = 9999;
         TextObject.text = value.ToString();
     }
-
-    //To test, use up key to increase money and down key to decrease
-    void Update()
-    {
-        if (Input.GetKeyDown("up")) {
-            if ((value+300) > maxValue){
-                value = maxValue;
-                TextObject.text = value.ToString();
-            }
-            else{
-                value += 300;
-                TextObject.text = value.ToString();
-            }
-        }
-        if (Input.GetKeyDown("down")) {
-            if ((value-300) < minValue){
-                value = minValue;
-                TextObject.text = value.ToString();
-            }
-            else{
-                value -= 300;
-                TextObject.text = value.ToString();
-            }
-        }
-    }
     
     public void AddGold(int goldToAdd)
     {

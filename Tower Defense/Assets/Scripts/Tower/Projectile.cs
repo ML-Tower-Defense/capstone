@@ -12,32 +12,41 @@ public class Projectile : MonoBehaviour
     private int speed = 7;              // Speed of projectile
     private int damage = 10;            // Damage projectile inflicts upon hit
     private bool reachedTarget;         // Check if projectile reached target
-    private float timeAlive = 1.0f;
+    //private float timeAlive = 1.0f;
 
     void Start()
     {
         animator = GetComponent<Animator>();
 
         getTargetFromTower();
-        Destroy(gameObject,timeAlive);
+        //Destroy(gameObject,timeAlive);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
-
-        if (dir.magnitude <= 0.2)
+        if (originalTower != null && target != null)
         {
-            reachedTarget = true;
+            Vector3 dir = target.position - transform.position;
 
-            StartCoroutine(explode());
+            float distanceThisFrame = speed * Time.deltaTime;
+
+            if (dir.magnitude <= 0.2)
+            {
+                reachedTarget = true;
+
+                StartCoroutine(explode());
+            }
+
+            if (!reachedTarget)
+            {
+                transform.Translate(dir.normalized * distanceThisFrame);
+            }
         }
 
-        if (!reachedTarget)
+        else
         {
-            transform.Translate(dir.normalized * distanceThisFrame);
+            Destroy(gameObject);
         }
     }
 

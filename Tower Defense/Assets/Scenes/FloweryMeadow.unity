@@ -3214,14 +3214,6 @@ MonoBehaviour:
     - enemyTag: knightEnemy
       count: 2
     spawnRate: 5
-  - waveGroups:
-    - enemyTag: zombieEnemy
-      count: 2
-    - enemyTag: goblinEnemy
-      count: 2
-    - enemyTag: knightEnemy
-      count: 2
-    spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
   gameManager: {fileID: 0}

@@ -11,6 +11,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar_Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.ctime0
+      value: 16318
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.ctime1
+      value: 32702
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key0.b
+      value: 0.20767002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key0.g
+      value: 0.18823525
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key0.r
+      value: 0.8980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key1.b
+      value: 0.1893912
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key1.g
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key1.r
+      value: 0.8914738
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key2.b
+      value: 0.09019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key2.g
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.key2.r
+      value: 0.22532621
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616028706474874428, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
+      propertyPath: gradient.m_NumColorKeys
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2680804463440005477, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
