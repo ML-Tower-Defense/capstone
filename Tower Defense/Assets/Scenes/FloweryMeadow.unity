@@ -3251,7 +3251,7 @@ MonoBehaviour:
       count: 4
     - enemyTag: knightEnemy
       count: 2
-    - enemyTag: knightEnemy
+    - enemyTag: golemEnemy
       count: 1
     spawnRate: 4
   spawnPoints:
@@ -3262,6 +3262,7 @@ MonoBehaviour:
   zombie: {fileID: 2548022001773152545}
   goblin: {fileID: 1040187416922933073}
   knight: {fileID: 8006568478723043235}
+  golem: {fileID: 1811284744}
 --- !u!114 &477610768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12496,6 +12497,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b8fe6416f299046b31680b1a2a0cc0, type: 3}
+--- !u!1001 &1811284743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1811284745}
+    - target: {fileID: 7962118616897436000, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_Name
+      value: GolemEnemyPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962118616897436002, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+--- !u!1 &1811284744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7962118616897436000, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+  m_PrefabInstance: {fileID: 1811284743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1811284745 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7962118616897436024, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+  m_PrefabInstance: {fileID: 1811284743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1822287258
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3900c312da425b46aba0aebf1924909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
-  currentHealth: 250
-  reward: 50
+  maxHealth: 300
+  currentHealth: 300
+  reward: 60
   healthPrefab: {fileID: 5136180633704204972, guid: 72a638ccd74adf442ae55c43458c62ec, type: 3}
 --- !u!114 &4352285616979153749
 MonoBehaviour:
