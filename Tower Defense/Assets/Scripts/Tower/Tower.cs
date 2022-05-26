@@ -114,7 +114,6 @@ public class Tower : MonoBehaviour
 
                 //targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
                 //targetEnemy.TakeDamage(dmgDealt);
-
             }
             else
             {
@@ -164,6 +163,5 @@ public class Tower : MonoBehaviour
     public EnemyHealth getTargetEnemy()
     {
         return targetEnemy;
-
     }
 }

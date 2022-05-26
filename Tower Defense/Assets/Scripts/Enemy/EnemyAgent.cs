@@ -10,18 +10,30 @@ public class EnemyAgent : Agent
     // Reinforcement learning cycle
     // Observation -> Decision -> Action -> Reward
     public Transform attackPoint;
-    public GameObject projectilePrefab;
     public LineRenderer laser;
 
     private int damage = 50;
     private float rotationSpeed = 3f;
     private bool isAttackReady = true;
     private int attackCooldown = 0;
-    private string towerTag = "Tower";
+    private Vector3 spawnPosition;
+    private EnemyHealth enemyHealth;
+
+    void Start()
+    {
+        spawnPosition = transform.position;
+        enemyHealth = GetComponent<EnemyHealth>();
+    }
 
     // Updates the attack cooldown to determine if attack is ready
     void Update()
     {
+        if (enemyHealth.currentHealth <= 0)
+        {
+            AddReward(-1f);
+            EndEpisode();
+        }
+
         if (!isAttackReady)
         {
             attackCooldown -= 1;
@@ -31,69 +43,69 @@ public class EnemyAgent : Agent
                 isAttackReady = true;
             }
         }
-
-        // Hit spacebar to test shooting
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(Shoot());
-        }
     }
 
-    IEnumerator Shoot()
+    void Shoot()
     {
         // Return and do nothing if attack is still on cooldown
         if (!isAttackReady)
         {
-            yield return null;
+            return;
         }
-
-        // Shoot a projectile in the forward direction
-        RaycastHit2D hitInfo = Physics2D.Raycast(attackPoint.position, attackPoint.right);
-
-        // If projectile hits any other tower, add a positive reward
-        if (hitInfo)
-        {
-            Tower tower = hitInfo.transform.GetComponent<Tower>();
-
-            if (tower)
-            {
-                tower.TakeDamage(damage);
-                AddReward(2);
-            }
-
-            // TODO: Create an impact effect on hitting a tower
-
-            laser.SetPosition(0, attackPoint.position);
-            laser.SetPosition(1, hitInfo.point);
-        }
-        // Else (projectile misses), add a negative reward
         else
         {
-            AddReward(-1);
+            // Shoot a projectile in the forward direction
+            RaycastHit2D hitInfo = Physics2D.Raycast(attackPoint.position, attackPoint.right);
 
-            laser.SetPosition(0, attackPoint.position);
-            laser.SetPosition(1, attackPoint.position + attackPoint.right * 100);
+            // If projectile hits any other tower, add a positive reward
+            if (hitInfo)
+            {
+                Tower tower = hitInfo.transform.GetComponent<Tower>();
+
+                if (tower)
+                {
+                    tower.TakeDamage(damage);
+                    AddReward(2f);
+                }
+
+                // TODO: Create an impact effect on hitting a tower
+
+                laser.SetPosition(0, attackPoint.position);
+                laser.SetPosition(1, hitInfo.point);
+            }
+            // Else (projectile misses), add a negative reward
+            else
+            {
+                AddReward(-1f);
+
+                laser.SetPosition(0, attackPoint.position);
+                laser.SetPosition(1, attackPoint.position + attackPoint.right * 100);
+            }
+
+            laser.enabled = true;
+            Invoke("Delay", 0.02f);
+            laser.enabled = false;
+
+            // Set attack to not ready and reset the cooldown
+            isAttackReady = false;
+            attackCooldown = 5;
         }
+    }
 
-        laser.enabled = true;
-        yield return new WaitForSeconds(0.02f);
-        laser.enabled = false;
+    void Delay()
+    {
+        Debug.Log("Shoot laser");
+    }
 
-        // Set attack to not ready and reset the cooldown
-        isAttackReady = false;
-        attackCooldown = 5;
+    public override void OnEpisodeBegin()
+    {
+        transform.position = spawnPosition;
+        isAttackReady = true;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Agent takes in kill counts and projectile counts of towers
-        GameObject[] towers = GameObject.FindGameObjectsWithTag(towerTag);
-        foreach (GameObject tower in towers)
-        {
-            Tower towerScript = tower.GetComponent<Tower>();
-            sensor.AddObservation(towerScript.killCount);
-            sensor.AddObservation(towerScript.projectileCount);
-        }
+        sensor.AddObservation(isAttackReady);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -101,19 +113,18 @@ public class EnemyAgent : Agent
         float readyToShoot = actions.ContinuousActions[0]; 
         float rotationDegree = actions.ContinuousActions[1];
 
-        if (readyToShoot >= 1)
+        if (Mathf.RoundToInt(readyToShoot) >= 1)
         {
-            StartCoroutine(Shoot());
+            Shoot();
         }
 
         transform.Rotate(Vector3.forward, rotationDegree * rotationSpeed);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut) {
-        ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
-        discreteActions[0] = 0;
-        if (Input.GetKey("right")) {
-            discreteActions[0] = 1;
+        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            continuousActions[0] = 1;
         }
     }
 }

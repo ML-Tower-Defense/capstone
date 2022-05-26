@@ -56,7 +56,7 @@ public class Node : MonoBehaviour
         return;
     }
 
-    void PlaceTower(int whichTower, GameObject node)
+    public void PlaceTower(int whichTower, GameObject node)
     {
         int towerCost = 150;
         string towerName;
