@@ -24,7 +24,7 @@ public class Tower : MonoBehaviour
     public int dmgDealt = 10;
     public int goldDropped = 15;
 
-    private float damageTime = 4f;
+    private float damageTime = 5f;
     private float dmgInterval = 0f;
 
     private string enemyTag = "Enemy";
