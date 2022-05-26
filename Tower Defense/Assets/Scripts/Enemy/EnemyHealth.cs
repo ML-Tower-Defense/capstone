@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyMovement))]
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 100;                     // Max health of enemy
+    public int maxHealth;                     // Max health of enemy
     public int currentHealth;                       // Current health of enemy
-    public int reward = 25;                         // Amount of gold earned on death
+    public int reward;                         // Amount of gold earned on death
 
     private EnemyMovement enemyMovement;
     private MoneyManager moneyManager;
@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0 && gameObject.activeInHierarchy)
         {
             audioManager.Play("EnemyDeath");
-            DeactivateEnemy();
+            Destroy(gameObject);
             moneyManager.AddGold(reward);
             WaveSpawner.enemiesRemaining--;
             return false;
@@ -60,9 +60,12 @@ public class EnemyHealth : MonoBehaviour
     // Use this function instead of Destroy() to deactivate an enemy object in the scene
     void DeactivateEnemy()
     {
+        /*
         gameObject.SetActive(false);
         currentHealth = maxHealth;
+        healthBar.setHealth(currentHealth);
         enemyMovement.nextWaypoint = 0;
         enemyMovement.isFacingRight = true;
+        */
     }
 }

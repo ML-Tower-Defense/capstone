@@ -28,6 +28,10 @@ public class WaveSpawner : MonoBehaviour
     private int unspawnedEnemies;               // Tracks how many enemies are left in the wave
     private int waveIndex;                      // Tracks the current wave that the player is on
 
+    public GameObject zombie;
+    public GameObject goblin;
+    public GameObject knight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,14 +117,35 @@ public class WaveSpawner : MonoBehaviour
     // points, and sets it as active in the scene hierarchy
     void SpawnEnemy(string enemyTag, Transform spawnPoint)
     {
+        if (enemyTag == "zombieEnemy") {
+            GameObject enemy = Instantiate(zombie);
+            enemy.transform.position = spawnPoint.position;
+            enemy.transform.rotation = spawnPoint.rotation;
+            enemy.SetActive(true);
+        }
+        else if (enemyTag == "goblinEnemy") {
+            GameObject enemy = Instantiate(goblin);
+            enemy.transform.position = spawnPoint.position;
+            enemy.transform.rotation = spawnPoint.rotation;
+            enemy.SetActive(true);
+        }
+        else if (enemyTag == "knightEnemy") {
+            GameObject enemy = Instantiate(knight);
+            enemy.transform.position = spawnPoint.position;
+            enemy.transform.rotation = spawnPoint.rotation;
+            enemy.SetActive(true);
+        }
+
+        /*
         GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject(enemyTag);
 
         if (enemy != null)
         {
             enemy.transform.position = spawnPoint.position;
             enemy.transform.rotation = spawnPoint.rotation;
-            enemy.SetActive(true);
+            //enemy.SetActive(true);
         }
+        */
     }
 
     public int getWave () {
