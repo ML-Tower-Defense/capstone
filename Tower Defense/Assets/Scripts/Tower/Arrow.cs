@@ -19,11 +19,13 @@ public class Arrow : MonoBehaviour
     private float dist;
     private float baseY;
     private float height;
+    private float timeAlive = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         getTargetFromTower();
+        Destroy(gameObject, timeAlive);
     }
 
     // Update is called once per frame

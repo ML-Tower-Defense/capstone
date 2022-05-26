@@ -14,9 +14,6 @@ public class GateManager : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
-        if (Input.GetKeyDown("space")) {
-            damageGate(100);
-        }
         healthBar.setHealth(gateCurrentHP);
     }
     
