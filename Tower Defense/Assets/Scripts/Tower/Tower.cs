@@ -7,7 +7,9 @@ public class Tower : MonoBehaviour
 {
     public GameObject projectilePrefab;     // The projectile the tower shoots
     public Transform target;
-    AudioManager audioManager;
+
+    private AudioManager audioManager;
+    private MoneyManager moneyManager;
 
     private EnemyHealth targetEnemy;
 
@@ -20,8 +22,9 @@ public class Tower : MonoBehaviour
     public float fireRate = 1f;
     public float projectileSpeed = 2f;
     public int dmgDealt = 10;
+    public int goldDropped = 15;
 
-    private float damageTime = 3f;
+    private float damageTime = 4f;
     private float dmgInterval = 0f;
 
     private string enemyTag = "Enemy";
@@ -39,12 +42,13 @@ public class Tower : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        moneyManager = GameObject.Find("Gold_Container").GetComponent<MoneyManager>();
         getTowerDetails();
         animator = GetComponent<Animator>();
         healthPrefab = Instantiate(healthPrefab);
         healthPrefab.transform.SetParent(gameObject.transform);
         healthPrefab.transform.localPosition = new Vector3(0, 0.5f, 0);
-        healthBar = this.GetComponentInChildren(typeof(HealthBar)) as HealthBar;
+        healthBar = GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         InvokeRepeating("UpdateTarget", 0f, fireRate);
@@ -121,11 +125,8 @@ public class Tower : MonoBehaviour
                 {
                     killCount += 1;
                 }
-
-                //targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
-                //targetEnemy.TakeDamage(dmgDealt);
-
             }
+
             else
             {
                 // Play idle animation if there is
@@ -164,6 +165,7 @@ public class Tower : MonoBehaviour
         // Return false if health goes below 0 and tower is destroyed
         if (currentHealth <= 0)
         {
+            moneyManager.AddGold(goldDropped);
             Destroy(gameObject);
             return false;
         }

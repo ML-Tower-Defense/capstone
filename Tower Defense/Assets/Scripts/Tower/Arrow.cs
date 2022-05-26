@@ -19,42 +19,49 @@ public class Arrow : MonoBehaviour
     private float dist;
     private float baseY;
     private float height;
-    private float timeAlive = 1.5f;
+    //private float timeAlive = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         getTargetFromTower();
-        Destroy(gameObject, timeAlive);
     }
 
     // Update is called once per frame
     void Update()
     {
-        towerX = originalTower.transform.position.x;
-        targetX = target.position.x;
-
-        dist = targetX - towerX;
-
-        nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-        baseY = Mathf.Lerp(originalTower.transform.position.y, target.position.y, (nextX - towerX) / dist);
-
-        height = 2 * (nextX - towerX) * (nextX - targetX) / (-0.25f * dist * dist);
-
-       // print("base: " + baseY + "   height: " + height);
-
-        movePosition = new Vector2(nextX, baseY + height);
-
-        transform.rotation = LookAtTarget(movePosition - (Vector2)transform.position);
-        transform.position = movePosition;
-
-        if ((movePosition - (Vector2)target.position).magnitude <= 0.2)
+        if (originalTower != null && target != null)
         {
-            if (targetHealth.currentHealth > 0)
-            {
-                targetHealth.TakeDamage(damage);
-            }
+            towerX = originalTower.transform.position.x;
+            targetX = target.position.x;
 
+            dist = targetX - towerX;
+
+            nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
+            baseY = Mathf.Lerp(originalTower.transform.position.y, target.position.y, (nextX - towerX) / dist);
+
+            height = 2 * (nextX - towerX) * (nextX - targetX) / (-0.25f * dist * dist);
+
+            // print("base: " + baseY + "   height: " + height);
+
+            movePosition = new Vector2(nextX, baseY + height);
+
+            transform.rotation = LookAtTarget(movePosition - (Vector2)transform.position);
+            transform.position = movePosition;
+
+            if ((movePosition - (Vector2)target.position).magnitude <= 0.2)
+            {
+                if (targetHealth.currentHealth > 0)
+                {
+                    targetHealth.TakeDamage(damage);
+                }
+
+                Destroy(gameObject);
+            }
+        }
+
+        else
+        {
             Destroy(gameObject);
         }
     }

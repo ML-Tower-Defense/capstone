@@ -9,9 +9,10 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;                       // Current health of enemy
     public int reward;                         // Amount of gold earned on death
 
-    private EnemyMovement enemyMovement;
+    private AudioManager audioManager;
     private MoneyManager moneyManager;
-    AudioManager audioManager;
+
+    private EnemyMovement enemyMovement;
     private HealthBar healthBar;
     public GameObject healthPrefab;
 
@@ -25,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
         healthPrefab = Instantiate(healthPrefab);
         healthPrefab.transform.SetParent(gameObject.transform);
         healthPrefab.transform.localPosition = new Vector3(0, .5f, 0);
-        healthBar = this.GetComponentInChildren(typeof(HealthBar)) as HealthBar;
+        healthBar = GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
     }
