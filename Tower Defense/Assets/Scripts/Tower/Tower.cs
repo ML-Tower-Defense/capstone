@@ -21,6 +21,9 @@ public class Tower : MonoBehaviour
     public float projectileSpeed = 2f;
     public int dmgDealt = 10;
 
+    private float damageTime = 3f;
+    private float dmgInterval = 0f;
+
     private string enemyTag = "Enemy";
 
     public Animator animator;               // Tower's animation controller
@@ -45,6 +48,14 @@ public class Tower : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         InvokeRepeating("UpdateTarget", 0f, fireRate);
+    }
+
+    void Update() {
+        if (dmgInterval >= damageTime) {
+            dmgInterval = 0;
+            TakeDamage(1);
+        }
+        dmgInterval += Time.deltaTime;
     }
 
     // Get the unique characteristics of a certain tower
@@ -83,7 +94,6 @@ public class Tower : MonoBehaviour
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         GameObject nearestEnemy = null;
-
         float shortestDistance = Mathf.Infinity;
 
         foreach (GameObject enemy in enemies)
@@ -149,6 +159,7 @@ public class Tower : MonoBehaviour
     public bool TakeDamage(int damage)
     {
         currentHealth -= dmgDealt;
+        healthBar.setHealth(currentHealth);
 
         // Return false if health goes below 0 and tower is destroyed
         if (currentHealth <= 0)

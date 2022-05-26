@@ -19,7 +19,7 @@ public class WaveCounter : MonoBehaviour
     {
         waveSpawner = GameObject.Find("GameManager").GetComponent<WaveSpawner>();
         currentWave = waveSpawner.getWave();
-        maxWave = waveSpawner.waves.Length;
+        maxWave = 1+waveSpawner.waves.Length;
         waveText = string.Concat(currentWave.ToString()," / ",maxWave.ToString());
         waveCount.text = waveText;
         unspawnCount = waveSpawner.getUnspawned();
