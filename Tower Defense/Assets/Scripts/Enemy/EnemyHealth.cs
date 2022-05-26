@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0 && gameObject.activeInHierarchy)
         {
             audioManager.Play("EnemyDeath");
-            DeactivateEnemy();
+            Destroy(gameObject);
             moneyManager.AddGold(reward);
             WaveSpawner.enemiesRemaining--;
             return false;
@@ -58,11 +58,12 @@ public class EnemyHealth : MonoBehaviour
     // Use this function instead of Destroy() to deactivate an enemy object in the scene
     void DeactivateEnemy()
     {
-        /*gameObject.SetActive(false);
+        /*
+        gameObject.SetActive(false);
         currentHealth = maxHealth;
         healthBar.setHealth(currentHealth);
         enemyMovement.nextWaypoint = 0;
-        enemyMovement.isFacingRight = true;*/
-        Destroy(gameObject);
+        enemyMovement.isFacingRight = true;
+        */
     }
 }

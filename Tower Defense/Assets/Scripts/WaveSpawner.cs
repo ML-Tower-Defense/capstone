@@ -123,26 +123,29 @@ public class WaveSpawner : MonoBehaviour
             enemy.transform.rotation = spawnPoint.rotation;
             enemy.SetActive(true);
         }
-        if (enemyTag == "goblinEnemy") {
+        else if (enemyTag == "goblinEnemy") {
             GameObject enemy = Instantiate(goblin);
             enemy.transform.position = spawnPoint.position;
             enemy.transform.rotation = spawnPoint.rotation;
             enemy.SetActive(true);
         }
-        if (enemyTag == "knightEnemy") {
+        else if (enemyTag == "knightEnemy") {
             GameObject enemy = Instantiate(knight);
             enemy.transform.position = spawnPoint.position;
             enemy.transform.rotation = spawnPoint.rotation;
             enemy.SetActive(true);
         }
-        //GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject(enemyTag);
 
-       /* if (enemy != null)
+        /*
+        GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject(enemyTag);
+
+        if (enemy != null)
         {
             enemy.transform.position = spawnPoint.position;
             enemy.transform.rotation = spawnPoint.rotation;
             //enemy.SetActive(true);
-        }*/
+        }
+        */
     }
 
     public int getWave () {
