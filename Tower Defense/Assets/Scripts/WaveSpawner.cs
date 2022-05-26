@@ -31,6 +31,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject zombie;
     public GameObject goblin;
     public GameObject knight;
+    public GameObject golem;
 
     // Start is called before the first frame update
     void Start()
@@ -131,6 +132,13 @@ public class WaveSpawner : MonoBehaviour
         }
         else if (enemyTag == "knightEnemy") {
             GameObject enemy = Instantiate(knight);
+            enemy.transform.position = spawnPoint.position;
+            enemy.transform.rotation = spawnPoint.rotation;
+            enemy.SetActive(true);
+        }
+        else if (enemyTag == "golemEnemy")
+        {
+            GameObject enemy = Instantiate(golem);
             enemy.transform.position = spawnPoint.position;
             enemy.transform.rotation = spawnPoint.rotation;
             enemy.SetActive(true);

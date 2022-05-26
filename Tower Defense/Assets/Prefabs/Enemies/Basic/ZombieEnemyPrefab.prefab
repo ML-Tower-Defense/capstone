@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 150
   currentHealth: 150
-  reward: 20
+  reward: 25
   healthPrefab: {fileID: 5136180633704204972, guid: 72a638ccd74adf442ae55c43458c62ec, type: 3}
 --- !u!114 &4590962623023724350
 MonoBehaviour:
