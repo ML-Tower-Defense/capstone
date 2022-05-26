@@ -3144,76 +3144,116 @@ MonoBehaviour:
   waves:
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 2
-    - enemyTag: goblinEnemy
-      count: 2
-    - enemyTag: knightEnemy
-      count: 2
+      count: 5
     spawnRate: 5
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 3
+      count: 5
     - enemyTag: goblinEnemy
       count: 3
-    - enemyTag: knightEnemy
+    spawnRate: 5
+  - waveGroups:
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: goblinEnemy
       count: 3
-    spawnRate: 4.5
-  - waveGroups:
-    - enemyTag: zombieEnemy
-      count: 0
-    - enemyTag: goblinEnemy
-      count: 15
-    - enemyTag: knightEnemy
-      count: 0
-    spawnRate: 3
-  - waveGroups:
     - enemyTag: zombieEnemy
       count: 5
     - enemyTag: goblinEnemy
-      count: 2
-    - enemyTag: knightEnemy
-      count: 5
-    spawnRate: 3
-  - waveGroups:
-    - enemyTag: zombieEnemy
-      count: 5
-    - enemyTag: goblinEnemy
-      count: 5
-    - enemyTag: knightEnemy
-      count: 5
-    spawnRate: 2
-  - waveGroups:
-    - enemyTag: zombieEnemy
-      count: 2
-    - enemyTag: goblinEnemy
-      count: 2
-    - enemyTag: knightEnemy
-      count: 2
+      count: 3
     spawnRate: 5
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 2
+      count: 5
     - enemyTag: goblinEnemy
-      count: 2
+      count: 3
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: goblinEnemy
+      count: 3
     - enemyTag: knightEnemy
-      count: 2
+      count: 1
     spawnRate: 5
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 2
+      count: 5
     - enemyTag: goblinEnemy
-      count: 2
+      count: 3
     - enemyTag: knightEnemy
-      count: 2
+      count: 1
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: goblinEnemy
+      count: 3
+    - enemyTag: knightEnemy
+      count: 1
     spawnRate: 5
   - waveGroups:
-    - enemyTag: zombieEnemy
-      count: 2
     - enemyTag: goblinEnemy
-      count: 2
+      count: 3
     - enemyTag: knightEnemy
       count: 2
+    - enemyTag: zombieEnemy
+      count: 10
+    - enemyTag: knightEnemy
+      count: 2
+    - enemyTag: goblinEnemy
+      count: 3
     spawnRate: 5
+  - waveGroups:
+    - enemyTag: knightEnemy
+      count: 2
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: goblinEnemy
+      count: 4
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: knightEnemy
+      count: 2
+    - enemyTag: zombieEnemy
+      count: 5
+    spawnRate: 4
+  - waveGroups:
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: goblinEnemy
+      count: 3
+    - enemyTag: knightEnemy
+      count: 1
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: goblinEnemy
+      count: 3
+    - enemyTag: knightEnemy
+      count: 1
+    - enemyTag: zombieEnemy
+      count: 5
+    - enemyTag: goblinEnemy
+      count: 3
+    - enemyTag: knightEnemy
+      count: 1
+    spawnRate: 4
+  - waveGroups:
+    - enemyTag: zombieEnemy
+      count: 10
+    - enemyTag: goblinEnemy
+      count: 4
+    - enemyTag: knightEnemy
+      count: 2
+    - enemyTag: goblinEnemy
+      count: 4
+    - enemyTag: knightEnemy
+      count: 2
+    - enemyTag: zombieEnemy
+      count: 10
+    - enemyTag: goblinEnemy
+      count: 4
+    - enemyTag: knightEnemy
+      count: 2
+    - enemyTag: knightEnemy
+      count: 1
+    spawnRate: 4
   spawnPoints:
   - {fileID: 2003581576}
   gameManager: {fileID: 0}
@@ -3237,13 +3277,13 @@ MonoBehaviour:
   objectPools:
   - objectTag: zombieEnemy
     prefab: {fileID: 2548022001773152545}
-    size: 5
+    size: 0
   - objectTag: goblinEnemy
     prefab: {fileID: 1040187416922933073}
-    size: 5
+    size: 0
   - objectTag: knightEnemy
     prefab: {fileID: 8006568478723043235}
-    size: 5
+    size: 0
 --- !u!4 &477610769
 Transform:
   m_ObjectHideFlags: 0
