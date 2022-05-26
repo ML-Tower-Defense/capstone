@@ -12,12 +12,14 @@ public class Projectile : MonoBehaviour
     private int speed = 7;              // Speed of projectile
     private int damage = 10;            // Damage projectile inflicts upon hit
     private bool reachedTarget;         // Check if projectile reached target
+    private float timeAlive = 1.0f;
 
     void Start()
     {
         animator = GetComponent<Animator>();
 
         getTargetFromTower();
+        Destroy(gameObject,timeAlive);
     }
 
     // Update is called once per frame
