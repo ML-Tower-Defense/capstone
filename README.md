@@ -7,21 +7,37 @@ Senior Capstone Project
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
+<!-- TECHNOLOGIES -->
+## Technologies
 
-To set up a local copy of the project, follow these steps.
+* [Unity](https://unity.com/)
+* [ML-Agents](https://unity.com/products/machine-learning-agents)
 
-### Prerequisites
 
-* [Unity Hub](https://unity3d.com/get-unity/download)
-* [GitHub Desktop](https://desktop.github.com/)
 
-### Installation
+<!-- INSTALLATION -->
+## Installation
 
-The installation instructions are found in the [setup repo](https://github.com/ML-Tower-Defense/setup).
+To set up a local copy of the project, follow the steps from these repositories.
+
+1. [Setting up the Unity project](https://github.com/ML-Tower-Defense/setup)
+2. [Following our GitHub workflow](https://github.com/ML-Tower-Defense/flow)
+3. [Installing the ML-Agents toolkit](https://github.com/ML-Tower-Defense/ml-agents-installation)
+
+
+
+<!-- AUTHORS -->
+## Authors
+
+CS 46X Capstone Team 63
+
+* [Lance Adriano](https://github.com/SuperSaiyanAsian)
+* [Steven Bui](https://github.com/buistvn)
+* [David Cronk](https://github.com/cronkd)
+* [Amanda Dattalo](https://github.com/amandadattalo)
+* [Sarp Kocabagli](https://github.com/kocabags)
 
 
 
 <!-- LINKS & IMAGES -->
-<!-- [project-screenshot]: images/screenshot.png -->
+<!-- [project-screenshot]: /docs/screenshot.png -->
