@@ -70,6 +70,15 @@ public class Node : MonoBehaviour
         {
             towerNum = whichTower;
         }
+        if (towerNum == 1) {
+            towerCost = 150;
+        }
+        if (towerNum == 2) {
+            towerCost = 200;
+        }
+        if (towerNum == 3) {
+            towerCost = 300;
+        }
 
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
 

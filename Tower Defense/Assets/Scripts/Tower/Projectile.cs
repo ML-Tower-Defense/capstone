@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     private Transform target;           // Target to hit
     private EnemyHealth targetHealth;   // Health of target
     private int speed = 7;              // Speed of projectile
-    private int damage = 10;            // Damage projectile inflicts upon hit
+    public int damage;            // Damage projectile inflicts upon hit
     private bool reachedTarget;         // Check if projectile reached target
     //private float timeAlive = 1.0f;
 
