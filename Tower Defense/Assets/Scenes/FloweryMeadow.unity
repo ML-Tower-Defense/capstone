@@ -12508,6 +12508,50 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1811284745}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 2003581577}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 1589902307}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 44982718}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 1822287260}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[4]
+      value: 
+      objectReference: {fileID: 64807522}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[5]
+      value: 
+      objectReference: {fileID: 249677718}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[6]
+      value: 
+      objectReference: {fileID: 1332816652}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[7]
+      value: 
+      objectReference: {fileID: 521493887}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[8]
+      value: 
+      objectReference: {fileID: 80814497}
+    - target: {fileID: 4857339871228450696, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: waypointsArray.Array.data[9]
+      value: 
+      objectReference: {fileID: 1885228079}
+    - target: {fileID: 4857339871228450699, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
+      propertyPath: gate
+      value: 
+      objectReference: {fileID: 17984281}
     - target: {fileID: 7962118616897436000, guid: 9bf1b76f7eed5be4e9feb5a180072308, type: 3}
       propertyPath: m_Name
       value: GolemEnemyPrefab
