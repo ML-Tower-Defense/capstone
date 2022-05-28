@@ -3184,36 +3184,36 @@ MonoBehaviour:
     spawnRate: 2
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 15
+      count: 2
     - enemyTag: goblinEnemy
-      count: 0
+      count: 2
     - enemyTag: knightEnemy
-      count: 0
-    spawnRate: 1
+      count: 2
+    spawnRate: 5
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 5
+      count: 2
     - enemyTag: goblinEnemy
-      count: 0
+      count: 2
     - enemyTag: knightEnemy
-      count: 10
-    spawnRate: 2
+      count: 2
+    spawnRate: 5
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 0
+      count: 2
     - enemyTag: goblinEnemy
-      count: 20
+      count: 2
     - enemyTag: knightEnemy
-      count: 0
-    spawnRate: 0.5
+      count: 2
+    spawnRate: 5
   - waveGroups:
     - enemyTag: zombieEnemy
-      count: 5
+      count: 2
     - enemyTag: goblinEnemy
-      count: 5
+      count: 2
     - enemyTag: knightEnemy
-      count: 10
-    spawnRate: 1
+      count: 2
+    spawnRate: 5
   spawnPoints:
   - {fileID: 2003581576}
   gameManager: {fileID: 0}
