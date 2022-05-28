@@ -126,8 +126,15 @@ public class Node : MonoBehaviour
     {
         money.AddGold(100);
 
-        //print(whichNode.transform.GetChild(0).gameObject);
-        Destroy(whichNode.transform.GetChild(0).gameObject);
+        try
+        {
+            Destroy(whichNode.transform.GetChild(0).gameObject);
+        }
+        catch (Exception)
+        {
+            ;
+        }
+
         closeDeleteTowerMenu();
     }
 

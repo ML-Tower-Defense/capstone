@@ -31,6 +31,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject zombie;
     public GameObject goblin;
     public GameObject knight;
+    public GameObject golem;
 
     // Start is called before the first frame update
     void Start()
@@ -117,22 +118,56 @@ public class WaveSpawner : MonoBehaviour
     // points, and sets it as active in the scene hierarchy
     void SpawnEnemy(string enemyTag, Transform spawnPoint)
     {
+        // 20% chance to spawn 3 enemies
+        // 30% chance to spawn 2 enemies
+        // 50% chance to spawn 1 enemy
+
+        int amountToSpawn;
+        Vector3 positionOffset = new Vector3(0, 0, 0);
+        int prob = Random.Range(1, 100);
+        if (prob <= 20)
+        {
+            amountToSpawn = 3;
+        }
+        else if (prob <= 50)
+        {
+            amountToSpawn = 2;
+        }
+        else
+        {
+            amountToSpawn = 1;
+        }
+
         if (enemyTag == "zombieEnemy") {
-            GameObject enemy = Instantiate(zombie);
-            enemy.transform.position = spawnPoint.position;
-            enemy.transform.rotation = spawnPoint.rotation;
-            enemy.SetActive(true);
+            for (int i = 0; i < amountToSpawn; i++)
+            {
+                GameObject enemy = Instantiate(zombie, spawnPoint.position + positionOffset, spawnPoint.rotation);
+                enemy.SetActive(true);
+                positionOffset.y -= 1.5f;
+            }
+            enemiesRemaining += amountToSpawn - 1;
         }
         else if (enemyTag == "goblinEnemy") {
-            GameObject enemy = Instantiate(goblin);
-            enemy.transform.position = spawnPoint.position;
-            enemy.transform.rotation = spawnPoint.rotation;
-            enemy.SetActive(true);
+            for (int i = 0; i < amountToSpawn; i++)
+            {
+                GameObject enemy = Instantiate(goblin, spawnPoint.position + positionOffset, spawnPoint.rotation);
+                enemy.SetActive(true);
+                positionOffset.y -= 1.5f;
+            }
+            enemiesRemaining += amountToSpawn - 1;
         }
         else if (enemyTag == "knightEnemy") {
-            GameObject enemy = Instantiate(knight);
-            enemy.transform.position = spawnPoint.position;
-            enemy.transform.rotation = spawnPoint.rotation;
+            for (int i = 0; i < amountToSpawn; i++)
+            {
+                GameObject enemy = Instantiate(knight, spawnPoint.position + positionOffset, spawnPoint.rotation);
+                enemy.SetActive(true);
+                positionOffset.y -= 1.5f;
+            }
+            enemiesRemaining += amountToSpawn - 1;
+        }
+        else if (enemyTag == "golemEnemy")
+        {
+            GameObject enemy = Instantiate(golem, spawnPoint.position, spawnPoint.rotation);
             enemy.SetActive(true);
         }
 
