@@ -145,6 +145,7 @@ public class WaveSpawner : MonoBehaviour
                 enemy.SetActive(true);
                 positionOffset.y -= 1.5f;
             }
+            enemiesRemaining += amountToSpawn - 1;
         }
         else if (enemyTag == "goblinEnemy") {
             for (int i = 0; i < amountToSpawn; i++)
@@ -153,6 +154,7 @@ public class WaveSpawner : MonoBehaviour
                 enemy.SetActive(true);
                 positionOffset.y -= 1.5f;
             }
+            enemiesRemaining += amountToSpawn - 1;
         }
         else if (enemyTag == "knightEnemy") {
             for (int i = 0; i < amountToSpawn; i++)
@@ -161,6 +163,7 @@ public class WaveSpawner : MonoBehaviour
                 enemy.SetActive(true);
                 positionOffset.y -= 1.5f;
             }
+            enemiesRemaining += amountToSpawn - 1;
         }
         else if (enemyTag == "golemEnemy")
         {
