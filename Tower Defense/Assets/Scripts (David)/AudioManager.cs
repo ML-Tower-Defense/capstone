@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
 
     public Sound[] sounds;
+    private bool golemFound;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,6 +22,22 @@ public class AudioManager : MonoBehaviour
 
     void Start () {
         Play("BackgroundMusic");
+
+        InvokeRepeating("checkForGolem", 0f, 2);
+    }
+
+    private void checkForGolem()
+    {
+        if (GameObject.Find("GolemEnemyPrefab(Clone)") && !golemFound)
+        {
+            golemFound = true;
+
+            sounds[0].source.Stop();
+            sounds[0].source.volume = 0.4f;
+            sounds[0].source.pitch = 0.6f;
+
+            Play("BackgroundMusic");
+        }
     }
 
     // Update is called once per frame

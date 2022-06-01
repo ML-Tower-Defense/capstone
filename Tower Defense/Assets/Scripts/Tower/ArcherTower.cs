@@ -14,6 +14,7 @@ public class ArcherTower : Tower
         idleAnim = "idle";
         attackAnim = "shoot";
         animator.Play("idle");
+        range = 7f;
     }
 
     // Update is called once per frame
