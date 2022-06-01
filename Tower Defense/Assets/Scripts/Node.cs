@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class Node : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Node : MonoBehaviour
 
     private static GameObject whichNode;
     private GameObject childTower;
+
+    private static int goldRefund;                 // Gold received from selling a tower
 
     AudioManager audioManager;
 
@@ -70,6 +73,15 @@ public class Node : MonoBehaviour
         {
             towerNum = whichTower;
         }
+        if (towerNum == 1) {
+            towerCost = 150;
+        }
+        if (towerNum == 2) {
+            towerCost = 200;
+        }
+        if (towerNum == 3) {
+            towerCost = 300;
+        }
 
         GameObject towerToBuild = BuildManager.instance.GetTowerToBuild(towerNum);
 
@@ -115,7 +127,7 @@ public class Node : MonoBehaviour
 
     public void deleteTower()
     {
-        money.AddGold(100);
+        money.AddGold(goldRefund);
 
         try
         {
@@ -133,6 +145,25 @@ public class Node : MonoBehaviour
     {
         //print("Open delete tower menu");
         BuildMenu.GameBuildSingle = false;
+
+        switch (whichNode.transform.GetChild(0).gameObject.name)
+        {
+            case "DarkMageTower(Clone)":
+                deleteTowerPrompt.GetComponentInChildren<TextMeshProUGUI>().text = "Do you want to sell tower for     40?";
+                goldRefund = 40;
+                break;
+
+            case "ArcherTower(Clone)":
+                deleteTowerPrompt.GetComponentInChildren<TextMeshProUGUI>().text = "Do you want to sell tower for     50?";
+                goldRefund = 50;
+                break;
+
+            case "DragonTower(Clone)":
+                deleteTowerPrompt.GetComponentInChildren<TextMeshProUGUI>().text = "Do you want to sell tower for     75?";
+                goldRefund = 75;
+                break;
+        }
+
         deleteTowerPrompt.SetActive(true);
     }
 

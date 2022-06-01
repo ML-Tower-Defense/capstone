@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalTower: {fileID: 0}
+  animator: {fileID: 0}
+  damage: 10
 --- !u!114 &-2714146844045168424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,5 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalTower: {fileID: 0}
   target: {fileID: 0}
+  damage: 5
   speed: 7
-  movePosition: {x: 0, y: 0, z: 0}
+  movePosition: {x: 0, y: 0}

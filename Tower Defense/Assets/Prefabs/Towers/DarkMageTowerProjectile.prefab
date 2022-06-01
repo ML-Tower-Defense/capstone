@@ -117,3 +117,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalTower: {fileID: 0}
   animator: {fileID: 0}
+  damage: 15

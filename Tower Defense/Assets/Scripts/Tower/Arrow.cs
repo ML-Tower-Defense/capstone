@@ -7,7 +7,7 @@ public class Arrow : MonoBehaviour
     public GameObject originalTower;
     public Transform target;
     private EnemyHealth targetHealth;   // Health of target
-    private int damage = 10;            // Damage arrow inflicts upon hit
+    public int damage;            // Damage arrow inflicts upon hit
 
     public float speed = 10f;
 

@@ -16,6 +16,9 @@ public class EnemyHealth : MonoBehaviour
     private HealthBar healthBar;
     public GameObject healthPrefab;
 
+    private WaveSpawner waveSpawner;
+    private int currentWave;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +26,13 @@ public class EnemyHealth : MonoBehaviour
         enemyMovement = GetComponent<EnemyMovement>();
         moneyManager = GameObject.Find("Gold_Container").GetComponent<MoneyManager>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        waveSpawner = GameObject.Find("GameManager").GetComponent<WaveSpawner>();
         healthPrefab = Instantiate(healthPrefab);
         healthPrefab.transform.SetParent(gameObject.transform);
         healthPrefab.transform.localPosition = new Vector3(0, .5f, 0);
         healthBar = GetComponentInChildren(typeof(HealthBar)) as HealthBar;
+        currentWave = waveSpawner.getWave();
+        maxHealth = (int) (maxHealth * (1.0f + ((currentWave-1)*.2f)));
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
     }

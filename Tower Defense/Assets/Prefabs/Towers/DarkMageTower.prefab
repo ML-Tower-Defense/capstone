@@ -125,6 +125,7 @@ MonoBehaviour:
   fireRate: 1
   projectileSpeed: 2
   dmgDealt: 10
+  goldDropped: 15
   animator: {fileID: 0}
   towerType: Mage
   idleAnim: 
@@ -152,6 +153,7 @@ MonoBehaviour:
   fireRate: 1
   projectileSpeed: 2
   dmgDealt: 10
+  goldDropped: 15
   animator: {fileID: 0}
   towerType: Mage
   idleAnim: 

@@ -119,12 +119,13 @@ MonoBehaviour:
   projectilePrefab: {fileID: 9203235895282931251, guid: 86c23209940a3114c892bb8b15df21ae, type: 3}
   target: {fileID: 0}
   healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 0
   range: 5
   fireRate: 1
   projectileSpeed: 2
   dmgDealt: 10
+  goldDropped: 15
   animator: {fileID: 0}
   towerType: Archer
   idleAnim: 
@@ -146,12 +147,13 @@ MonoBehaviour:
   projectilePrefab: {fileID: 9203235895282931251, guid: 86c23209940a3114c892bb8b15df21ae, type: 3}
   target: {fileID: 0}
   healthPrefab: {fileID: 1230777837791254044, guid: 67a0c45de3996b1459782af64ff0749b, type: 3}
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 0
   range: 5
   fireRate: 1
   projectileSpeed: 2
   dmgDealt: 10
+  goldDropped: 15
   animator: {fileID: 0}
   towerType: Archer
   idleAnim: 
