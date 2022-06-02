@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start() {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         sliderM.value = .2f;
-        sliderS.value = .5f;
+        sliderS.value = .3f;
     }
     // Update is called once per frame
     void Update()

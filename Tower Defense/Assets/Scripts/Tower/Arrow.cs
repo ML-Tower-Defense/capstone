@@ -42,8 +42,6 @@ public class Arrow : MonoBehaviour
 
             height = 2 * (nextX - towerX) * (nextX - targetX) / (-0.25f * dist * dist);
 
-            // print("base: " + baseY + "   height: " + height);
-
             movePosition = new Vector2(nextX, baseY + height);
 
             transform.rotation = LookAtTarget(movePosition - (Vector2)transform.position);

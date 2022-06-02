@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyName = gameObject.name;
 
-        if (enemyName == "ZombieEnemy(Clone)" || enemyName == "KnightEnemy(Clone)")
+        if (enemyName == "KnightEnemyPrefab(Clone)")
         {
             animator.Play("walk");
         }
@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
     {
         // Current location of enemy
         Vector2 currentLocation = transform.position;
-        
+
         // Location of next waypoint
         Vector2 nextWPLocation;
 
@@ -74,8 +74,10 @@ public class EnemyMovement : MonoBehaviour
             // Once enemy reaches second waypoint, start running (battlecry if knight)
             if (nextWaypoint >= 2 && nextWaypoint != waypointsArray.Length && !gateDestroyed)
             {
-                if (enemyName == "KnightEnemy(Clone)")
+                if (enemyName == "KnightEnemyPrefab(Clone)")
                 {
+                    movementSpeed = 5.5f;
+
                     if (cryTimer < 1.5)
                     {
                         cryTimer += Time.deltaTime;
@@ -106,7 +108,7 @@ public class EnemyMovement : MonoBehaviour
             // Move enemy towards the next waypoint
             if (!crying && !gateDestroyed && nextWaypoint != waypointsArray.Length) {
                 transform.position = Vector2.MoveTowards(currentLocation, nextWPLocation, movementSpeed * Time.deltaTime);
-            }    
+            }
         }
     }
 

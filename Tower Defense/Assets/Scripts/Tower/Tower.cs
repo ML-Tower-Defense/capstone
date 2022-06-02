@@ -24,7 +24,7 @@ public class Tower : MonoBehaviour
     public int dmgDealt = 10;
     public int goldDropped = 15;
 
-    private float damageTime = 5f;
+    private float damageTime = 4f;
     private float dmgInterval = 0f;
 
     private string enemyTag = "Enemy";
@@ -72,6 +72,7 @@ public class Tower : MonoBehaviour
                 idleAnim = darkMageTower.idleAnim;
                 attackAnim = darkMageTower.attackAnim;
                 range = darkMageTower.range;
+                goldDropped = 15;
                 break;
 
             case "Archer":
@@ -79,6 +80,7 @@ public class Tower : MonoBehaviour
                 idleAnim = archerTower.idleAnim;
                 attackAnim = archerTower.attackAnim;
                 range = archerTower.range;
+                goldDropped = 20;
                 break;
 
             case "Dragon":
@@ -86,6 +88,7 @@ public class Tower : MonoBehaviour
                 idleAnim = dragonTower.idleAnim;
                 attackAnim = dragonTower.attackAnim;
                 range = dragonTower.range;
+                goldDropped = 30;
                 break;
 
             default:
@@ -117,8 +120,9 @@ public class Tower : MonoBehaviour
                 targetEnemy = nearestEnemy.GetComponent<EnemyHealth>();   // Enemy to attack
 
                 StartCoroutine(attackEnemy()); // Play attack animation
+
                 projectileCount += 1;
-                StopCoroutine(attackEnemy());
+
                 StopCoroutine(attackEnemy());
 
                 if (targetEnemy.currentHealth <= 0)
@@ -149,6 +153,8 @@ public class Tower : MonoBehaviour
             audioManager.Play("TowerAttack");
         }
         yield return new WaitForSecondsRealtime(0.2f);
+
+        animator.Play(idleAnim);
     }
 
     public Transform getTarget()
