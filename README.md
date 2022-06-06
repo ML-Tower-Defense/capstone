@@ -27,6 +27,7 @@ To set up a local copy of the project, follow the steps from these repositories.
 
 
 <!-- UNREALIZED FEATURES -->
+## Unrealized Features
 
 * Completing the implementation for the ML agent
 * Adding a story mode so that the player can progress through different levels
